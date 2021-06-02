@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.panelSide = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.panelAdmin = new System.Windows.Forms.Panel();
             this.btnInventory = new System.Windows.Forms.Button();
             this.btnRepairs = new System.Windows.Forms.Button();
             this.panelManager = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.btnManager = new System.Windows.Forms.Button();
             this.panelImage = new System.Windows.Forms.Panel();
-            this.panelBody = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnLogout = new System.Windows.Forms.Button();
+            this.panelBody = new System.Windows.Forms.Panel();
             this.panelSide.SuspendLayout();
             this.panelAdmin.SuspendLayout();
             this.panelManager.SuspendLayout();
@@ -59,6 +59,21 @@
             this.panelSide.Name = "panelSide";
             this.panelSide.Size = new System.Drawing.Size(200, 966);
             this.panelSide.TabIndex = 0;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLogout.Location = new System.Drawing.Point(0, 921);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnLogout.Size = new System.Drawing.Size(200, 45);
+            this.btnLogout.TabIndex = 7;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // panelAdmin
             // 
@@ -105,9 +120,34 @@
             this.panelManager.TabIndex = 5;
             this.panelManager.Visible = false;
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button3.Location = new System.Drawing.Point(0, 75);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(197, 45);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Reports";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(0, 14);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(197, 45);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Add Employee";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // btnManager
             // 
-            this.btnManager.BackColor = System.Drawing.Color.DarkOrange;
             this.btnManager.Enabled = false;
             this.btnManager.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManager.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -130,42 +170,6 @@
             this.panelImage.Size = new System.Drawing.Size(200, 128);
             this.panelImage.TabIndex = 0;
             // 
-            // panelBody
-            // 
-            this.panelBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBody.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panelBody.Location = new System.Drawing.Point(200, 0);
-            this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(935, 966);
-            this.panelBody.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(0, 14);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(197, 45);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Add Employee";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(0, 75);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(197, 45);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Reports";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -177,20 +181,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Pc Wizard POS";
             // 
-            // btnLogout
+            // panelBody
             // 
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogout.Location = new System.Drawing.Point(0, 921);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnLogout.Size = new System.Drawing.Size(200, 45);
-            this.btnLogout.TabIndex = 7;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            this.panelBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBody.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelBody.Location = new System.Drawing.Point(200, 0);
+            this.panelBody.Name = "panelBody";
+            this.panelBody.Size = new System.Drawing.Size(935, 966);
+            this.panelBody.TabIndex = 1;
             // 
             // ContainerForm
             // 

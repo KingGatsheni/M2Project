@@ -48,6 +48,7 @@ namespace WinAppz
         private void btnManager_Click(object sender, EventArgs e)
         {
             panelManager.Visible = true;
+            this.btnManager.BackColor = Color.DarkOrange;
            
         }
 
