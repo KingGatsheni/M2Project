@@ -203,7 +203,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(950, 600);
             this.Name = "ContainerForm";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.ContainerForm_Load);
             this.panelSide.ResumeLayout(false);
             this.panelAdmin.ResumeLayout(false);

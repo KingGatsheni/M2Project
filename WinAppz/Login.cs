@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroSet_UI.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,6 +50,12 @@ namespace WinAppz
                 MessageBox.Show("Please Select Access Level");
             }
 
+
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            txtUserName.Focus();
 
         }
     }
