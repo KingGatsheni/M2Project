@@ -18,7 +18,7 @@ namespace WinAppz
     {
         private decimal SubTotal = 0;
         public   string ConString = ConfigurationManager.ConnectionStrings["pcCon"].ConnectionString;
-
+        
         public Home()
         {
             InitializeComponent();
@@ -88,6 +88,41 @@ namespace WinAppz
             dtProductList.DataSource = dt;
             sqlconn.Close();
            */
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            SqlConnection sqlconn = new SqlConnection(ConString);
+            string query = "insert into Sales(EmployeeId,Total,Date) values(3,'" + SubTotal + "', '" + DateTime.Now +"')";
+            string lastId = "select top 1 SaleId from Sales order by SaleId desc"; 
+            
+            SqlCommand sqlcomm = new SqlCommand(query, sqlconn);
+            SqlCommand id = new SqlCommand(lastId, sqlconn);
+            
+            try {
+                sqlconn.Open();
+                sqlcomm.ExecuteNonQuery();
+                var result = id.ExecuteScalar();
+                string queryItem = "insert into SaleItems(SaleId,InventoryId,Quantity,ItemPrice) values('" + result + "','" + Int32.Parse(txtPId.Text) + "','" + Int32.Parse(txtQauntity.Text) + "','" + decimal.Parse(txtPrice.Text) + "')";
+                SqlCommand sqlItem = new SqlCommand(queryItem, sqlconn);
+                sqlItem.ExecuteNonQuery();
+                MessageBox.Show("Thank You for shopping with us..");
+               
+            }catch(SqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+            finally
+            {
+                sqlconn.Close();
+            }
+           
+        }
+
+        private void txtQauntity_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
