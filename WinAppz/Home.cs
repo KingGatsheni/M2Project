@@ -16,8 +16,9 @@ namespace WinAppz
 {
     public partial class Home : Form
     {
+        //globl variables
         private decimal SubTotal = 0;
-        public   string ConString = ConfigurationManager.ConnectionStrings["pcCon"].ConnectionString;
+        public   string ConString = ConfigurationManager.ConnectionStrings["pcCon"].ConnectionString; // cpnnectionstring for datatbase
         
         public Home()
         {
@@ -93,20 +94,25 @@ namespace WinAppz
         private void button1_Click(object sender, EventArgs e)
         {
             
-            SqlConnection sqlconn = new SqlConnection(ConString);
-            string query = "insert into Sales(EmployeeId,Total,Date) values(3,'" + SubTotal + "', '" + DateTime.Now +"')";
-            string lastId = "select top 1 SaleId from Sales order by SaleId desc"; 
+            SqlConnection sqlconn = new SqlConnection(ConString);// initialise sql connection
+            
+            //sql query statements
+            string query = "insert into Sales(EmployeeId,Total,Date) values(3,'" + SubTotal + "', '" + DateTime.Now +"')"; // insert sale date into  Sale table 
+            string lastId = "select top 1 SaleId from Sales order by SaleId desc";  // check the last inserted item ID
             
             SqlCommand sqlcomm = new SqlCommand(query, sqlconn);
             SqlCommand id = new SqlCommand(lastId, sqlconn);
             
             try {
-                sqlconn.Open();
+                sqlconn.Open(); // on sql connection
                 sqlcomm.ExecuteNonQuery();
                 var result = id.ExecuteScalar();
                 string queryItem = "insert into SaleItems(SaleId,InventoryId,Quantity,ItemPrice) values('" + result + "','" + Int32.Parse(txtPId.Text) + "','" + Int32.Parse(txtQauntity.Text) + "','" + decimal.Parse(txtPrice.Text) + "')";
                 SqlCommand sqlItem = new SqlCommand(queryItem, sqlconn);
                 sqlItem.ExecuteNonQuery();
+                string sqlUpdateQty = "update Inventories set Quantity = Quantity - '"+Int32.Parse(txtQauntity.Text) +"' where InventoryId = '"+ Int32.Parse(txtPId.Text)+"'";
+                SqlCommand sqlupdate = new SqlCommand(sqlUpdateQty, sqlconn);
+                sqlupdate.ExecuteNonQuery();
                 MessageBox.Show("Thank You for shopping with us..");
                
             }catch(SqlException err)
