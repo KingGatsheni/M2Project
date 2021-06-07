@@ -47,10 +47,10 @@ namespace WinAppz
         private void btnAddToCart_Click(object sender, EventArgs e)
         {
             try {
-                var cartItemPrice = (Int32.Parse(txtQauntity.Text) * decimal.Parse(txtPrice.Text));
+                var cartItemPrice = (Int32.Parse(cbQuantity.SelectedItem.ToString()) * decimal.Parse(txtPrice.Text));
 
                 ListViewItem item = new ListViewItem(txtPName.Text);
-                item.SubItems.Add(txtQauntity.Text);
+                item.SubItems.Add(cbQuantity.SelectedItem.ToString());
                 item.SubItems.Add(cartItemPrice.ToString("C"));
                 lvCart.Items.Add(item);
 
@@ -59,7 +59,7 @@ namespace WinAppz
             }
             catch(Exception error)
             {
-                MessageBox.Show(error.ToString());
+                MessageBox.Show(error.Message);
             }
            
 
@@ -93,40 +93,61 @@ namespace WinAppz
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
             SqlConnection sqlconn = new SqlConnection(ConString);// initialise sql connection
-            
+
             //sql query statements
-            string query = "insert into Sales(EmployeeId,Total,Date) values(3,'" + SubTotal + "', '" + DateTime.Now +"')"; // insert sale date into  Sale table 
+            string query = "insert into Sales(EmployeeId,Total,Date) values(3,'" + SubTotal + "', '" + DateTime.Now + "')"; // insert sale date into  Sale table 
             string lastId = "select top 1 SaleId from Sales order by SaleId desc";  // check the last inserted item ID
-            
+
             SqlCommand sqlcomm = new SqlCommand(query, sqlconn);
             SqlCommand id = new SqlCommand(lastId, sqlconn);
+
+            if (SubTotal != 0)
+            {
+                sqlconn.Open();
+                sqlcomm.ExecuteNonQuery();
+                PaymentForm Payment = new PaymentForm();
+                Payment.txtAmountDue.Text = SubTotal.ToString("C");
+                Payment.ShowDialog();
+                sqlconn.Close();
+            }
+            else {
+                string error = "Select an item to Sell before checking out";
+                MessageBox.Show(error);
+            }
+           
+            
+           
             
             try {
                 sqlconn.Open(); // on sql connection
-                sqlcomm.ExecuteNonQuery();
+                
                 var result = id.ExecuteScalar();
-                string queryItem = "insert into SaleItems(SaleId,InventoryId,Quantity,ItemPrice) values('" + result + "','" + Int32.Parse(txtPId.Text) + "','" + Int32.Parse(txtQauntity.Text) + "','" + decimal.Parse(txtPrice.Text) + "')";
+                string queryItem = "insert into SaleItems(SaleId,InventoryId,Quantity,ItemPrice) values('" + result + "','" + Int32.Parse(txtPId.Text) + "','" + Int32.Parse(cbQuantity.SelectedItem.ToString()) + "','" + decimal.Parse(txtPrice.Text) + "')";
                 SqlCommand sqlItem = new SqlCommand(queryItem, sqlconn);
                 sqlItem.ExecuteNonQuery();
-                string sqlUpdateQty = "update Inventories set Quantity = Quantity - '"+Int32.Parse(txtQauntity.Text) +"' where InventoryId = '"+ Int32.Parse(txtPId.Text)+"'";
+                string sqlUpdateQty = "update Inventories set Quantity = Quantity - '"+Int32.Parse(cbQuantity.SelectedItem.ToString()) +"' where InventoryId = '"+ Int32.Parse(txtPId.Text)+"'";
                 SqlCommand sqlupdate = new SqlCommand(sqlUpdateQty, sqlconn);
                 sqlupdate.ExecuteNonQuery();
-                MessageBox.Show("Thank You for shopping with us..");
+                MessageBox.Show("Transcation Successful!!..");
                
             }catch(SqlException err)
             {
-                MessageBox.Show(err.ToString());
+                MessageBox.Show(err.Message);
             }
             finally
             {
                 sqlconn.Close();
-            }
+            } 
            
         }
 
         private void txtQauntity_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
         {
 
         }

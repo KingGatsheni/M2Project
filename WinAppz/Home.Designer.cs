@@ -45,7 +45,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAddToCart = new System.Windows.Forms.Button();
             this.txtPrice = new System.Windows.Forms.TextBox();
-            this.txtQauntity = new System.Windows.Forms.TextBox();
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.txtPId = new System.Windows.Forms.TextBox();
             this.txtPName = new System.Windows.Forms.TextBox();
@@ -59,7 +58,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lvSlip = new System.Windows.Forms.ListView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnSlip = new System.Windows.Forms.Button();
             this.lTime = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSubTotal = new System.Windows.Forms.TextBox();
@@ -70,7 +68,13 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.lbTest = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.LblChange = new System.Windows.Forms.Label();
+            this.lblSubtotal = new System.Windows.Forms.Label();
+            this.lblDiscount = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cbQuantity = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.group8DataSetBindingSource)).BeginInit();
@@ -84,7 +88,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(567, 847);
+            this.button1.Location = new System.Drawing.Point(566, 878);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button1.Size = new System.Drawing.Size(174, 45);
@@ -182,9 +186,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbQuantity);
             this.groupBox1.Controls.Add(this.btnAddToCart);
             this.groupBox1.Controls.Add(this.txtPrice);
-            this.groupBox1.Controls.Add(this.txtQauntity);
             this.groupBox1.Controls.Add(this.txtCategory);
             this.groupBox1.Controls.Add(this.txtPId);
             this.groupBox1.Controls.Add(this.txtPName);
@@ -225,17 +229,6 @@
             this.txtPrice.Size = new System.Drawing.Size(174, 45);
             this.txtPrice.TabIndex = 2;
             this.txtPrice.Tag = "R";
-            // 
-            // txtQauntity
-            // 
-            this.txtQauntity.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtQauntity.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQauntity.Location = new System.Drawing.Point(171, 217);
-            this.txtQauntity.Multiline = true;
-            this.txtQauntity.Name = "txtQauntity";
-            this.txtQauntity.Size = new System.Drawing.Size(174, 45);
-            this.txtQauntity.TabIndex = 2;
-            this.txtQauntity.TextChanged += new System.EventHandler(this.txtQauntity_TextChanged);
             // 
             // txtCategory
             // 
@@ -345,11 +338,17 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.LblChange);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.lblDiscount);
+            this.groupBox2.Controls.Add(this.lblSubtotal);
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.lvSlip);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox2.Location = new System.Drawing.Point(13, 510);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(347, 320);
+            this.groupBox2.Size = new System.Drawing.Size(353, 413);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Reciept Info";
@@ -361,22 +360,9 @@
             this.lvSlip.HideSelection = false;
             this.lvSlip.Location = new System.Drawing.Point(6, 24);
             this.lvSlip.Name = "lvSlip";
-            this.lvSlip.Size = new System.Drawing.Size(335, 290);
+            this.lvSlip.Size = new System.Drawing.Size(341, 279);
             this.lvSlip.TabIndex = 13;
             this.lvSlip.UseCompatibleStateImageBehavior = false;
-            // 
-            // btnSlip
-            // 
-            this.btnSlip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnSlip.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSlip.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSlip.Location = new System.Drawing.Point(86, 847);
-            this.btnSlip.Name = "btnSlip";
-            this.btnSlip.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnSlip.Size = new System.Drawing.Size(174, 45);
-            this.btnSlip.TabIndex = 9;
-            this.btnSlip.Text = "Print Slip";
-            this.btnSlip.UseVisualStyleBackColor = false;
             // 
             // lTime
             // 
@@ -423,7 +409,7 @@
             this.lvCart.HideSelection = false;
             this.lvCart.Location = new System.Drawing.Point(384, 510);
             this.lvCart.Name = "lvCart";
-            this.lvCart.Size = new System.Drawing.Size(523, 320);
+            this.lvCart.Size = new System.Drawing.Size(523, 362);
             this.lvCart.TabIndex = 13;
             this.lvCart.UseCompatibleStateImageBehavior = false;
             this.lvCart.View = System.Windows.Forms.View.Details;
@@ -431,12 +417,12 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "ItemName";
-            this.columnHeader1.Width = 156;
+            this.columnHeader1.Width = 199;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Qauntity";
-            this.columnHeader2.Width = 200;
+            this.columnHeader2.Width = 153;
             // 
             // columnHeader3
             // 
@@ -471,16 +457,91 @@
             this.txtSearch.TabIndex = 2;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // lbTest
+            // label5
             // 
-            this.lbTest.AutoSize = true;
-            this.lbTest.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTest.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbTest.Location = new System.Drawing.Point(444, 857);
-            this.lbTest.Name = "lbTest";
-            this.lbTest.Size = new System.Drawing.Size(54, 25);
-            this.lbTest.TabIndex = 1;
-            this.lbTest.Text = "Price";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(10, 320);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 21);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "SubTotal";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(138, 320);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 21);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Discount";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // LblChange
+            // 
+            this.LblChange.AutoSize = true;
+            this.LblChange.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblChange.Location = new System.Drawing.Point(260, 320);
+            this.LblChange.Name = "LblChange";
+            this.LblChange.Size = new System.Drawing.Size(63, 21);
+            this.LblChange.TabIndex = 14;
+            this.LblChange.Text = "Change";
+            this.LblChange.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // lblSubtotal
+            // 
+            this.lblSubtotal.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblSubtotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtotal.Location = new System.Drawing.Point(13, 368);
+            this.lblSubtotal.Name = "lblSubtotal";
+            this.lblSubtotal.Size = new System.Drawing.Size(96, 34);
+            this.lblSubtotal.TabIndex = 14;
+            // 
+            // lblDiscount
+            // 
+            this.lblDiscount.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblDiscount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiscount.Location = new System.Drawing.Point(127, 368);
+            this.lblDiscount.Name = "lblDiscount";
+            this.lblDiscount.Size = new System.Drawing.Size(96, 34);
+            this.lblDiscount.TabIndex = 14;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(240, 368);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(96, 34);
+            this.label12.TabIndex = 14;
+            // 
+            // cbQuantity
+            // 
+            this.cbQuantity.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cbQuantity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbQuantity.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbQuantity.FormattingEnabled = true;
+            this.cbQuantity.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15",
+            "15"});
+            this.cbQuantity.Location = new System.Drawing.Point(171, 224);
+            this.cbQuantity.Name = "cbQuantity";
+            this.cbQuantity.Size = new System.Drawing.Size(174, 38);
+            this.cbQuantity.TabIndex = 14;
             // 
             // Home
             // 
@@ -491,9 +552,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(919, 927);
             this.Controls.Add(this.lvCart);
-            this.Controls.Add(this.lbTest);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.btnSlip);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.txtSubTotal);
@@ -517,6 +576,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -529,7 +589,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnAddToCart;
         private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.TextBox txtQauntity;
         private System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
@@ -542,7 +601,6 @@
         private group8DataSetTableAdapters.InventoriesTableAdapter inventoriesTableAdapter;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button btnSlip;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn costPriceDataGridViewTextBoxColumn;
@@ -551,7 +609,6 @@
         private System.Windows.Forms.Label lTime;
         private System.Windows.Forms.TextBox txtPName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtSubTotal;
         private System.Windows.Forms.ListView lvSlip;
         private System.Windows.Forms.ListView lvCart;
         private System.Windows.Forms.ColumnHeader columnHeader1;
@@ -562,6 +619,13 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.TextBox txtPId;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lbTest;
+        public System.Windows.Forms.TextBox txtSubTotal;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbQuantity;
+        private System.Windows.Forms.Label LblChange;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblDiscount;
+        private System.Windows.Forms.Label lblSubtotal;
     }
 }

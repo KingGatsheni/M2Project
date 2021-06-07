@@ -63,13 +63,13 @@
             this.rdManager.Name = "rdManager";
             this.rdManager.Size = new System.Drawing.Size(106, 29);
             this.rdManager.TabIndex = 1;
-            this.rdManager.TabStop = true;
             this.rdManager.Text = "Manager";
             this.rdManager.UseVisualStyleBackColor = true;
             // 
             // rdAdmin
             // 
             this.rdAdmin.AutoSize = true;
+            this.rdAdmin.Checked = true;
             this.rdAdmin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdAdmin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.rdAdmin.Location = new System.Drawing.Point(20, 111);
