@@ -259,6 +259,7 @@ namespace WinAppz
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PaymentForm";
             this.Load += new System.EventHandler(this.PaymentForm_Load);
+            this.Shown += new System.EventHandler(this.PaymentForm_Shown);
             this.CardPanel.ResumeLayout(false);
             this.CardPanel.PerformLayout();
             this.ResumeLayout(false);

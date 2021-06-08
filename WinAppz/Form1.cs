@@ -59,5 +59,19 @@ namespace WinAppz
             LoginForm LForm = new LoginForm();
             LForm.Show();
         }
+
+        private void button2_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void btnManager_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnManager_MouseClick(object sender, MouseEventArgs e)
+        {
+        }
     }
 }

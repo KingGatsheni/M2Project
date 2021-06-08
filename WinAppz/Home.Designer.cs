@@ -43,6 +43,7 @@
             this.group8DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.group8DataSet = new WinAppz.group8DataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbQuantity = new System.Windows.Forms.ComboBox();
             this.btnAddToCart = new System.Windows.Forms.Button();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtCategory = new System.Windows.Forms.TextBox();
@@ -56,6 +57,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.inventoriesTableAdapter = new WinAppz.group8DataSetTableAdapters.InventoriesTableAdapter();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.LblChange = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblDiscount = new System.Windows.Forms.Label();
+            this.lblSubtotal = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.lvSlip = new System.Windows.Forms.ListView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.lTime = new System.Windows.Forms.Label();
@@ -68,19 +75,14 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.LblChange = new System.Windows.Forms.Label();
-            this.lblSubtotal = new System.Windows.Forms.Label();
-            this.lblDiscount = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cbQuantity = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.group8DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.group8DataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -88,12 +90,12 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(566, 878);
+            this.button1.Location = new System.Drawing.Point(479, 878);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(174, 45);
+            this.button1.Size = new System.Drawing.Size(261, 45);
             this.button1.TabIndex = 9;
-            this.button1.Text = "CheckOut";
+            this.button1.Text = "Process Sale";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -203,6 +205,33 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
+            // cbQuantity
+            // 
+            this.cbQuantity.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cbQuantity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbQuantity.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbQuantity.FormattingEnabled = true;
+            this.cbQuantity.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15",
+            "15"});
+            this.cbQuantity.Location = new System.Drawing.Point(171, 224);
+            this.cbQuantity.Name = "cbQuantity";
+            this.cbQuantity.Size = new System.Drawing.Size(174, 38);
+            this.cbQuantity.TabIndex = 14;
+            // 
             // btnAddToCart
             // 
             this.btnAddToCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
@@ -213,7 +242,7 @@
             this.btnAddToCart.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnAddToCart.Size = new System.Drawing.Size(174, 45);
             this.btnAddToCart.TabIndex = 3;
-            this.btnAddToCart.Text = "AddToCart";
+            this.btnAddToCart.Text = "AddTo Invoice";
             this.btnAddToCart.UseVisualStyleBackColor = false;
             this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
             // 
@@ -228,7 +257,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(174, 45);
             this.txtPrice.TabIndex = 2;
-            this.txtPrice.Tag = "R";
+            this.txtPrice.Tag = "";
             // 
             // txtCategory
             // 
@@ -348,10 +377,69 @@
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox2.Location = new System.Drawing.Point(13, 510);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(353, 413);
+            this.groupBox2.Size = new System.Drawing.Size(347, 413);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Reciept Info";
+            // 
+            // LblChange
+            // 
+            this.LblChange.AutoSize = true;
+            this.LblChange.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblChange.Location = new System.Drawing.Point(260, 320);
+            this.LblChange.Name = "LblChange";
+            this.LblChange.Size = new System.Drawing.Size(63, 21);
+            this.LblChange.TabIndex = 14;
+            this.LblChange.Text = "Change";
+            this.LblChange.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(138, 320);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 21);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Discount";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(240, 368);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(96, 34);
+            this.label12.TabIndex = 14;
+            // 
+            // lblDiscount
+            // 
+            this.lblDiscount.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblDiscount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiscount.Location = new System.Drawing.Point(127, 368);
+            this.lblDiscount.Name = "lblDiscount";
+            this.lblDiscount.Size = new System.Drawing.Size(96, 34);
+            this.lblDiscount.TabIndex = 14;
+            // 
+            // lblSubtotal
+            // 
+            this.lblSubtotal.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblSubtotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtotal.Location = new System.Drawing.Point(13, 368);
+            this.lblSubtotal.Name = "lblSubtotal";
+            this.lblSubtotal.Size = new System.Drawing.Size(96, 34);
+            this.lblSubtotal.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(10, 320);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 21);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "SubTotal";
             // 
             // lvSlip
             // 
@@ -360,7 +448,7 @@
             this.lvSlip.HideSelection = false;
             this.lvSlip.Location = new System.Drawing.Point(6, 24);
             this.lvSlip.Name = "lvSlip";
-            this.lvSlip.Size = new System.Drawing.Size(341, 279);
+            this.lvSlip.Size = new System.Drawing.Size(330, 279);
             this.lvSlip.TabIndex = 13;
             this.lvSlip.UseCompatibleStateImageBehavior = false;
             // 
@@ -407,9 +495,9 @@
             this.columnHeader3});
             this.lvCart.ForeColor = System.Drawing.Color.White;
             this.lvCart.HideSelection = false;
-            this.lvCart.Location = new System.Drawing.Point(384, 510);
+            this.lvCart.Location = new System.Drawing.Point(8, 24);
             this.lvCart.Name = "lvCart";
-            this.lvCart.Size = new System.Drawing.Size(523, 362);
+            this.lvCart.Size = new System.Drawing.Size(523, 332);
             this.lvCart.TabIndex = 13;
             this.lvCart.UseCompatibleStateImageBehavior = false;
             this.lvCart.View = System.Windows.Forms.View.Details;
@@ -457,91 +545,16 @@
             this.txtSearch.TabIndex = 2;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // label5
+            // groupBox3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(10, 320);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 21);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "SubTotal";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(138, 320);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 21);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Discount";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // LblChange
-            // 
-            this.LblChange.AutoSize = true;
-            this.LblChange.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblChange.Location = new System.Drawing.Point(260, 320);
-            this.LblChange.Name = "LblChange";
-            this.LblChange.Size = new System.Drawing.Size(63, 21);
-            this.LblChange.TabIndex = 14;
-            this.LblChange.Text = "Change";
-            this.LblChange.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // lblSubtotal
-            // 
-            this.lblSubtotal.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblSubtotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtotal.Location = new System.Drawing.Point(13, 368);
-            this.lblSubtotal.Name = "lblSubtotal";
-            this.lblSubtotal.Size = new System.Drawing.Size(96, 34);
-            this.lblSubtotal.TabIndex = 14;
-            // 
-            // lblDiscount
-            // 
-            this.lblDiscount.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblDiscount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiscount.Location = new System.Drawing.Point(127, 368);
-            this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(96, 34);
-            this.lblDiscount.TabIndex = 14;
-            // 
-            // label12
-            // 
-            this.label12.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(240, 368);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(96, 34);
-            this.label12.TabIndex = 14;
-            // 
-            // cbQuantity
-            // 
-            this.cbQuantity.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.cbQuantity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbQuantity.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbQuantity.FormattingEnabled = true;
-            this.cbQuantity.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "15",
-            "15"});
-            this.cbQuantity.Location = new System.Drawing.Point(171, 224);
-            this.cbQuantity.Name = "cbQuantity";
-            this.cbQuantity.Size = new System.Drawing.Size(174, 38);
-            this.cbQuantity.TabIndex = 14;
+            this.groupBox3.Controls.Add(this.lvCart);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(366, 510);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(537, 362);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Invoice";
             // 
             // Home
             // 
@@ -551,7 +564,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(919, 927);
-            this.Controls.Add(this.lvCart);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtSearch);
@@ -577,6 +590,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -627,5 +641,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblDiscount;
         private System.Windows.Forms.Label lblSubtotal;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

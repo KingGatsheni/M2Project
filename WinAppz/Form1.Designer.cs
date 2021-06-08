@@ -145,6 +145,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Add Employee";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button2_MouseClick);
             // 
             // btnManager
             // 
@@ -159,6 +160,8 @@
             this.btnManager.Text = "Management";
             this.btnManager.UseVisualStyleBackColor = false;
             this.btnManager.Click += new System.EventHandler(this.btnManager_Click);
+            this.btnManager.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnManager_MouseClick);
+            this.btnManager.MouseEnter += new System.EventHandler(this.btnManager_MouseEnter);
             // 
             // panelImage
             // 

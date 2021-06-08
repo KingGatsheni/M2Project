@@ -19,6 +19,7 @@ namespace WinAppz
         //globl variables
         private decimal SubTotal = 0;
         public   string ConString = ConfigurationManager.ConnectionStrings["pcCon"].ConnectionString; // cpnnectionstring for datatbase
+       public ListViewItem lvItem;
         
         public Home()
         {
@@ -51,11 +52,13 @@ namespace WinAppz
 
                 ListViewItem item = new ListViewItem(txtPName.Text);
                 item.SubItems.Add(cbQuantity.SelectedItem.ToString());
-                item.SubItems.Add(cartItemPrice.ToString("C"));
+                item.SubItems.Add("R" + cartItemPrice.ToString());
                 lvCart.Items.Add(item);
 
                 SubTotal = SubTotal + cartItemPrice;
-                txtSubTotal.Text = SubTotal.ToString("C");
+                txtSubTotal.Text = "R" + SubTotal.ToString();
+
+                lvItem = item;
             }
             catch(Exception error)
             {
@@ -79,16 +82,8 @@ namespace WinAppz
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-           /* SqlConnection sqlconn = new SqlConnection(ConString);
-            string query = "select * from [dbo].[Inventories] where Inventories ='" + txtSearch.Text + "'";
-            sqlconn.Open();
-            SqlCommand sqlcomm = new SqlCommand(query, sqlconn);
-            SqlDataAdapter adapter = new SqlDataAdapter(sqlcomm);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dtProductList.DataSource = dt;
-            sqlconn.Close();
-           */
+            inventoriesTableAdapter.FillBySearch(group8DataSet.Inventories, txtSearch.Text);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -107,7 +102,7 @@ namespace WinAppz
                 sqlconn.Open();
                 sqlcomm.ExecuteNonQuery();
                 PaymentForm Payment = new PaymentForm();
-                Payment.txtAmountDue.Text = SubTotal.ToString("C");
+                Payment.txtAmountDue.Text = "R" + SubTotal.ToString();
                 Payment.ShowDialog();
                 sqlconn.Close();
             }
@@ -123,9 +118,20 @@ namespace WinAppz
                 sqlconn.Open(); // on sql connection
                 
                 var result = id.ExecuteScalar();
-                string queryItem = "insert into SaleItems(SaleId,InventoryId,Quantity,ItemPrice) values('" + result + "','" + Int32.Parse(txtPId.Text) + "','" + Int32.Parse(cbQuantity.SelectedItem.ToString()) + "','" + decimal.Parse(txtPrice.Text) + "')";
-                SqlCommand sqlItem = new SqlCommand(queryItem, sqlconn);
-                sqlItem.ExecuteNonQuery();
+                //string queryItem = "insert into SaleItems(SaleId,InventoryId,Quantity,ItemPrice) values('" + result + "','" + Int32.Parse(txtPId.Text) + "','" + Int32.Parse(cbQuantity.SelectedItem.ToString()) + "','" + decimal.Parse(txtPrice.Text) + "')";
+               
+                foreach(ListViewItem item in lvCart.Items )
+                {
+                    string queryItem = "insert into SaleItems values(@SaleId,@InventoryId,@Quantity,@ItemPrice)";
+                    SqlCommand sqlItem = new SqlCommand(queryItem, sqlconn);
+                        sqlItem.Parameters.AddWithValue("@SaleId", result);
+                        sqlItem.Parameters.AddWithValue("@InventoryId", Int32.Parse(txtPId.Text));
+                        sqlItem.Parameters.AddWithValue("@Quantity", Int32.Parse(item.SubItems[1].Text.ToString()));
+                        sqlItem.Parameters.AddWithValue("@ItemPrice", Decimal.Parse(item.SubItems[2].Text.ToString().Trim('R')));
+                    
+                    sqlItem.ExecuteNonQuery();
+                }
+
                 string sqlUpdateQty = "update Inventories set Quantity = Quantity - '"+Int32.Parse(cbQuantity.SelectedItem.ToString()) +"' where InventoryId = '"+ Int32.Parse(txtPId.Text)+"'";
                 SqlCommand sqlupdate = new SqlCommand(sqlUpdateQty, sqlconn);
                 sqlupdate.ExecuteNonQuery();

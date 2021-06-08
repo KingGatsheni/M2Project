@@ -43,6 +43,7 @@ namespace WinAppz
                 CardPanel.Enabled = true;
                 CardPanel.BackColor = Color.FromArgb(32, 30, 45);
                 txtPaidAmount.Text = txtAmountDue.Text;
+                txtCardNo.Focus();
 
             }
         } 
@@ -54,6 +55,7 @@ namespace WinAppz
                 CardPanel.Enabled = false;
                 CardPanel.BackColor = Color.FromArgb(32, 30, 12);
                 txtPaidAmount.Text = "";
+                txtPaidAmount.Focus();
             }
         }
 
@@ -82,8 +84,8 @@ namespace WinAppz
 
             try
             {
-                 AmountDue = decimal.Parse(txtAmountDue.Text.Trim('$'));
-                 AmountPaid = decimal.Parse(txtPaidAmount.Text.Trim('$'));
+                 AmountDue = decimal.Parse(txtAmountDue.Text.Trim('R'));
+                 AmountPaid = decimal.Parse(txtPaidAmount.Text.Trim('R'));
                 if (rbCash.Checked == true)
                 {
                     Change = AmountPaid - AmountDue;
@@ -94,7 +96,7 @@ namespace WinAppz
 
                    
 
-                    string InertToPayQuery = "insert into Payments(SaleId,EmployeeId,PaymentMethod,TotalAmount) values('"+ _SaleId +"', '"+ 3 +"', '"+ PaymentMethod +"', '"+ decimal.Parse(txtAmountDue.Text.Trim('$'))+"')";
+                    string InertToPayQuery = "insert into Payments(SaleId,EmployeeId,PaymentMethod,TotalAmount) values('"+ _SaleId +"', '"+ 3 +"', '"+ PaymentMethod +"', '"+ decimal.Parse(txtAmountDue.Text.Trim('R'))+"')";
                     SqlCommand sqlCash = new SqlCommand(InertToPayQuery, sqlconn);
                     sqlCash.ExecuteNonQuery();
                     MessageBox.Show("R"+Change.ToString() + "  And PaymentMethod:  " + PaymentMethod );
@@ -104,17 +106,25 @@ namespace WinAppz
                 }
                 else
                 {
-                    Change = 0;
-                    PaymentMethod = "Debit/Credit Card";
 
-                    sqlconn.Open();
-                    var _SaleId = sqlCheckId.ExecuteScalar().ToString();
-                   
-                    string InertToPayQuery = "insert into Payments(SaleId,EmployeeId,PaymentMethod,TotalAmount) values('" + _SaleId + "', '" + 3 + "', '" + PaymentMethod + "', '" + decimal.Parse(txtAmountDue.Text.Trim('$')) + "')";
-                    SqlCommand sqlCash = new SqlCommand(InertToPayQuery, sqlconn);
-                    sqlCash.ExecuteNonQuery();
-                    MessageBox.Show("R"+Change.ToString() + " And PaymentMethod: " + PaymentMethod);
-                    this.Hide();
+                    if (txtCardNo.Text == "" && txtExpiry.Text == "" && txtCVC.Text == "")
+                    {
+                        MessageBox.Show("Please Enter card details");
+                    }
+                    else
+                    {
+                        Change = 0;
+                        PaymentMethod = "Debit/Credit Card";
+
+                        sqlconn.Open();
+                        var _SaleId = sqlCheckId.ExecuteScalar().ToString();
+
+                        string InertToPayQuery = "insert into Payments(SaleId,EmployeeId,PaymentMethod,TotalAmount) values('" + _SaleId + "', '" + 3 + "', '" + PaymentMethod + "', '" + decimal.Parse(txtAmountDue.Text.Trim('R')) + "')";
+                        SqlCommand sqlCash = new SqlCommand(InertToPayQuery, sqlconn);
+                        sqlCash.ExecuteNonQuery();
+                        MessageBox.Show("R" + Change.ToString() + " And PaymentMethod: " + PaymentMethod);
+                        this.Hide();
+                    }
                 }
             }
             catch (SqlException s) {
@@ -126,6 +136,11 @@ namespace WinAppz
             }
           
 
+        }
+
+        private void PaymentForm_Shown(object sender, EventArgs e)
+        {
+            txtPaidAmount.Focus();
         }
     }
 }
