@@ -55,7 +55,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.inventoriesTableAdapter = new WinAppz.group8DataSetTableAdapters.InventoriesTableAdapter();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.LblChange = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -72,10 +71,12 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.inventoriesTableAdapter = new WinAppz.group8DataSetTableAdapters.InventoriesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.group8DataSetBindingSource)).BeginInit();
@@ -87,13 +88,13 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(479, 878);
+            this.button1.Location = new System.Drawing.Point(489, 878);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(261, 45);
+            this.button1.Size = new System.Drawing.Size(247, 45);
             this.button1.TabIndex = 9;
             this.button1.Text = "Process Sale";
             this.button1.UseVisualStyleBackColor = false;
@@ -361,10 +362,6 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Search";
             // 
-            // inventoriesTableAdapter
-            // 
-            this.inventoriesTableAdapter.ClearBeforeFill = true;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.LblChange);
@@ -492,7 +489,8 @@
             this.lvCart.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader4});
             this.lvCart.ForeColor = System.Drawing.Color.White;
             this.lvCart.HideSelection = false;
             this.lvCart.Location = new System.Drawing.Point(8, 24);
@@ -504,18 +502,23 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "ItemName";
-            this.columnHeader1.Width = 199;
+            this.columnHeader1.Text = "ProductID";
+            this.columnHeader1.Width = 107;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Qauntity";
-            this.columnHeader2.Width = 153;
+            this.columnHeader2.Text = "ProductName";
+            this.columnHeader2.Width = 120;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Total";
-            this.columnHeader3.Width = 243;
+            this.columnHeader3.Text = "Quantity";
+            this.columnHeader3.Width = 160;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Total";
+            this.columnHeader4.Width = 165;
             // 
             // timer1
             // 
@@ -555,6 +558,10 @@
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Invoice";
+            // 
+            // inventoriesTableAdapter
+            // 
+            this.inventoriesTableAdapter.ClearBeforeFill = true;
             // 
             // Home
             // 
@@ -642,5 +649,6 @@
         private System.Windows.Forms.Label lblDiscount;
         private System.Windows.Forms.Label lblSubtotal;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

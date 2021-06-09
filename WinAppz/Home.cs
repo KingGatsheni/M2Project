@@ -50,7 +50,8 @@ namespace WinAppz
             try {
                 var cartItemPrice = (Int32.Parse(cbQuantity.SelectedItem.ToString()) * decimal.Parse(txtPrice.Text));
 
-                ListViewItem item = new ListViewItem(txtPName.Text);
+                ListViewItem item = new ListViewItem(txtPId.Text);
+                item.SubItems.Add(txtPName.Text);
                 item.SubItems.Add(cbQuantity.SelectedItem.ToString());
                 item.SubItems.Add("R" + cartItemPrice.ToString());
                 lvCart.Items.Add(item);
@@ -125,9 +126,9 @@ namespace WinAppz
                     string queryItem = "insert into SaleItems values(@SaleId,@InventoryId,@Quantity,@ItemPrice)";
                     SqlCommand sqlItem = new SqlCommand(queryItem, sqlconn);
                         sqlItem.Parameters.AddWithValue("@SaleId", result);
-                        sqlItem.Parameters.AddWithValue("@InventoryId", Int32.Parse(txtPId.Text));
-                        sqlItem.Parameters.AddWithValue("@Quantity", Int32.Parse(item.SubItems[1].Text.ToString()));
-                        sqlItem.Parameters.AddWithValue("@ItemPrice", Decimal.Parse(item.SubItems[2].Text.ToString().Trim('R')));
+                        sqlItem.Parameters.AddWithValue("@InventoryId", Int32.Parse(item.SubItems[0].Text.ToString()));
+                        sqlItem.Parameters.AddWithValue("@Quantity", Int32.Parse(item.SubItems[2].Text.ToString()));
+                        sqlItem.Parameters.AddWithValue("@ItemPrice", Decimal.Parse(item.SubItems[3].Text.ToString().Trim('R')));
                     
                     sqlItem.ExecuteNonQuery();
                 }
@@ -148,14 +149,13 @@ namespace WinAppz
            
         }
 
-        private void txtQauntity_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void label9_Click(object sender, EventArgs e)
         {
 
         }
+
+       
     }
 }

@@ -50,6 +50,7 @@ namespace WinAppz
         {
             panelManager.Visible = true;
             this.btnManager.BackColor = Color.DarkOrange;
+         
            
         }
 

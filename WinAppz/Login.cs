@@ -47,7 +47,8 @@ namespace WinAppz
             }
             else
             {
-                MessageBox.Show("Please Select Access Level");
+                lbError.Text =("Please Provide correct login Details");
+                lbError.ForeColor = Color.Red;
             }
 
 

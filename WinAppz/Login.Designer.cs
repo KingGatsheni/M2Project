@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rdManager = new System.Windows.Forms.RadioButton();
             this.rdAdmin = new System.Windows.Forms.RadioButton();
@@ -39,8 +40,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lbLoginError = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ptBoxLogin = new System.Windows.Forms.PictureBox();
+            this.lbError = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptBoxLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -48,9 +55,9 @@
             this.groupBox2.Controls.Add(this.rdManager);
             this.groupBox2.Controls.Add(this.rdAdmin);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(305, 294);
+            this.groupBox2.Location = new System.Drawing.Point(305, 421);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(161, 361);
+            this.groupBox2.Size = new System.Drawing.Size(161, 234);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
@@ -125,8 +132,10 @@
             this.txtPassword.Location = new System.Drawing.Point(172, 141);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(174, 45);
             this.txtPassword.TabIndex = 1;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUserName
             // 
@@ -174,15 +183,56 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lbLoginError
+            // 
+            this.lbLoginError.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLoginError.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbLoginError.Location = new System.Drawing.Point(146, 37);
+            this.lbLoginError.Name = "lbLoginError";
+            this.lbLoginError.Size = new System.Drawing.Size(388, 38);
+            this.lbLoginError.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.ptBoxLogin);
+            this.groupBox1.Controls.Add(this.lbLoginError);
+            this.groupBox1.Location = new System.Drawing.Point(305, 294);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(161, 132);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            // 
+            // ptBoxLogin
+            // 
+            this.ptBoxLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ptBoxLogin.Image = ((System.Drawing.Image)(resources.GetObject("ptBoxLogin.Image")));
+            this.ptBoxLogin.Location = new System.Drawing.Point(3, 18);
+            this.ptBoxLogin.Name = "ptBoxLogin";
+            this.ptBoxLogin.Size = new System.Drawing.Size(155, 111);
+            this.ptBoxLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptBoxLogin.TabIndex = 1;
+            this.ptBoxLogin.TabStop = false;
+            // 
+            // lbError
+            // 
+            this.lbError.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbError.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbError.Location = new System.Drawing.Point(467, 248);
+            this.lbError.Name = "lbError";
+            this.lbError.Size = new System.Drawing.Size(393, 43);
+            this.lbError.TabIndex = 0;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1151, 1005);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.lbError);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -195,6 +245,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptBoxLogin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -211,5 +263,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lbLoginError;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox ptBoxLogin;
+        private System.Windows.Forms.Label lbError;
     }
 }
