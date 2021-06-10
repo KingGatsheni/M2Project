@@ -13,7 +13,7 @@ namespace WinAppz
 {
     public partial class ContainerForm :Form
     {
-        private Home HomePage = new Home() { TopLevel = false, TopMost = true};
+       
         public ContainerForm()
         {
             InitializeComponent();
@@ -41,9 +41,10 @@ namespace WinAppz
             {
                 btnManager.Enabled = false;
             }
-            this.panelBody.Controls.Add(HomePage);
-            this.HomePage.Show();
-           
+            // this.panelBody.Controls.Add(HomePage);
+            // this.HomePage.Show();
+            switchPanel(new Home());
+
         }
 
         private void btnManager_Click(object sender, EventArgs e)
@@ -73,6 +74,46 @@ namespace WinAppz
 
         private void btnManager_MouseClick(object sender, MouseEventArgs e)
         {
+        }
+
+        private void btnRepairs_Click(object sender, EventArgs e)
+        {
+
+            switchPanel(new Repairs());
+        }
+
+        private void btnInventory_Click(object sender, EventArgs e)
+        {
+            switchPanel(new Inventory());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            switchPanel(new Employee());
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            switchPanel(new Reports());
+        }
+
+       
+
+
+        public void switchPanel(object form)
+        {
+            panelBody.Controls.Clear();
+            Form frm = form as Form;
+            frm.TopLevel = false;
+            panelBody.Controls.Add(frm);
+            panelBody.Tag = frm;
+            frm.Show();
+
+        }
+
+        private void pbHome_Click(object sender, EventArgs e)
+        {
+            switchPanel(new Home());
         }
     }
 }

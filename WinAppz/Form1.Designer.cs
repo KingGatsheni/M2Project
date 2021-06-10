@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContainerForm));
             this.panelSide = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
             this.panelAdmin = new System.Windows.Forms.Panel();
@@ -37,23 +38,22 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnManager = new System.Windows.Forms.Button();
-            this.panelImage = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelBody = new System.Windows.Forms.Panel();
+            this.pbHome = new System.Windows.Forms.PictureBox();
             this.panelSide.SuspendLayout();
             this.panelAdmin.SuspendLayout();
             this.panelManager.SuspendLayout();
-            this.panelImage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSide
             // 
             this.panelSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
+            this.panelSide.Controls.Add(this.pbHome);
             this.panelSide.Controls.Add(this.btnLogout);
             this.panelSide.Controls.Add(this.panelAdmin);
             this.panelSide.Controls.Add(this.panelManager);
             this.panelSide.Controls.Add(this.btnManager);
-            this.panelSide.Controls.Add(this.panelImage);
             this.panelSide.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSide.Location = new System.Drawing.Point(0, 0);
             this.panelSide.Name = "panelSide";
@@ -96,6 +96,7 @@
             this.btnInventory.TabIndex = 5;
             this.btnInventory.Text = "Inventory";
             this.btnInventory.UseVisualStyleBackColor = false;
+            this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
             // 
             // btnRepairs
             // 
@@ -109,6 +110,7 @@
             this.btnRepairs.TabIndex = 5;
             this.btnRepairs.Text = "Repairs";
             this.btnRepairs.UseVisualStyleBackColor = false;
+            this.btnRepairs.Click += new System.EventHandler(this.btnRepairs_Click);
             // 
             // panelManager
             // 
@@ -132,6 +134,7 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "Reports";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -145,6 +148,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Add Employee";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             this.button2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button2_MouseClick);
             // 
             // btnManager
@@ -163,27 +167,6 @@
             this.btnManager.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnManager_MouseClick);
             this.btnManager.MouseEnter += new System.EventHandler(this.btnManager_MouseEnter);
             // 
-            // panelImage
-            // 
-            this.panelImage.BackColor = System.Drawing.Color.DarkOrange;
-            this.panelImage.Controls.Add(this.label1);
-            this.panelImage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelImage.Location = new System.Drawing.Point(0, 0);
-            this.panelImage.Name = "panelImage";
-            this.panelImage.Size = new System.Drawing.Size(200, 128);
-            this.panelImage.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(24, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Pc Wizard POS";
-            // 
             // panelBody
             // 
             this.panelBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
@@ -193,6 +176,17 @@
             this.panelBody.Name = "panelBody";
             this.panelBody.Size = new System.Drawing.Size(935, 966);
             this.panelBody.TabIndex = 1;
+            // 
+            // pbHome
+            // 
+            this.pbHome.Image = ((System.Drawing.Image)(resources.GetObject("pbHome.Image")));
+            this.pbHome.Location = new System.Drawing.Point(3, 4);
+            this.pbHome.Name = "pbHome";
+            this.pbHome.Size = new System.Drawing.Size(191, 143);
+            this.pbHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbHome.TabIndex = 8;
+            this.pbHome.TabStop = false;
+            this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
             // 
             // ContainerForm
             // 
@@ -211,8 +205,7 @@
             this.panelSide.ResumeLayout(false);
             this.panelAdmin.ResumeLayout(false);
             this.panelManager.ResumeLayout(false);
-            this.panelImage.ResumeLayout(false);
-            this.panelImage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -220,7 +213,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelSide;
-        private System.Windows.Forms.Panel panelImage;
         private System.Windows.Forms.Panel panelManager;
         private System.Windows.Forms.Panel panelAdmin;
         public System.Windows.Forms.Panel panelBody;
@@ -229,8 +221,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.Button btnManager;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.PictureBox pbHome;
     }
 }
 
