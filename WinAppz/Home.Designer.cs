@@ -50,11 +50,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.LblChange = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lbChange = new System.Windows.Forms.Label();
             this.lblDiscount = new System.Windows.Forms.Label();
             this.lblSubtotal = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lvSlip = new System.Windows.Forms.ListView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.lTime = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -68,6 +67,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.listSlip = new System.Windows.Forms.ListBox();
             this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +76,7 @@
             this.group8DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.group8DataSet = new WinAppz.group8DataSet();
             this.inventoriesTableAdapter = new WinAppz.group8DataSetTableAdapters.InventoriesTableAdapter();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoriesBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -154,9 +155,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Location = new System.Drawing.Point(15, 82);
+            this.groupBox1.Location = new System.Drawing.Point(12, 82);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(351, 407);
+            this.groupBox1.Size = new System.Drawing.Size(354, 407);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
@@ -318,17 +319,17 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.listSlip);
             this.groupBox2.Controls.Add(this.LblChange);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.lbChange);
             this.groupBox2.Controls.Add(this.lblDiscount);
             this.groupBox2.Controls.Add(this.lblSubtotal);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.lvSlip);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox2.Location = new System.Drawing.Point(13, 510);
+            this.groupBox2.Location = new System.Drawing.Point(12, 510);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(347, 413);
+            this.groupBox2.Size = new System.Drawing.Size(348, 413);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Reciept Info";
@@ -355,14 +356,14 @@
             this.label9.Text = "Discount";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // label12
+            // lbChange
             // 
-            this.label12.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(240, 368);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(96, 34);
-            this.label12.TabIndex = 14;
+            this.lbChange.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbChange.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbChange.Location = new System.Drawing.Point(240, 368);
+            this.lbChange.Name = "lbChange";
+            this.lbChange.Size = new System.Drawing.Size(96, 34);
+            this.lbChange.TabIndex = 14;
             // 
             // lblDiscount
             // 
@@ -391,17 +392,6 @@
             this.label5.Size = new System.Drawing.Size(69, 21);
             this.label5.TabIndex = 14;
             this.label5.Text = "SubTotal";
-            // 
-            // lvSlip
-            // 
-            this.lvSlip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.lvSlip.ForeColor = System.Drawing.Color.White;
-            this.lvSlip.HideSelection = false;
-            this.lvSlip.Location = new System.Drawing.Point(6, 24);
-            this.lvSlip.Name = "lvSlip";
-            this.lvSlip.Size = new System.Drawing.Size(330, 279);
-            this.lvSlip.TabIndex = 13;
-            this.lvSlip.UseCompatibleStateImageBehavior = false;
             // 
             // lTime
             // 
@@ -513,6 +503,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Invoice";
             // 
+            // listSlip
+            // 
+            this.listSlip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.listSlip.ForeColor = System.Drawing.Color.White;
+            this.listSlip.FormattingEnabled = true;
+            this.listSlip.ItemHeight = 17;
+            this.listSlip.Location = new System.Drawing.Point(7, 24);
+            this.listSlip.Name = "listSlip";
+            this.listSlip.Size = new System.Drawing.Size(341, 293);
+            this.listSlip.TabIndex = 15;
+            // 
             // productNameDataGridViewTextBoxColumn
             // 
             this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
@@ -562,6 +563,20 @@
             // 
             this.inventoriesTableAdapter.ClearBeforeFill = true;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(114, 929);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(98, 40);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Print Slip";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -569,6 +584,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(935, 966);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button1);
@@ -628,7 +644,6 @@
         private System.Windows.Forms.Label lTime;
         private System.Windows.Forms.TextBox txtPName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListView lvSlip;
         private System.Windows.Forms.ListView lvCart;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -643,10 +658,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbQuantity;
         private System.Windows.Forms.Label LblChange;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lblDiscount;
-        private System.Windows.Forms.Label lblSubtotal;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        public System.Windows.Forms.Label lbChange;
+        public System.Windows.Forms.Label lblDiscount;
+        public System.Windows.Forms.Label lblSubtotal;
+        private System.Windows.Forms.ListBox listSlip;
+        private System.Windows.Forms.Button button2;
     }
 }

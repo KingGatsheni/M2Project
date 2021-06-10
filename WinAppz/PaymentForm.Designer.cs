@@ -191,6 +191,7 @@ namespace WinAppz
             // btnPay
             // 
             this.btnPay.BackColor = System.Drawing.Color.Blue;
+            this.btnPay.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnPay.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPay.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnPay.Location = new System.Drawing.Point(13, 626);

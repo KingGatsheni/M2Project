@@ -20,12 +20,17 @@ namespace WinAppz
         public decimal Change = 0;
         public string PaymentMethod = "";
         public string ConString = ConfigurationManager.ConnectionStrings["pcCon"].ConnectionString;
+        public string _Change;
         public PaymentForm()
         {
             InitializeComponent();
         }
 
-
+        public string myChange
+        {
+            get { return _Change; }
+            set { _Change = value; }
+        }
 
         private void PaymentForm_Load(object sender, EventArgs e)
         {
@@ -99,7 +104,8 @@ namespace WinAppz
                     string InertToPayQuery = "insert into Payments(SaleId,EmployeeId,PaymentMethod,TotalAmount) values('"+ _SaleId +"', '"+ 3 +"', '"+ PaymentMethod +"', '"+ decimal.Parse(txtAmountDue.Text.Trim('R'))+"')";
                     SqlCommand sqlCash = new SqlCommand(InertToPayQuery, sqlconn);
                     sqlCash.ExecuteNonQuery();
-                    MessageBox.Show("R"+Change.ToString() + "  And PaymentMethod:  " + PaymentMethod );
+                    _Change ="R" + Change;
+                    //MessageBox.Show("R"+Change.ToString() + "  And PaymentMethod:  " + PaymentMethod );
                     this.Hide();
                     sqlconn.Close();
 
@@ -122,6 +128,7 @@ namespace WinAppz
                         string InertToPayQuery = "insert into Payments(SaleId,EmployeeId,PaymentMethod,TotalAmount) values('" + _SaleId + "', '" + 3 + "', '" + PaymentMethod + "', '" + decimal.Parse(txtAmountDue.Text.Trim('R')) + "')";
                         SqlCommand sqlCash = new SqlCommand(InertToPayQuery, sqlconn);
                         sqlCash.ExecuteNonQuery();
+                        _Change = "R0.00";
                         MessageBox.Show("R" + Change.ToString() + " And PaymentMethod: " + PaymentMethod);
                         this.Hide();
                     }

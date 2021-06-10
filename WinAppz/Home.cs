@@ -103,8 +103,13 @@ namespace WinAppz
                 sqlconn.Open();
                 sqlcomm.ExecuteNonQuery();
                 PaymentForm Payment = new PaymentForm();
+               
                 Payment.txtAmountDue.Text = "R" + SubTotal.ToString();
-                Payment.ShowDialog();
+                // Payment.ShowDialog();
+                if (Payment.ShowDialog() == DialogResult.OK)
+                {
+                    lbChange.Text = Payment._Change;
+                }
                 sqlconn.Close();
             }
             else {
@@ -137,6 +142,18 @@ namespace WinAppz
                 SqlCommand sqlupdate = new SqlCommand(sqlUpdateQty, sqlconn);
                 sqlupdate.ExecuteNonQuery();
                 MessageBox.Show("Transcation Successful!!..");
+                foreach(ListViewItem slip in lvCart.Items)
+                {
+                    var lbcontrnt = string.Format("{0, -10}| {1, -10}|{2,-5}", slip.SubItems[1].Text.ToString()+"\t",slip.SubItems[2].Text.ToString() + "\t",slip.SubItems[3].Text.ToString() );
+                    listSlip.Items.Add(lbcontrnt);
+
+                }
+                lvCart.Clear();
+              
+              
+                lblDiscount.Text = "R0.00";
+                lblSubtotal.Text = txtSubTotal.Text;
+              
                
             }catch(SqlException err)
             {
@@ -156,6 +173,12 @@ namespace WinAppz
 
         }
 
-       
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listSlip.Items.Clear();
+            lbChange.Text = "";
+            lblDiscount.Text = "";
+            lblSubtotal.Text = "";
+        }
     }
 }
