@@ -33,8 +33,10 @@ namespace WinAppz
 
         private void Home_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'group8NewDataSet.Inventories' table. You can move, or remove it, as needed.
+            this.inventoriesTableAdapter1.Fill(this.group8NewDataSet.Inventories);
             // TODO: This line of code loads data into the 'group8DataSet.Inventories' table. You can move, or remove it, as needed.
-            this.inventoriesTableAdapter.Fill(this.group8DataSet.Inventories);
+        
              txtSubTotal.Text = SubTotal.ToString();
 
            
@@ -83,7 +85,7 @@ namespace WinAppz
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            inventoriesTableAdapter.FillBySearch(group8DataSet.Inventories, txtSearch.Text);
+            inventoriesTableAdapter1.FillBySearch(group8NewDataSet.Inventories, txtSearch.Text);
 
         }
 
@@ -144,7 +146,7 @@ namespace WinAppz
                 MessageBox.Show("Transcation Successful!!..");
                 foreach(ListViewItem slip in lvCart.Items)
                 {
-                    var lbcontrnt = string.Format("{0, -10}| {1, -10}|{2,-5}", slip.SubItems[1].Text.ToString()+"\t",slip.SubItems[2].Text.ToString() + "\t",slip.SubItems[3].Text.ToString() );
+                    var lbcontrnt = string.Format("{0, -10}| {1, -10}|{2,-5}", slip.SubItems[1].Text.ToString()+" \t ",slip.SubItems[2].Text.ToString() + " \t ",slip.SubItems[3].Text.ToString() );
                     listSlip.Items.Add(lbcontrnt);
 
                 }
@@ -179,6 +181,7 @@ namespace WinAppz
             lbChange.Text = "";
             lblDiscount.Text = "";
             lblSubtotal.Text = "";
+            txtSubTotal.Clear();
         }
     }
 }

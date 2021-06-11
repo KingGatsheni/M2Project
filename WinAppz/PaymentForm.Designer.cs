@@ -32,7 +32,6 @@ namespace WinAppz
             this.rbCash = new System.Windows.Forms.RadioButton();
             this.rbCard = new System.Windows.Forms.RadioButton();
             this.txtPaidAmount = new System.Windows.Forms.TextBox();
-            this.CardPanel = new System.Windows.Forms.Panel();
             this.txtExpiry = new System.Windows.Forms.MaskedTextBox();
             this.txtCVC = new System.Windows.Forms.TextBox();
             this.txtCardNo = new System.Windows.Forms.TextBox();
@@ -44,7 +43,9 @@ namespace WinAppz
             this.label1 = new System.Windows.Forms.Label();
             this.ltnount = new System.Windows.Forms.Label();
             this.txtAmountDue = new System.Windows.Forms.Label();
-            this.CardPanel.SuspendLayout();
+            this.lbInvalidCardInfo = new MetroSet_UI.Controls.MetroSetLabel();
+            this.groupCardPay = new System.Windows.Forms.GroupBox();
+            this.groupCardPay.SuspendLayout();
             this.SuspendLayout();
             // 
             // rbCash
@@ -86,24 +87,11 @@ namespace WinAppz
             this.txtPaidAmount.Size = new System.Drawing.Size(269, 45);
             this.txtPaidAmount.TabIndex = 5;
             // 
-            // CardPanel
-            // 
-            this.CardPanel.Controls.Add(this.txtExpiry);
-            this.CardPanel.Controls.Add(this.txtCVC);
-            this.CardPanel.Controls.Add(this.txtCardNo);
-            this.CardPanel.Controls.Add(this.metroSetLabel5);
-            this.CardPanel.Controls.Add(this.metroSetLabel4);
-            this.CardPanel.Controls.Add(this.metroSetLabel3);
-            this.CardPanel.Location = new System.Drawing.Point(13, 234);
-            this.CardPanel.Name = "CardPanel";
-            this.CardPanel.Size = new System.Drawing.Size(459, 344);
-            this.CardPanel.TabIndex = 6;
-            // 
             // txtExpiry
             // 
             this.txtExpiry.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtExpiry.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtExpiry.Location = new System.Drawing.Point(14, 176);
+            this.txtExpiry.Location = new System.Drawing.Point(23, 185);
             this.txtExpiry.Mask = "00 /00";
             this.txtExpiry.Name = "txtExpiry";
             this.txtExpiry.Size = new System.Drawing.Size(150, 35);
@@ -115,7 +103,7 @@ namespace WinAppz
             // 
             this.txtCVC.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCVC.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCVC.Location = new System.Drawing.Point(279, 176);
+            this.txtCVC.Location = new System.Drawing.Point(288, 185);
             this.txtCVC.Multiline = true;
             this.txtCVC.Name = "txtCVC";
             this.txtCVC.Size = new System.Drawing.Size(150, 35);
@@ -126,7 +114,7 @@ namespace WinAppz
             // 
             this.txtCardNo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCardNo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCardNo.Location = new System.Drawing.Point(14, 30);
+            this.txtCardNo.Location = new System.Drawing.Point(23, 57);
             this.txtCardNo.Multiline = true;
             this.txtCardNo.Name = "txtCardNo";
             this.txtCardNo.Size = new System.Drawing.Size(415, 45);
@@ -136,7 +124,7 @@ namespace WinAppz
             // 
             this.metroSetLabel5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroSetLabel5.IsDerivedStyle = true;
-            this.metroSetLabel5.Location = new System.Drawing.Point(153, 95);
+            this.metroSetLabel5.Location = new System.Drawing.Point(166, 125);
             this.metroSetLabel5.Name = "metroSetLabel5";
             this.metroSetLabel5.Size = new System.Drawing.Size(130, 36);
             this.metroSetLabel5.Style = MetroSet_UI.Enums.Style.Dark;
@@ -150,7 +138,7 @@ namespace WinAppz
             // 
             this.metroSetLabel4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroSetLabel4.IsDerivedStyle = true;
-            this.metroSetLabel4.Location = new System.Drawing.Point(24, 233);
+            this.metroSetLabel4.Location = new System.Drawing.Point(34, 233);
             this.metroSetLabel4.Name = "metroSetLabel4";
             this.metroSetLabel4.Size = new System.Drawing.Size(130, 36);
             this.metroSetLabel4.Style = MetroSet_UI.Enums.Style.Dark;
@@ -164,7 +152,7 @@ namespace WinAppz
             // 
             this.metroSetLabel3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroSetLabel3.IsDerivedStyle = true;
-            this.metroSetLabel3.Location = new System.Drawing.Point(318, 233);
+            this.metroSetLabel3.Location = new System.Drawing.Point(330, 233);
             this.metroSetLabel3.Name = "metroSetLabel3";
             this.metroSetLabel3.Size = new System.Drawing.Size(73, 23);
             this.metroSetLabel3.Style = MetroSet_UI.Enums.Style.Dark;
@@ -238,18 +226,48 @@ namespace WinAppz
             this.txtAmountDue.TabIndex = 11;
             this.txtAmountDue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // lbInvalidCardInfo
+            // 
+            this.lbInvalidCardInfo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInvalidCardInfo.IsDerivedStyle = true;
+            this.lbInvalidCardInfo.Location = new System.Drawing.Point(166, 18);
+            this.lbInvalidCardInfo.Name = "lbInvalidCardInfo";
+            this.lbInvalidCardInfo.Size = new System.Drawing.Size(130, 36);
+            this.lbInvalidCardInfo.Style = MetroSet_UI.Enums.Style.Dark;
+            this.lbInvalidCardInfo.StyleManager = null;
+            this.lbInvalidCardInfo.TabIndex = 0;
+            this.lbInvalidCardInfo.Text = "*";
+            this.lbInvalidCardInfo.ThemeAuthor = "Narwin";
+            this.lbInvalidCardInfo.ThemeName = "MetroDark";
+            // 
+            // groupCardPay
+            // 
+            this.groupCardPay.Controls.Add(this.txtCardNo);
+            this.groupCardPay.Controls.Add(this.metroSetLabel4);
+            this.groupCardPay.Controls.Add(this.txtExpiry);
+            this.groupCardPay.Controls.Add(this.lbInvalidCardInfo);
+            this.groupCardPay.Controls.Add(this.metroSetLabel5);
+            this.groupCardPay.Controls.Add(this.metroSetLabel3);
+            this.groupCardPay.Controls.Add(this.txtCVC);
+            this.groupCardPay.ForeColor = System.Drawing.Color.White;
+            this.groupCardPay.Location = new System.Drawing.Point(13, 265);
+            this.groupCardPay.Name = "groupCardPay";
+            this.groupCardPay.Size = new System.Drawing.Size(459, 344);
+            this.groupCardPay.TabIndex = 12;
+            this.groupCardPay.TabStop = false;
+            // 
             // PaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(12)))));
             this.ClientSize = new System.Drawing.Size(504, 712);
+            this.Controls.Add(this.groupCardPay);
             this.Controls.Add(this.txtAmountDue);
             this.Controls.Add(this.ltnount);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.CardPanel);
             this.Controls.Add(this.txtPaidAmount);
             this.Controls.Add(this.rbCard);
             this.Controls.Add(this.rbCash);
@@ -261,8 +279,8 @@ namespace WinAppz
             this.Text = "PaymentForm";
             this.Load += new System.EventHandler(this.PaymentForm_Load);
             this.Shown += new System.EventHandler(this.PaymentForm_Shown);
-            this.CardPanel.ResumeLayout(false);
-            this.CardPanel.PerformLayout();
+            this.groupCardPay.ResumeLayout(false);
+            this.groupCardPay.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,7 +290,6 @@ namespace WinAppz
         private System.Windows.Forms.RadioButton rbCash;
         private System.Windows.Forms.RadioButton rbCard;
         private System.Windows.Forms.TextBox txtPaidAmount;
-        private System.Windows.Forms.Panel CardPanel;
         private System.Windows.Forms.TextBox txtCVC;
         private System.Windows.Forms.TextBox txtCardNo;
         private System.Windows.Forms.Button btnClose;
@@ -284,5 +301,7 @@ namespace WinAppz
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label ltnount;
         public System.Windows.Forms.Label txtAmountDue;
+        private MetroSet_UI.Controls.MetroSetLabel lbInvalidCardInfo;
+        private System.Windows.Forms.GroupBox groupCardPay;
     }
 }

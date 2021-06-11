@@ -33,7 +33,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.dtProductList = new System.Windows.Forms.DataGridView();
-            this.inventoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sellingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inventoriesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.group8NewDataSet = new WinAppz.group8NewDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbQuantity = new System.Windows.Forms.ComboBox();
             this.btnAddToCart = new System.Windows.Forms.Button();
@@ -48,6 +54,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.listSlip = new System.Windows.Forms.ListBox();
             this.LblChange = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lbChange = new System.Windows.Forms.Label();
@@ -67,23 +74,14 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.listSlip = new System.Windows.Forms.ListBox();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.group8DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.group8DataSet = new WinAppz.group8DataSet();
-            this.inventoriesTableAdapter = new WinAppz.group8DataSetTableAdapters.InventoriesTableAdapter();
             this.button2 = new System.Windows.Forms.Button();
+            this.inventoriesTableAdapter1 = new WinAppz.group8NewDataSetTableAdapters.InventoriesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoriesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.group8NewDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.group8DataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.group8DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -96,7 +94,7 @@
             this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button1.Size = new System.Drawing.Size(247, 45);
             this.button1.TabIndex = 9;
-            this.button1.Text = "Process Sale";
+            this.button1.Text = "CheckOut";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -121,7 +119,7 @@
             this.costPriceDataGridViewTextBoxColumn,
             this.sellingPriceDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn});
-            this.dtProductList.DataSource = this.inventoriesBindingSource;
+            this.dtProductList.DataSource = this.inventoriesBindingSource1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -137,10 +135,50 @@
             this.dtProductList.Size = new System.Drawing.Size(531, 405);
             this.dtProductList.TabIndex = 10;
             // 
-            // inventoriesBindingSource
+            // productNameDataGridViewTextBoxColumn
             // 
-            this.inventoriesBindingSource.DataMember = "Inventories";
-            this.inventoriesBindingSource.DataSource = this.group8DataSetBindingSource;
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // costPriceDataGridViewTextBoxColumn
+            // 
+            this.costPriceDataGridViewTextBoxColumn.DataPropertyName = "CostPrice";
+            this.costPriceDataGridViewTextBoxColumn.HeaderText = "CostPrice";
+            this.costPriceDataGridViewTextBoxColumn.Name = "costPriceDataGridViewTextBoxColumn";
+            this.costPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sellingPriceDataGridViewTextBoxColumn
+            // 
+            this.sellingPriceDataGridViewTextBoxColumn.DataPropertyName = "SellingPrice";
+            this.sellingPriceDataGridViewTextBoxColumn.HeaderText = "SellingPrice";
+            this.sellingPriceDataGridViewTextBoxColumn.Name = "sellingPriceDataGridViewTextBoxColumn";
+            this.sellingPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // inventoriesBindingSource1
+            // 
+            this.inventoriesBindingSource1.DataMember = "Inventories";
+            this.inventoriesBindingSource1.DataSource = this.group8NewDataSet;
+            // 
+            // group8NewDataSet
+            // 
+            this.group8NewDataSet.DataSetName = "group8NewDataSet";
+            this.group8NewDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupBox1
             // 
@@ -177,12 +215,7 @@
             "7",
             "8",
             "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "15",
-            "15"});
+            "10"});
             this.cbQuantity.Location = new System.Drawing.Point(171, 224);
             this.cbQuantity.Name = "cbQuantity";
             this.cbQuantity.Size = new System.Drawing.Size(174, 38);
@@ -198,15 +231,15 @@
             this.btnAddToCart.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnAddToCart.Size = new System.Drawing.Size(174, 45);
             this.btnAddToCart.TabIndex = 3;
-            this.btnAddToCart.Text = "AddTo Invoice";
+            this.btnAddToCart.Text = "AddToCart";
             this.btnAddToCart.UseVisualStyleBackColor = false;
             this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
             // 
             // txtPrice
             // 
             this.txtPrice.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtPrice.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.inventoriesBindingSource, "SellingPrice", true));
-            this.txtPrice.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.inventoriesBindingSource, "SellingPrice", true));
+            this.txtPrice.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.inventoriesBindingSource1, "SellingPrice", true));
+            this.txtPrice.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.inventoriesBindingSource1, "SellingPrice", true));
             this.txtPrice.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrice.Location = new System.Drawing.Point(171, 288);
             this.txtPrice.Multiline = true;
@@ -218,8 +251,8 @@
             // txtCategory
             // 
             this.txtCategory.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtCategory.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.inventoriesBindingSource, "Category", true));
-            this.txtCategory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.inventoriesBindingSource, "Category", true));
+            this.txtCategory.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.inventoriesBindingSource1, "Category", true));
+            this.txtCategory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.inventoriesBindingSource1, "Category", true));
             this.txtCategory.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategory.Location = new System.Drawing.Point(171, 150);
             this.txtCategory.Multiline = true;
@@ -230,8 +263,8 @@
             // txtPId
             // 
             this.txtPId.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtPId.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.inventoriesBindingSource, "InventoryId", true));
-            this.txtPId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.inventoriesBindingSource, "InventoryId", true));
+            this.txtPId.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.inventoriesBindingSource1, "InventoryId", true));
+            this.txtPId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.inventoriesBindingSource1, "InventoryId", true));
             this.txtPId.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPId.Location = new System.Drawing.Point(171, 11);
             this.txtPId.Multiline = true;
@@ -242,8 +275,8 @@
             // txtPName
             // 
             this.txtPName.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtPName.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.inventoriesBindingSource, "ProductName", true));
-            this.txtPName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.inventoriesBindingSource, "ProductName", true));
+            this.txtPName.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.inventoriesBindingSource1, "ProductName", true));
+            this.txtPName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.inventoriesBindingSource1, "ProductName", true));
             this.txtPName.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPName.Location = new System.Drawing.Point(171, 83);
             this.txtPName.Multiline = true;
@@ -333,6 +366,17 @@
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Reciept Info";
+            // 
+            // listSlip
+            // 
+            this.listSlip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.listSlip.ForeColor = System.Drawing.Color.White;
+            this.listSlip.FormattingEnabled = true;
+            this.listSlip.ItemHeight = 17;
+            this.listSlip.Location = new System.Drawing.Point(7, 24);
+            this.listSlip.Name = "listSlip";
+            this.listSlip.Size = new System.Drawing.Size(341, 293);
+            this.listSlip.TabIndex = 15;
             // 
             // LblChange
             // 
@@ -435,11 +479,12 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
+            this.lvCart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvCart.ForeColor = System.Drawing.Color.White;
             this.lvCart.HideSelection = false;
-            this.lvCart.Location = new System.Drawing.Point(8, 24);
+            this.lvCart.Location = new System.Drawing.Point(3, 21);
             this.lvCart.Name = "lvCart";
-            this.lvCart.Size = new System.Drawing.Size(523, 332);
+            this.lvCart.Size = new System.Drawing.Size(531, 338);
             this.lvCart.TabIndex = 13;
             this.lvCart.UseCompatibleStateImageBehavior = false;
             this.lvCart.View = System.Windows.Forms.View.Details;
@@ -503,66 +548,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Invoice";
             // 
-            // listSlip
-            // 
-            this.listSlip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.listSlip.ForeColor = System.Drawing.Color.White;
-            this.listSlip.FormattingEnabled = true;
-            this.listSlip.ItemHeight = 17;
-            this.listSlip.Location = new System.Drawing.Point(7, 24);
-            this.listSlip.Name = "listSlip";
-            this.listSlip.Size = new System.Drawing.Size(341, 293);
-            this.listSlip.TabIndex = 15;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // costPriceDataGridViewTextBoxColumn
-            // 
-            this.costPriceDataGridViewTextBoxColumn.DataPropertyName = "CostPrice";
-            this.costPriceDataGridViewTextBoxColumn.HeaderText = "CostPrice";
-            this.costPriceDataGridViewTextBoxColumn.Name = "costPriceDataGridViewTextBoxColumn";
-            this.costPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sellingPriceDataGridViewTextBoxColumn
-            // 
-            this.sellingPriceDataGridViewTextBoxColumn.DataPropertyName = "SellingPrice";
-            this.sellingPriceDataGridViewTextBoxColumn.HeaderText = "SellingPrice";
-            this.sellingPriceDataGridViewTextBoxColumn.Name = "sellingPriceDataGridViewTextBoxColumn";
-            this.sellingPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // group8DataSetBindingSource
-            // 
-            this.group8DataSetBindingSource.DataSource = this.group8DataSet;
-            this.group8DataSetBindingSource.Position = 0;
-            // 
-            // group8DataSet
-            // 
-            this.group8DataSet.DataSetName = "group8DataSet";
-            this.group8DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // inventoriesTableAdapter
-            // 
-            this.inventoriesTableAdapter.ClearBeforeFill = true;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
@@ -576,6 +561,10 @@
             this.button2.Text = "Print Slip";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // inventoriesTableAdapter1
+            // 
+            this.inventoriesTableAdapter1.ClearBeforeFill = true;
             // 
             // Home
             // 
@@ -604,14 +593,13 @@
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtProductList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoriesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.group8NewDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.group8DataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.group8DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -630,10 +618,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.BindingSource group8DataSetBindingSource;
-        private group8DataSet group8DataSet;
-        private System.Windows.Forms.BindingSource inventoriesBindingSource;
-        private group8DataSetTableAdapters.InventoriesTableAdapter inventoriesTableAdapter;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
@@ -665,5 +649,8 @@
         public System.Windows.Forms.Label lblSubtotal;
         private System.Windows.Forms.ListBox listSlip;
         private System.Windows.Forms.Button button2;
+        private group8NewDataSet group8NewDataSet;
+        private System.Windows.Forms.BindingSource inventoriesBindingSource1;
+        private group8NewDataSetTableAdapters.InventoriesTableAdapter inventoriesTableAdapter1;
     }
 }

@@ -37,7 +37,7 @@ namespace WinAppz
            
             if (rbCard.Checked == false)
             {
-                CardPanel.Enabled = false;
+                groupCardPay.Enabled = false;
             }
         }
 
@@ -45,8 +45,8 @@ namespace WinAppz
         {
             if(rbCard.Checked == true)
             {
-                CardPanel.Enabled = true;
-                CardPanel.BackColor = Color.FromArgb(32, 30, 45);
+                groupCardPay.Enabled = true;
+                groupCardPay.BackColor = Color.FromArgb(32, 30, 45);
                 txtPaidAmount.Text = txtAmountDue.Text;
                 txtCardNo.Focus();
 
@@ -57,8 +57,8 @@ namespace WinAppz
         {
             if(rbCash.Checked == true)
             {
-                CardPanel.Enabled = false;
-                CardPanel.BackColor = Color.FromArgb(32, 30, 12);
+                groupCardPay.Enabled = false;
+                groupCardPay.BackColor = Color.FromArgb(32, 30, 12);
                 txtPaidAmount.Text = "";
                 txtPaidAmount.Focus();
             }
@@ -110,12 +110,13 @@ namespace WinAppz
                     sqlconn.Close();
 
                 }
-                else
+                else if(rbCard.Checked == true)
                 {
+                   
 
-                    if (txtCardNo.Text == "" && txtExpiry.Text == "" && txtCVC.Text == "")
+                    if ((txtCardNo.Text == "" && txtCardNo.Text.Length != 16) && (txtExpiry.Text == "") && (txtCVC.Text == "" && txtCVC.Text.Length != 3))
                     {
-                        MessageBox.Show("Please Enter card details");
+                      lbInvalidCardInfo.Text =  "Please Enter Correct Card Details";
                     }
                     else
                     {
