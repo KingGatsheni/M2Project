@@ -181,7 +181,7 @@ namespace WinAppz
             lbChange.Text = "";
             lblDiscount.Text = "";
             lblSubtotal.Text = "";
-            txtSubTotal.Clear();
+            txtSubTotal.Text = "R0.00";
         }
     }
 }
