@@ -93,33 +93,32 @@ namespace WinAppz
                  AmountPaid = decimal.Parse(txtPaidAmount.Text.Trim('R'));
                 if (rbCash.Checked == true)
                 {
-                    Change = AmountPaid - AmountDue;
-                    PaymentMethod = "Cash";
+                    
+                        Change = AmountPaid - AmountDue;
+                        PaymentMethod = "Cash";
 
-                    sqlconn.Open();
-                    var _SaleId = sqlCheckId.ExecuteScalar().ToString();
+                        sqlconn.Open();
+                        var _SaleId = sqlCheckId.ExecuteScalar().ToString();
 
-                   
 
-                    string InertToPayQuery = "insert into Payments(SaleId,EmployeeId,PaymentMethod,TotalAmount) values('"+ _SaleId +"', '"+ 3 +"', '"+ PaymentMethod +"', '"+ decimal.Parse(txtAmountDue.Text.Trim('R'))+"')";
-                    SqlCommand sqlCash = new SqlCommand(InertToPayQuery, sqlconn);
-                    sqlCash.ExecuteNonQuery();
-                    _Change ="R" + Change;
-                    //MessageBox.Show("R"+Change.ToString() + "  And PaymentMethod:  " + PaymentMethod );
-                    this.Hide();
-                    sqlconn.Close();
+
+                        string InertToPayQuery = "insert into Payments(SaleId,EmployeeId,PaymentMethod,TotalAmount) values('" + _SaleId + "', '" + 3 + "', '" + PaymentMethod + "', '" + decimal.Parse(txtAmountDue.Text.Trim('R')) + "')";
+                        SqlCommand sqlCash = new SqlCommand(InertToPayQuery, sqlconn);
+                        sqlCash.ExecuteNonQuery();
+                        _Change = "R" + Change;
+                        //MessageBox.Show("R"+Change.ToString() + "  And PaymentMethod:  " + PaymentMethod );
+                        this.Hide();
+                        sqlconn.Close();
 
                 }
-                else if(rbCard.Checked == true)
-                {
-                   
+                
 
-                    if ((txtCardNo.Text == "" && txtCardNo.Text.Length != 16) && (txtExpiry.Text == "") && (txtCVC.Text == "" && txtCVC.Text.Length != 3))
+
+
+                if (rbCard.Checked == true)
                     {
-                      lbInvalidCardInfo.Text =  "Please Enter Correct Card Details";
-                    }
-                    else
-                    {
+                   
+                    
                         Change = 0;
                         PaymentMethod = "Debit/Credit Card";
 
@@ -132,8 +131,11 @@ namespace WinAppz
                         _Change = "R0.00";
                         MessageBox.Show("R" + Change.ToString() + " And PaymentMethod: " + PaymentMethod);
                         this.Hide();
-                    }
+                    
                 }
+               
+              
+
             }
             catch (SqlException s) {
                 MessageBox.Show(s.Message);

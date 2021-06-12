@@ -27,7 +27,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -107,6 +107,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="group8NewDataSet.cs">
+      <DependentUpon>group8NewDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="group8NewDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -156,6 +159,12 @@
     <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
+    <Compile Include="rPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rPay.Designer.cs">
+      <DependentUpon>rPay.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rPay.resx">
+      <DependentUpon>rPay.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="group8NewDataSet.xsc">
       <DependentUpon>group8NewDataSet.xsd</DependentUpon>

@@ -3725,8 +3725,6 @@ namespace WinAppz {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class InvoiceDataTable : global::System.Data.TypedTableBase<InvoiceRow> {
             
-            private global::System.Data.DataColumn columnFirstName;
-            
             private global::System.Data.DataColumn columnLastName;
             
             private global::System.Data.DataColumn columnCell_No;
@@ -3772,14 +3770,6 @@ namespace WinAppz {
             protected InvoiceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn FirstNameColumn {
-                get {
-                    return this.columnFirstName;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3875,10 +3865,9 @@ namespace WinAppz {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public InvoiceRow AddInvoiceRow(string FirstName, string LastName, string Cell_No, int Quantity, decimal RepairPrice, string ItemName, decimal RepairTotal, System.DateTime Bookon) {
+            public InvoiceRow AddInvoiceRow(string LastName, string Cell_No, int Quantity, decimal RepairPrice, string ItemName, decimal RepairTotal, System.DateTime Bookon) {
                 InvoiceRow rowInvoiceRow = ((InvoiceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        FirstName,
                         LastName,
                         Cell_No,
                         Quantity,
@@ -3908,7 +3897,6 @@ namespace WinAppz {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnFirstName = base.Columns["FirstName"];
                 this.columnLastName = base.Columns["LastName"];
                 this.columnCell_No = base.Columns["Cell_No"];
                 this.columnQuantity = base.Columns["Quantity"];
@@ -3921,8 +3909,6 @@ namespace WinAppz {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnFirstName = new global::System.Data.DataColumn("FirstName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFirstName);
                 this.columnLastName = new global::System.Data.DataColumn("LastName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLastName);
                 this.columnCell_No = new global::System.Data.DataColumn("Cell_No", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3937,7 +3923,6 @@ namespace WinAppz {
                 base.Columns.Add(this.columnRepairTotal);
                 this.columnBookon = new global::System.Data.DataColumn("Bookon", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBookon);
-                this.columnFirstName.MaxLength = 2147483647;
                 this.columnLastName.MaxLength = 2147483647;
                 this.columnCell_No.MaxLength = 2147483647;
                 this.columnQuantity.AllowDBNull = false;
@@ -5410,22 +5395,6 @@ namespace WinAppz {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string FirstName {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoice.FirstNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FirstName\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.FirstNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string LastName {
                 get {
                     try {
@@ -5514,18 +5483,6 @@ namespace WinAppz {
                 set {
                     this[this.tableInvoice.BookonColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsFirstNameNull() {
-                return this.IsNull(this.tableInvoice.FirstNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetFirstNameNull() {
-                this[this.tableInvoice.FirstNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9317,7 +9274,6 @@ SELECT SaleId, Total, Date, EmployeeId FROM Sales WHERE (SaleId = @SaleId)";
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Invoice";
-            tableMapping.ColumnMappings.Add("FirstName", "FirstName");
             tableMapping.ColumnMappings.Add("LastName", "LastName");
             tableMapping.ColumnMappings.Add("Cell_No", "Cell_No");
             tableMapping.ColumnMappings.Add("Quantity", "Quantity");
@@ -9338,23 +9294,32 @@ SELECT SaleId, Total, Date, EmployeeId FROM Sales WHERE (SaleId = @SaleId)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Customers.FirstName, Customers.LastName, Customers.Cell_No, RepairLists.Quantity, RepairLists.RepairPrice, RepairLists.ItemName, Repairs.RepairTotal, Repairs.Bookon
+            this._commandCollection[0].CommandText = @"SELECT        Customers.LastName, Customers.Cell_No, RepairLists.Quantity, RepairLists.RepairPrice, RepairLists.ItemName, Repairs.RepairTotal, Repairs.Bookon
 FROM            Customers INNER JOIN
                          Repairs ON Customers.CustomerId = Repairs.CustomerId INNER JOIN
                          RepairLists ON Repairs.RepairId = RepairLists.RepairId";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        Customers.FirstName, Customers.LastName, Customers.Cell_No, RepairLists.Quantity, RepairLists.RepairPrice, RepairLists.ItemName, Repairs.RepairTotal, Repairs.Bookon
+            this._commandCollection[1].CommandText = @"SELECT        Customers.LastName, Customers.Cell_No, RepairLists.Quantity, RepairLists.RepairPrice, RepairLists.ItemName, Repairs.RepairTotal, Repairs.Bookon
 FROM            Customers INNER JOIN
                          Repairs ON Customers.CustomerId = Repairs.CustomerId INNER JOIN
                          RepairLists ON Repairs.RepairId = RepairLists.RepairId
-WHERE        (Customers.Cell_No LIKE @number + '%')";
+WHERE        (Customers.LastName LIKE @LNAME + '%')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@number", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Cell_No", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LNAME", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        RepairLists.RepairId, Repairs.RepairId AS Expr1, Customers.Cell_No
+FROM            Customers INNER JOIN
+                         Repairs ON Customers.CustomerId = Repairs.CustomerId INNER JOIN
+                         RepairLists ON Repairs.RepairId = RepairLists.RepairId
+WHERE        (Customers.Cell_No LIKE @number)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@number", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Cell_No", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9385,13 +9350,13 @@ WHERE        (Customers.Cell_No LIKE @number + '%')";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBySearch(group8NewDataSet.InvoiceDataTable dataTable, string number) {
+        public virtual int FillBySearch(group8NewDataSet.InvoiceDataTable dataTable, string LNAME) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((number == null)) {
+            if ((LNAME == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(number));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(LNAME));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -9404,17 +9369,51 @@ WHERE        (Customers.Cell_No LIKE @number + '%')";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual group8NewDataSet.InvoiceDataTable GetDataBy(string number) {
+        public virtual group8NewDataSet.InvoiceDataTable GetDataBy(string LNAME) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((number == null)) {
+            if ((LNAME == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(number));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(LNAME));
             }
             group8NewDataSet.InvoiceDataTable dataTable = new group8NewDataSet.InvoiceDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> ScalarQuery(string number) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((number == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(number));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
         }
     }
     
