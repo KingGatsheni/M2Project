@@ -34,7 +34,14 @@ namespace WinAppz
         private void Home_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'group8NewDataSet.Inventories' table. You can move, or remove it, as needed.
-            this.inventoriesTableAdapter1.Fill(this.group8NewDataSet.Inventories);
+            try
+            {
+                this.inventoriesTableAdapter1.Fill(this.group8NewDataSet.Inventories);
+            }catch(SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+           
             // TODO: This line of code loads data into the 'group8DataSet.Inventories' table. You can move, or remove it, as needed.
         
              txtSubTotal.Text = SubTotal.ToString();

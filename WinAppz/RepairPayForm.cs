@@ -16,5 +16,24 @@ namespace WinAppz
         {
             InitializeComponent();
         }
+
+        private void RepairPayForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'group8NewDataSet1.Invoice' table. You can move, or remove it, as needed.
+            this.invoiceTableAdapter.Fill(this.group8NewDataSet1.Invoice);
+            // TODO: This line of code loads data into the 'group8NewDataSet.Invoice' table. You can move, or remove it, as needed.
+            this.invoiceTableAdapter.Fill(this.group8NewDataSet.Invoice);
+
+        }
+
+        private void btnPayNow_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void txtSearchbyNo_TextChanged(object sender, EventArgs e)
+        {
+            this.invoiceTableAdapter.FillBySearch(group8NewDataSet.Invoice, txtSearchbyNo.Text);
+        }
     }
 }

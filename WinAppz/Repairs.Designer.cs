@@ -41,7 +41,7 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtItemName = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lvCart = new System.Windows.Forms.ListView();
+            this.lvRepairList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -89,6 +89,7 @@
             this.btnBookRepair.TabIndex = 14;
             this.btnBookRepair.Text = "Book a Repair";
             this.btnBookRepair.UseVisualStyleBackColor = false;
+            this.btnBookRepair.Click += new System.EventHandler(this.btnBookRepair_Click);
             // 
             // label1
             // 
@@ -218,7 +219,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.lvCart);
+            this.groupBox3.Controls.Add(this.lvRepairList);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(26, 532);
@@ -228,23 +229,23 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Repair ItemList";
             // 
-            // lvCart
+            // lvRepairList
             // 
-            this.lvCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.lvCart.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvRepairList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.lvRepairList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.lvCart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvCart.ForeColor = System.Drawing.Color.White;
-            this.lvCart.HideSelection = false;
-            this.lvCart.Location = new System.Drawing.Point(3, 18);
-            this.lvCart.Name = "lvCart";
-            this.lvCart.Size = new System.Drawing.Size(555, 401);
-            this.lvCart.TabIndex = 14;
-            this.lvCart.UseCompatibleStateImageBehavior = false;
-            this.lvCart.View = System.Windows.Forms.View.Details;
+            this.lvRepairList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvRepairList.ForeColor = System.Drawing.Color.White;
+            this.lvRepairList.HideSelection = false;
+            this.lvRepairList.Location = new System.Drawing.Point(3, 18);
+            this.lvRepairList.Name = "lvRepairList";
+            this.lvRepairList.Size = new System.Drawing.Size(555, 401);
+            this.lvRepairList.TabIndex = 14;
+            this.lvRepairList.UseCompatibleStateImageBehavior = false;
+            this.lvRepairList.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -413,7 +414,7 @@
             this.btnPayRepair.TabIndex = 14;
             this.btnPayRepair.Text = "Paying For an Item?";
             this.btnPayRepair.UseVisualStyleBackColor = false;
-            this.btnPayRepair.Click += new System.EventHandler(this.button3_Click);
+            this.btnPayRepair.Click += new System.EventHandler(this.btnPayRepair_Click);
             // 
             // lbMissing
             // 
@@ -485,7 +486,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private MetroSet_UI.Controls.MetroSetLabel lbMissing;
-        private System.Windows.Forms.ListView lvCart;
+        private System.Windows.Forms.ListView lvRepairList;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
