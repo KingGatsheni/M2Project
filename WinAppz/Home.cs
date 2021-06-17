@@ -221,21 +221,25 @@ namespace WinAppz
         {
             try {
                 cbQuantity.Text = lvCart.SelectedItems[0].SubItems[2].Text;
-                
-               
+                txtPrice.Text = lvCart.SelectedItems[0].SubItems[3].Text;
+
+
             } catch { }
         }
 
         private void btnupdateitem_Click(object sender, EventArgs e)// code here to be fixed to update item total and also update subtotal
         {
             try {
-                var newprice = (Int32.Parse(lvCart.SelectedItems[0].SubItems[3].Text) / decimal.Parse(lvCart.SelectedItems[0].SubItems[2].Text));
-                var newCartItemPrice = Int32.Parse(lvCart.SelectedItems[0].SubItems[2].Text) * newprice;
-                SubTotal = SubTotal - decimal.Parse(lvCart.SelectedItems[0].SubItems[3].Text);
-                lvCart.SelectedItems[0].SubItems[2].Text = cbQuantity.Text;
-                lvCart.SelectedItems[0].SubItems[3].Text = newCartItemPrice.ToString();
 
-                SubTotal += newCartItemPrice;
+                //var nPrice = Int32.Parse(txtPrice.Text.ToString()) / decimal.Parse(cbQuantity.Text.ToString());
+                //decimal newprice = (decimal.Parse(lvCart.SelectedItems[0].SubItems[3].Text.ToString().Trim('R')) / Int32.Parse(lvCart.SelectedItems[0].SubItems[2].Text));
+                // var newCartItemPrice = Int32.Parse(lvCart.SelectedItems[0].SubItems[2].Text) * newprice;
+                //SubTotal = SubTotal - decimal.Parse(lvCart.SelectedItems[0].SubItems[3].Text);
+                //lvCart.SelectedItems[0].SubItems[2].Text = cbQuantity.Text;
+                //lvCart.SelectedItems[0].SubItems[3].Text = newCartItemPrice.ToString();
+                lvCart.SelectedItems[0].SubItems[2].Text = cbQuantity.Text;
+
+                //SubTotal += newCartItemPrice;
             }catch(FormatException s)
             {
                 MessageBox.Show(s.Message);
