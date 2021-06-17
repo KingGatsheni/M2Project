@@ -99,80 +99,105 @@ namespace WinAppz
         private void button1_Click(object sender, EventArgs e)
         {
             SqlConnection sqlconn = new SqlConnection(ConString);// initialise sql connection
-
-            //sql query statements
-            string query = "insert into Sales(EmployeeId,Total,Date) values(3,'" + SubTotal + "', '" + DateTime.Now + "')"; // insert sale date into  Sale table 
-            string lastId = "select top 1 SaleId from Sales order by SaleId desc";  // check the last inserted item ID
-
-            SqlCommand sqlcomm = new SqlCommand(query, sqlconn);
-            SqlCommand id = new SqlCommand(lastId, sqlconn);
-
-            if (SubTotal != 0)
-            {
-                sqlconn.Open();
-                sqlcomm.ExecuteNonQuery();
-                PaymentForm Payment = new PaymentForm();
+            if (SubTotal != 0) {
                
-                Payment.txtAmountDue.Text = "R" + SubTotal.ToString();
-                // Payment.ShowDialog();
-                if (Payment.ShowDialog() == DialogResult.OK)
+
+                //sql query statements
+                string query = "insert into Sales(EmployeeId,Total,Date) values(3,'" + SubTotal + "', '" + DateTime.Now + "')"; // insert sale date into  Sale table 
+                string lastId = "select top 1 SaleId from Sales order by SaleId desc";  // check the last inserted item ID
+
+                SqlCommand sqlcomm = new SqlCommand(query, sqlconn);
+                SqlCommand id = new SqlCommand(lastId, sqlconn);
+
+
+                if (SubTotal != 0)
                 {
-                    lbChange.Text = Payment._Change;
+                    sqlconn.Open();
+                    sqlcomm.ExecuteNonQuery();
+                    PaymentForm Payment = new PaymentForm();
+
+                    Payment.txtAmountDue.Text = "R" + SubTotal.ToString();
+                    // Payment.ShowDialog();
+                    if (Payment.ShowDialog() == DialogResult.OK)
+                    {
+                        lbChange.Text = Payment._Change;
+                    }
+                    sqlconn.Close();
                 }
-                sqlconn.Close();
-            }
-            else {
-                string error = "Select an item to Sell before checking out";
-                MessageBox.Show(error);
-            }
-           
-            
-           
-            
-            try {
-                sqlconn.Open(); // on sql connection
-                
-                var result = id.ExecuteScalar();
-                //string queryItem = "insert into SaleItems(SaleId,InventoryId,Quantity,ItemPrice) values('" + result + "','" + Int32.Parse(txtPId.Text) + "','" + Int32.Parse(cbQuantity.SelectedItem.ToString()) + "','" + decimal.Parse(txtPrice.Text) + "')";
-               
-                foreach(ListViewItem item in lvCart.Items )
+                else
                 {
-                    string queryItem = "insert into SaleItems values(@SaleId,@InventoryId,@Quantity,@ItemPrice)";
-                    SqlCommand sqlItem = new SqlCommand(queryItem, sqlconn);
+                    string error = "Select an item to Sell before checking out";
+                    MessageBox.Show(error);
+                }
+
+
+
+
+
+                try
+                {
+                    sqlconn.Open(); // on sql connection
+
+                    var result = id.ExecuteScalar();
+                    //string queryItem = "insert into SaleItems(SaleId,InventoryId,Quantity,ItemPrice) values('" + result + "','" + Int32.Parse(txtPId.Text) + "','" + Int32.Parse(cbQuantity.SelectedItem.ToString()) + "','" + decimal.Parse(txtPrice.Text) + "')";
+
+                    foreach (ListViewItem item in lvCart.Items)
+                    {
+                        string queryItem = "insert into SaleItems values(@SaleId,@InventoryId,@Quantity,@ItemPrice)";
+                        SqlCommand sqlItem = new SqlCommand(queryItem, sqlconn);
                         sqlItem.Parameters.AddWithValue("@SaleId", result);
                         sqlItem.Parameters.AddWithValue("@InventoryId", Int32.Parse(item.SubItems[0].Text.ToString()));
                         sqlItem.Parameters.AddWithValue("@Quantity", Int32.Parse(item.SubItems[2].Text.ToString()));
                         sqlItem.Parameters.AddWithValue("@ItemPrice", Decimal.Parse(item.SubItems[3].Text.ToString().Trim('R')));
+
+                        sqlItem.ExecuteNonQuery();
+                    }
+
+                    foreach (ListViewItem update in lvCart.Items)
+                    {
+                        string sqlUpdateQty = "update Inventories set Quantity = Quantity - '" + Int32.Parse(update.SubItems[2].Text.ToString()) + "' where InventoryId = '" + Int32.Parse(update.SubItems[0].Text.ToString()) + "'";
+                        SqlCommand sqlupdate = new SqlCommand(sqlUpdateQty, sqlconn);
+                        sqlupdate.ExecuteNonQuery();
+                    }
+                    inventoriesTableAdapter1.Fill(group8NewDataSet.Inventories);
+                    if(LblChange.Text != "") {
+                        MessageBox.Show("Transcation Successful!!..");
+                    }     
                     
-                    sqlItem.ExecuteNonQuery();
-                }
+                   
+                    foreach (ListViewItem slip in lvCart.Items)
+                    {
+                        var lbcontrnt = string.Format("{0, -10}| {1, -10}|{2,-5}", slip.SubItems[1].Text.ToString() + " \t ", slip.SubItems[2].Text.ToString() + " \t ", slip.SubItems[3].Text.ToString());
+                        listSlip.Items.Add(lbcontrnt);
 
-                string sqlUpdateQty = "update Inventories set Quantity = Quantity - '"+Int32.Parse(cbQuantity.SelectedItem.ToString()) +"' where InventoryId = '"+ Int32.Parse(txtPId.Text)+"'";
-                SqlCommand sqlupdate = new SqlCommand(sqlUpdateQty, sqlconn);
-                sqlupdate.ExecuteNonQuery();
-                MessageBox.Show("Transcation Successful!!..");
-                foreach(ListViewItem slip in lvCart.Items)
+                    }
+                    foreach(ListViewItem items in lvCart.Items)
+                    {
+                        lvCart.Items.Remove(items);
+                    }
+
+                    if(lbChange.Text == "")
+                    {
+                        lblDiscount.Text = "";
+                        lblSubtotal.Text = "";
+                        listSlip.Items.Clear();
+                    }
+                    else
+                    {
+                        lblDiscount.Text = "R0.00";
+                        lblSubtotal.Text = txtSubTotal.Text;
+                    }
+                }
+                catch (SqlException err)
                 {
-                    var lbcontrnt = string.Format("{0, -10}| {1, -10}|{2,-5}", slip.SubItems[1].Text.ToString()+" \t ",slip.SubItems[2].Text.ToString() + " \t ",slip.SubItems[3].Text.ToString() );
-                    listSlip.Items.Add(lbcontrnt);
-
+                    MessageBox.Show(err.Message);
                 }
-                lvCart.Clear();
-              
-              
-                lblDiscount.Text = "R0.00";
-                lblSubtotal.Text = txtSubTotal.Text;
-              
-               
-            }catch(SqlException err)
-            {
-                MessageBox.Show(err.Message);
+                finally
+                {
+                    sqlconn.Close();
+                }
             }
-            finally
-            {
-                sqlconn.Close();
-            } 
-           
+
         }
 
       
@@ -188,7 +213,45 @@ namespace WinAppz
             lbChange.Text = "";
             lblDiscount.Text = "";
             lblSubtotal.Text = "";
+            SubTotal = 0;
             txtSubTotal.Text = "R0.00";
+        }
+
+        private void lvCart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                cbQuantity.Text = lvCart.SelectedItems[0].SubItems[2].Text;
+                
+               
+            } catch { }
+        }
+
+        private void btnupdateitem_Click(object sender, EventArgs e)// code here to be fixed to update item total and also update subtotal
+        {
+            try {
+                var newprice = (Int32.Parse(lvCart.SelectedItems[0].SubItems[3].Text) / decimal.Parse(lvCart.SelectedItems[0].SubItems[2].Text));
+                var newCartItemPrice = Int32.Parse(lvCart.SelectedItems[0].SubItems[2].Text) * newprice;
+                SubTotal = SubTotal - decimal.Parse(lvCart.SelectedItems[0].SubItems[3].Text);
+                lvCart.SelectedItems[0].SubItems[2].Text = cbQuantity.Text;
+                lvCart.SelectedItems[0].SubItems[3].Text = newCartItemPrice.ToString();
+
+                SubTotal += newCartItemPrice;
+            }catch(FormatException s)
+            {
+                MessageBox.Show(s.Message);
+            }
+            
+            
+
+        }
+
+        private void btndeletefromItem_Click(object sender, EventArgs e)//need more code to update subtotal
+        {
+            foreach (ListViewItem item in lvCart.SelectedItems)
+            {
+                 lvCart.Items.Remove(item);
+
+            }
         }
     }
 }

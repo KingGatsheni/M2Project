@@ -67,16 +67,30 @@ namespace WinAppz
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Hide();
+            SqlConnection sqlconn = new SqlConnection(ConString);
+            string deleteSaleId = "select top 1 SaleId from Sales order by SaleId desc";
+            SqlCommand sqlDel = new SqlCommand(deleteSaleId, sqlconn);
+
+            sqlconn.Open();
+            var del = sqlDel.ExecuteScalar();
+
+
+            string delQuery = "delete from Sales where SaleId = '" + del + "'";
+            SqlCommand DelQ = new SqlCommand(delQuery, sqlconn);
+            DelQ.ExecuteNonQuery();
+            sqlconn.Close();
+
+            MessageBox.Show("Transaction Cancelled");
         }
 
         private void btnPay_MouseHover(object sender, EventArgs e)
         {
-            btnPay.BackColor.R.ToString();
+            //btnPay.BackColor = Color.DarkRed;
         }
 
         private void txtExpiry_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-           
+          
         }
 
         private void btnPay_Click(object sender, EventArgs e)
@@ -154,3 +168,15 @@ namespace WinAppz
         }
     }
 }
+
+/*
+ To do  here re add the stock substrated from inventory if payment is callled.
+ fix bug. showing transcation suceessful if it got cancelled.
+ fix bug where slip get populated even if you cancel trancation. Fixed.
+ fix bug. where if i remove an item the subtotal shoul be uodated with new price which equal to subtotal = subtotal - removeditem Price.
+ fix bug where input Format exption error is given if trying to update price on quantity update.
+     
+     
+     
+     
+     */
