@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContainerForm));
             this.panelSide = new System.Windows.Forms.Panel();
+            this.pbHome = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.panelAdmin = new System.Windows.Forms.Panel();
             this.btnInventory = new System.Windows.Forms.Button();
@@ -39,11 +40,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnManager = new System.Windows.Forms.Button();
             this.panelBody = new System.Windows.Forms.Panel();
-            this.pbHome = new System.Windows.Forms.PictureBox();
             this.panelSide.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             this.panelAdmin.SuspendLayout();
             this.panelManager.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSide
@@ -57,8 +57,19 @@
             this.panelSide.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSide.Location = new System.Drawing.Point(0, 0);
             this.panelSide.Name = "panelSide";
-            this.panelSide.Size = new System.Drawing.Size(200, 966);
+            this.panelSide.Size = new System.Drawing.Size(200, 984);
             this.panelSide.TabIndex = 0;
+            // 
+            // pbHome
+            // 
+            this.pbHome.Image = ((System.Drawing.Image)(resources.GetObject("pbHome.Image")));
+            this.pbHome.Location = new System.Drawing.Point(3, 4);
+            this.pbHome.Name = "pbHome";
+            this.pbHome.Size = new System.Drawing.Size(191, 143);
+            this.pbHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbHome.TabIndex = 8;
+            this.pbHome.TabStop = false;
+            this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
             // 
             // btnLogout
             // 
@@ -66,7 +77,7 @@
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogout.Location = new System.Drawing.Point(0, 921);
+            this.btnLogout.Location = new System.Drawing.Point(0, 939);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLogout.Size = new System.Drawing.Size(200, 45);
@@ -174,25 +185,14 @@
             this.panelBody.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelBody.Location = new System.Drawing.Point(200, 0);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(935, 966);
+            this.panelBody.Size = new System.Drawing.Size(954, 984);
             this.panelBody.TabIndex = 1;
-            // 
-            // pbHome
-            // 
-            this.pbHome.Image = ((System.Drawing.Image)(resources.GetObject("pbHome.Image")));
-            this.pbHome.Location = new System.Drawing.Point(3, 4);
-            this.pbHome.Name = "pbHome";
-            this.pbHome.Size = new System.Drawing.Size(191, 143);
-            this.pbHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbHome.TabIndex = 8;
-            this.pbHome.TabStop = false;
-            this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
             // 
             // ContainerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1135, 966);
+            this.ClientSize = new System.Drawing.Size(1154, 984);
             this.Controls.Add(this.panelBody);
             this.Controls.Add(this.panelSide);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -203,9 +203,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.ContainerForm_Load);
             this.panelSide.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             this.panelAdmin.ResumeLayout(false);
             this.panelManager.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             this.ResumeLayout(false);
 
         }

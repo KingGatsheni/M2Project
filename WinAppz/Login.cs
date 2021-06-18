@@ -32,13 +32,13 @@ namespace WinAppz
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (rdAdmin.Checked == true && txtUserName.Text == "admin" && txtPassword.Text == "pass") {
+            if (rdAdmin.Checked == true && txtUserName.Text.Trim(' ') == "admin" && txtPassword.Text.Trim(' ') == "pass") {
                 ContainerForm Container = new ContainerForm(txtUserName.Text);
                 Container.Show();
                 this.Hide();
 
             }
-            else if(rdManager.Checked == true && txtUserName.Text == "manager" && txtPassword.Text == "pass")
+            else if(rdManager.Checked == true && txtUserName.Text.Trim(' ') == "manager" && txtPassword.Text.Trim(' ') == "pass")
             {
                 ContainerForm Container = new ContainerForm(txtUserName.Text);
                 Container.Show();

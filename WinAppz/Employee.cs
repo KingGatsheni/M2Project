@@ -16,5 +16,12 @@ namespace WinAppz
         {
             InitializeComponent();
         }
+
+        private void Employee_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'group8NewDataSet.Employees' table. You can move, or remove it, as needed.
+            this.employeesTableAdapter.Fill(this.group8NewDataSet.Employees);
+
+        }
     }
 }

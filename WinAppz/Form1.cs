@@ -84,7 +84,7 @@ namespace WinAppz
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            switchPanel(new Inventory());
+            switchPanel(new InventoryForm());
         }
 
         private void button2_Click(object sender, EventArgs e)
