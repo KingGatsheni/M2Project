@@ -12,6 +12,8 @@ namespace WinAppz
 {
     public partial class InventoryForm : Form
     {
+        decimal percentage = 0;
+        decimal sellPrice = 0;
         public InventoryForm()
         {
             InitializeComponent();
@@ -23,5 +25,32 @@ namespace WinAppz
             this.inventoriesTableAdapter.Fill(this.group8NewDataSet.Inventories);
 
         }
+
+       
+
+        private void cbMarkup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            percentage = (decimal.Parse(cbMarkup.Text.Trim('%')) / 100);
+            sellPrice = decimal.Parse(txtCostPrice.Text) + (decimal.Parse(txtCostPrice.Text) * percentage);
+            txtSPrice.Text = sellPrice.ToString();
+        }
+
+        private void btnAddStock_Click(object sender, EventArgs e)
+        {
+
+
+            this.inventoriesTableAdapter.InsertQuery(txtProductName.Text, cbCategory.SelectedItem.ToString(), decimal.Parse(txtCostPrice.Text.Trim(' ')), percentage, sellPrice, Int32.Parse(cbPQuantity.SelectedItem.ToString()));
+            MessageBox.Show("Inventory Items Added Suceessfully!!");
+            this.inventoriesTableAdapter.Fill(this.group8NewDataSet.Inventories);
+        }
+
+        private void txtSearchBPB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
+/*
+ 
+     */

@@ -22,8 +22,7 @@ namespace WinAppz
         private decimal SubTotal = 0;
         public decimal Tax = 0.15m;
         public   string ConString = ConfigurationManager.ConnectionStrings["pcCon"].ConnectionString; // cpnnectionstring for datatbase
-        private StringReader myReader;
-
+        
 
         public Home()
         {
@@ -272,7 +271,7 @@ namespace WinAppz
                 }
 
                 SubTotal = listPrice;
-                txtSubTotal.Text = SubTotal.ToString();
+                txtSubTotal.Text ="R" + SubTotal.ToString();
 
             }
             catch(FormatException s)

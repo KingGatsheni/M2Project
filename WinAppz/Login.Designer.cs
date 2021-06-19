@@ -36,6 +36,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lbError = new System.Windows.Forms.Label();
+            this.lbFPass = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,9 +45,10 @@
             this.groupBox3.Controls.Add(this.btnLogin);
             this.groupBox3.Controls.Add(this.txtPassword);
             this.groupBox3.Controls.Add(this.txtUserName);
+            this.groupBox3.Controls.Add(this.lbFPass);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(428, 339);
+            this.groupBox3.Location = new System.Drawing.Point(378, 350);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(388, 361);
             this.groupBox3.TabIndex = 0;
@@ -57,7 +59,7 @@
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogin.Location = new System.Drawing.Point(172, 247);
+            this.btnLogin.Location = new System.Drawing.Point(172, 237);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLogin.Size = new System.Drawing.Size(174, 45);
@@ -71,12 +73,11 @@
             this.txtPassword.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(172, 141);
-            this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(174, 45);
+            this.txtPassword.Size = new System.Drawing.Size(174, 35);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtUserName
             // 
@@ -129,10 +130,23 @@
             // 
             this.lbError.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbError.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbError.Location = new System.Drawing.Point(467, 248);
+            this.lbError.Location = new System.Drawing.Point(373, 258);
             this.lbError.Name = "lbError";
             this.lbError.Size = new System.Drawing.Size(393, 43);
             this.lbError.TabIndex = 0;
+            // 
+            // lbFPass
+            // 
+            this.lbFPass.AutoSize = true;
+            this.lbFPass.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFPass.ForeColor = System.Drawing.Color.LightGreen;
+            this.lbFPass.Location = new System.Drawing.Point(172, 305);
+            this.lbFPass.Name = "lbFPass";
+            this.lbFPass.Size = new System.Drawing.Size(174, 30);
+            this.lbFPass.TabIndex = 0;
+            this.lbFPass.Text = "Forgot Password?";
+            this.lbFPass.MouseLeave += new System.EventHandler(this.lbFPass_MouseLeave);
+            this.lbFPass.MouseHover += new System.EventHandler(this.lbFPass_MouseHover);
             // 
             // LoginForm
             // 
@@ -166,5 +180,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lbError;
+        private System.Windows.Forms.Label lbFPass;
     }
 }

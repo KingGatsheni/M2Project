@@ -21,6 +21,7 @@ namespace WinAppz
         public LoginForm()
         {
             InitializeComponent();
+            txtPassword.PasswordChar = '*';
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -65,6 +66,19 @@ namespace WinAppz
             txtUserName.Focus();
         }
 
-       
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            //txtPassword.PasswordChar = '*';
+        }
+
+        private void lbFPass_MouseLeave(object sender, EventArgs e)
+        {
+            lbFPass.ForeColor = Color.LimeGreen;
+        }
+
+        private void lbFPass_MouseHover(object sender, EventArgs e)
+        {
+            lbFPass.ForeColor = Color.White;
+        }
     }
 }

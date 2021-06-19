@@ -29,94 +29,89 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.inventoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.group8NewDataSet = new WinAppz.group8NewDataSet();
-            this.inventoriesTableAdapter = new WinAppz.group8NewDataSetTableAdapters.InventoriesTableAdapter();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbQuantity = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnAddToCart = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtPrice = new System.Windows.Forms.TextBox();
-            this.txtCategory = new System.Windows.Forms.TextBox();
-            this.txtPId = new System.Windows.Forms.TextBox();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
+            this.cbPQuantity = new System.Windows.Forms.ComboBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnAddStock = new System.Windows.Forms.Button();
+            this.txtSPrice = new System.Windows.Forms.TextBox();
+            this.txtCostPrice = new System.Windows.Forms.TextBox();
+            this.txtProductName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtProductList = new System.Windows.Forms.DataGridView();
-            this.inventoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.markupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoriesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.group8NewDataSet)).BeginInit();
+            this.btnArchive = new System.Windows.Forms.Button();
+            this.cbMarkup = new System.Windows.Forms.ComboBox();
+            this.inventoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.group8NewDataSet = new WinAppz.group8NewDataSet();
+            this.inventoriesTableAdapter = new WinAppz.group8NewDataSetTableAdapters.InventoriesTableAdapter();
+            this.inventoryIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.markupDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sellingPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearchBPB = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtProductList)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.group8NewDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // inventoriesBindingSource
-            // 
-            this.inventoriesBindingSource.DataMember = "Inventories";
-            this.inventoriesBindingSource.DataSource = this.group8NewDataSet;
-            // 
-            // group8NewDataSet
-            // 
-            this.group8NewDataSet.DataSetName = "group8NewDataSet";
-            this.group8NewDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // inventoriesTableAdapter
-            // 
-            this.inventoriesTableAdapter.ClearBeforeFill = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.cbQuantity);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.btnAddToCart);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.txtPrice);
-            this.groupBox1.Controls.Add(this.txtCategory);
-            this.groupBox1.Controls.Add(this.txtPId);
+            this.groupBox1.Controls.Add(this.cbMarkup);
+            this.groupBox1.Controls.Add(this.cbCategory);
+            this.groupBox1.Controls.Add(this.cbPQuantity);
+            this.groupBox1.Controls.Add(this.btnAddStock);
+            this.groupBox1.Controls.Add(this.txtSPrice);
+            this.groupBox1.Controls.Add(this.txtCostPrice);
+            this.groupBox1.Controls.Add(this.txtProductName);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Location = new System.Drawing.Point(12, 29);
+            this.groupBox1.Location = new System.Drawing.Point(15, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(354, 487);
+            this.groupBox1.Size = new System.Drawing.Size(422, 481);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
-            // cbQuantity
+            // cbCategory
             // 
-            this.cbQuantity.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.cbQuantity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbQuantity.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbQuantity.FormattingEnabled = true;
-            this.cbQuantity.Items.AddRange(new object[] {
+            this.cbCategory.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategory.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Items.AddRange(new object[] {
+            "Laptops/Computers",
+            "Accessories"});
+            this.cbCategory.Location = new System.Drawing.Point(171, 90);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(229, 38);
+            this.cbCategory.TabIndex = 14;
+            // 
+            // cbPQuantity
+            // 
+            this.cbPQuantity.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cbPQuantity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPQuantity.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPQuantity.FormattingEnabled = true;
+            this.cbPQuantity.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -127,78 +122,68 @@
             "8",
             "9",
             "10"});
-            this.cbQuantity.Location = new System.Drawing.Point(171, 368);
-            this.cbQuantity.Name = "cbQuantity";
-            this.cbQuantity.Size = new System.Drawing.Size(174, 38);
-            this.cbQuantity.TabIndex = 14;
+            this.cbPQuantity.Location = new System.Drawing.Point(171, 368);
+            this.cbPQuantity.Name = "cbPQuantity";
+            this.cbPQuantity.Size = new System.Drawing.Size(229, 38);
+            this.cbPQuantity.TabIndex = 14;
             // 
-            // button1
+            // btnUpdate
             // 
-            this.button1.BackColor = System.Drawing.Color.BlueViolet;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(6, 426);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(144, 45);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Update";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnUpdate.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnUpdate.Location = new System.Drawing.Point(752, 22);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnUpdate.Size = new System.Drawing.Size(171, 106);
+            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
             // 
-            // btnAddToCart
+            // btnAddStock
             // 
-            this.btnAddToCart.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnAddToCart.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddToCart.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAddToCart.Location = new System.Drawing.Point(199, 426);
-            this.btnAddToCart.Name = "btnAddToCart";
-            this.btnAddToCart.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnAddToCart.Size = new System.Drawing.Size(146, 45);
-            this.btnAddToCart.TabIndex = 3;
-            this.btnAddToCart.Text = "Add To Stock";
-            this.btnAddToCart.UseVisualStyleBackColor = false;
+            this.btnAddStock.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnAddStock.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddStock.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAddStock.Location = new System.Drawing.Point(171, 426);
+            this.btnAddStock.Name = "btnAddStock";
+            this.btnAddStock.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnAddStock.Size = new System.Drawing.Size(229, 45);
+            this.btnAddStock.TabIndex = 3;
+            this.btnAddStock.Text = "Add To Inventory";
+            this.btnAddStock.UseVisualStyleBackColor = false;
+            this.btnAddStock.Click += new System.EventHandler(this.btnAddStock_Click);
             // 
-            // textBox1
+            // txtSPrice
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(171, 216);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(174, 45);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Tag = "";
+            this.txtSPrice.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtSPrice.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSPrice.Location = new System.Drawing.Point(171, 288);
+            this.txtSPrice.Multiline = true;
+            this.txtSPrice.Name = "txtSPrice";
+            this.txtSPrice.Size = new System.Drawing.Size(229, 45);
+            this.txtSPrice.TabIndex = 2;
+            this.txtSPrice.Tag = "";
             // 
-            // txtPrice
+            // txtCostPrice
             // 
-            this.txtPrice.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtPrice.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.Location = new System.Drawing.Point(171, 288);
-            this.txtPrice.Multiline = true;
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(174, 45);
-            this.txtPrice.TabIndex = 2;
-            this.txtPrice.Tag = "";
+            this.txtCostPrice.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtCostPrice.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCostPrice.Location = new System.Drawing.Point(171, 150);
+            this.txtCostPrice.Multiline = true;
+            this.txtCostPrice.Name = "txtCostPrice";
+            this.txtCostPrice.Size = new System.Drawing.Size(229, 45);
+            this.txtCostPrice.TabIndex = 2;
             // 
-            // txtCategory
+            // txtProductName
             // 
-            this.txtCategory.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtCategory.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategory.Location = new System.Drawing.Point(171, 150);
-            this.txtCategory.Multiline = true;
-            this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(174, 45);
-            this.txtCategory.TabIndex = 2;
-            // 
-            // txtPId
-            // 
-            this.txtPId.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtPId.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPId.Location = new System.Drawing.Point(171, 11);
-            this.txtPId.Multiline = true;
-            this.txtPId.Name = "txtPId";
-            this.txtPId.Size = new System.Drawing.Size(174, 45);
-            this.txtPId.TabIndex = 2;
+            this.txtProductName.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtProductName.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductName.Location = new System.Drawing.Point(171, 24);
+            this.txtProductName.Multiline = true;
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Size = new System.Drawing.Size(229, 45);
+            this.txtProductName.TabIndex = 2;
             // 
             // label1
             // 
@@ -238,7 +223,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(6, 31);
+            this.label3.Location = new System.Drawing.Point(6, 48);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 25);
             this.label3.TabIndex = 1;
@@ -266,135 +251,13 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "Category";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtSearch);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.dtProductList);
-            this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(372, 41);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(559, 476);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "InventoryList";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(327, 24);
-            this.txtSearch.Multiline = true;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(224, 45);
-            this.txtSearch.TabIndex = 12;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(20, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(301, 37);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Search by ProductName";
-            // 
-            // dtProductList
-            // 
-            this.dtProductList.AllowUserToAddRows = false;
-            this.dtProductList.AllowUserToDeleteRows = false;
-            this.dtProductList.AutoGenerateColumns = false;
-            this.dtProductList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtProductList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dtProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.inventoryIdDataGridViewTextBoxColumn,
-            this.productNameDataGridViewTextBoxColumn,
-            this.categoryDataGridViewTextBoxColumn,
-            this.costPriceDataGridViewTextBoxColumn,
-            this.markupDataGridViewTextBoxColumn,
-            this.sellingPriceDataGridViewTextBoxColumn,
-            this.quantityDataGridViewTextBoxColumn});
-            this.dtProductList.DataSource = this.inventoriesBindingSource;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtProductList.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dtProductList.GridColor = System.Drawing.Color.Black;
-            this.dtProductList.Location = new System.Drawing.Point(6, 92);
-            this.dtProductList.Name = "dtProductList";
-            this.dtProductList.ReadOnly = true;
-            this.dtProductList.Size = new System.Drawing.Size(545, 379);
-            this.dtProductList.TabIndex = 11;
-            // 
-            // inventoryIdDataGridViewTextBoxColumn
-            // 
-            this.inventoryIdDataGridViewTextBoxColumn.DataPropertyName = "InventoryId";
-            this.inventoryIdDataGridViewTextBoxColumn.HeaderText = "InventoryId";
-            this.inventoryIdDataGridViewTextBoxColumn.Name = "inventoryIdDataGridViewTextBoxColumn";
-            this.inventoryIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // costPriceDataGridViewTextBoxColumn
-            // 
-            this.costPriceDataGridViewTextBoxColumn.DataPropertyName = "CostPrice";
-            this.costPriceDataGridViewTextBoxColumn.HeaderText = "CostPrice";
-            this.costPriceDataGridViewTextBoxColumn.Name = "costPriceDataGridViewTextBoxColumn";
-            this.costPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // markupDataGridViewTextBoxColumn
-            // 
-            this.markupDataGridViewTextBoxColumn.DataPropertyName = "Markup";
-            this.markupDataGridViewTextBoxColumn.HeaderText = "Markup";
-            this.markupDataGridViewTextBoxColumn.Name = "markupDataGridViewTextBoxColumn";
-            this.markupDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sellingPriceDataGridViewTextBoxColumn
-            // 
-            this.sellingPriceDataGridViewTextBoxColumn.DataPropertyName = "SellingPrice";
-            this.sellingPriceDataGridViewTextBoxColumn.HeaderText = "SellingPrice";
-            this.sellingPriceDataGridViewTextBoxColumn.Name = "sellingPriceDataGridViewTextBoxColumn";
-            this.sellingPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(12, 536);
+            this.groupBox2.Location = new System.Drawing.Point(12, 511);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(589, 335);
+            this.groupBox2.Size = new System.Drawing.Size(751, 386);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "InventoryList";
@@ -403,58 +266,183 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.inventoryIdDataGridViewTextBoxColumn1,
+            this.productNameDataGridViewTextBoxColumn1,
+            this.categoryDataGridViewTextBoxColumn1,
+            this.costPriceDataGridViewTextBoxColumn1,
+            this.markupDataGridViewTextBoxColumn1,
+            this.sellingPriceDataGridViewTextBoxColumn1,
+            this.quantityDataGridViewTextBoxColumn1});
+            this.dataGridView1.DataSource = this.inventoriesBindingSource;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(3, 21);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(583, 311);
+            this.dataGridView1.Size = new System.Drawing.Size(745, 362);
             this.dataGridView1.TabIndex = 11;
             // 
-            // button2
+            // btnArchive
             // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(624, 556);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(171, 101);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Archived Inventory Item";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnArchive.BackColor = System.Drawing.Color.Red;
+            this.btnArchive.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArchive.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnArchive.Location = new System.Drawing.Point(752, 182);
+            this.btnArchive.Name = "btnArchive";
+            this.btnArchive.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnArchive.Size = new System.Drawing.Size(171, 101);
+            this.btnArchive.TabIndex = 3;
+            this.btnArchive.Text = "Archived Inventory Item";
+            this.btnArchive.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
+            // cbMarkup
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Laptops/Computers",
-            "Accessories"});
-            this.comboBox1.Location = new System.Drawing.Point(171, 90);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(174, 38);
-            this.comboBox1.TabIndex = 14;
+            this.cbMarkup.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cbMarkup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMarkup.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMarkup.FormattingEnabled = true;
+            this.cbMarkup.Items.AddRange(new object[] {
+            "10%",
+            "15%",
+            "20%",
+            "25%",
+            "30%",
+            "35%",
+            "40%",
+            "45%",
+            "50%"});
+            this.cbMarkup.Location = new System.Drawing.Point(171, 224);
+            this.cbMarkup.Name = "cbMarkup";
+            this.cbMarkup.Size = new System.Drawing.Size(229, 38);
+            this.cbMarkup.TabIndex = 14;
+            this.cbMarkup.SelectedIndexChanged += new System.EventHandler(this.cbMarkup_SelectedIndexChanged);
+            // 
+            // inventoriesBindingSource
+            // 
+            this.inventoriesBindingSource.DataMember = "Inventories";
+            this.inventoriesBindingSource.DataSource = this.group8NewDataSet;
+            // 
+            // group8NewDataSet
+            // 
+            this.group8NewDataSet.DataSetName = "group8NewDataSet";
+            this.group8NewDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // inventoriesTableAdapter
+            // 
+            this.inventoriesTableAdapter.ClearBeforeFill = true;
+            // 
+            // inventoryIdDataGridViewTextBoxColumn1
+            // 
+            this.inventoryIdDataGridViewTextBoxColumn1.DataPropertyName = "InventoryId";
+            this.inventoryIdDataGridViewTextBoxColumn1.HeaderText = "InventoryId";
+            this.inventoryIdDataGridViewTextBoxColumn1.Name = "inventoryIdDataGridViewTextBoxColumn1";
+            this.inventoryIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // productNameDataGridViewTextBoxColumn1
+            // 
+            this.productNameDataGridViewTextBoxColumn1.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn1.HeaderText = "ProductName";
+            this.productNameDataGridViewTextBoxColumn1.Name = "productNameDataGridViewTextBoxColumn1";
+            this.productNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // categoryDataGridViewTextBoxColumn1
+            // 
+            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn1.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
+            this.categoryDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // costPriceDataGridViewTextBoxColumn1
+            // 
+            this.costPriceDataGridViewTextBoxColumn1.DataPropertyName = "CostPrice";
+            this.costPriceDataGridViewTextBoxColumn1.HeaderText = "CostPrice";
+            this.costPriceDataGridViewTextBoxColumn1.Name = "costPriceDataGridViewTextBoxColumn1";
+            this.costPriceDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // markupDataGridViewTextBoxColumn1
+            // 
+            this.markupDataGridViewTextBoxColumn1.DataPropertyName = "Markup";
+            this.markupDataGridViewTextBoxColumn1.HeaderText = "Markup";
+            this.markupDataGridViewTextBoxColumn1.Name = "markupDataGridViewTextBoxColumn1";
+            this.markupDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // sellingPriceDataGridViewTextBoxColumn1
+            // 
+            this.sellingPriceDataGridViewTextBoxColumn1.DataPropertyName = "SellingPrice";
+            this.sellingPriceDataGridViewTextBoxColumn1.HeaderText = "SellingPrice";
+            this.sellingPriceDataGridViewTextBoxColumn1.Name = "sellingPriceDataGridViewTextBoxColumn1";
+            this.sellingPriceDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // quantityDataGridViewTextBoxColumn1
+            // 
+            this.quantityDataGridViewTextBoxColumn1.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn1.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn1.Name = "quantityDataGridViewTextBoxColumn1";
+            this.quantityDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // txtSearchBPB
+            // 
+            this.txtSearchBPB.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtSearchBPB.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchBPB.Location = new System.Drawing.Point(450, 448);
+            this.txtSearchBPB.Multiline = true;
+            this.txtSearchBPB.Name = "txtSearchBPB";
+            this.txtSearchBPB.Size = new System.Drawing.Size(286, 45);
+            this.txtSearchBPB.TabIndex = 17;
+            this.txtSearchBPB.TextChanged += new System.EventHandler(this.txtSearchBPB_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(443, 387);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(293, 37);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "SearchBy ProductName";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(443, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(288, 37);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Update Inventory By Id";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(450, 83);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(279, 45);
+            this.textBox1.TabIndex = 17;
+            this.textBox1.TextChanged += new System.EventHandler(this.txtSearchBPB_TextChanged);
             // 
             // InventoryForm
             // 
@@ -462,9 +450,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(935, 966);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSearchBPB);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnArchive);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
@@ -473,16 +465,14 @@
             this.Name = "InventoryForm";
             this.Text = "InventoryForm";
             this.Load += new System.EventHandler(this.InventoryForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.inventoriesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.group8NewDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtProductList)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.group8NewDataSet)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -491,33 +481,33 @@
         private System.Windows.Forms.BindingSource inventoriesBindingSource;
         private group8NewDataSetTableAdapters.InventoriesTableAdapter inventoriesTableAdapter;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cbQuantity;
-        private System.Windows.Forms.Button btnAddToCart;
-        private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.TextBox txtCategory;
-        private System.Windows.Forms.TextBox txtPId;
+        private System.Windows.Forms.ComboBox cbPQuantity;
+        private System.Windows.Forms.Button btnAddStock;
+        private System.Windows.Forms.TextBox txtSPrice;
+        private System.Windows.Forms.TextBox txtCostPrice;
+        private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dtProductList;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn markupDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sellingPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnArchive;
+        private System.Windows.Forms.ComboBox cbCategory;
+        private System.Windows.Forms.ComboBox cbMarkup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costPriceDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn markupDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sellingPriceDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.TextBox txtSearchBPB;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -105,7 +105,7 @@ namespace WinAppz
             {
                  AmountDue = decimal.Parse(txtAmountDue.Text.Trim('R'));
                  AmountPaid = decimal.Parse(txtPaidAmount.Text.Trim('R'));
-                if (rbCash.Checked == true)
+                if (rbCash.Checked == true )
                 {
                     
                         Change = AmountPaid - AmountDue;
@@ -151,7 +151,7 @@ namespace WinAppz
               
 
             }
-            catch (SqlException s) {
+            catch (Exception s) {
                 MessageBox.Show(s.Message);
             }
             finally
@@ -172,11 +172,5 @@ namespace WinAppz
 /*
  To do  here re add the stock substrated from inventory if payment is callled.
  fix bug. showing transcation suceessful if it got cancelled.
- fix bug where slip get populated even if you cancel trancation. Fixed.
- fix bug. where if i remove an item the subtotal shoul be uodated with new price which equal to subtotal = subtotal - removeditem Price.
- fix bug where input Format exption error is given if trying to update price on quantity update.
      
-     
-     
-     
-     */
+ */

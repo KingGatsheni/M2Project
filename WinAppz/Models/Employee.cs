@@ -13,7 +13,7 @@ namespace M2PcWizard_POS.Models
         public int EmployeeId { get; set; }
         public long StuffId { get; set; }
         public string Firstname { get; set; }
-        public string LastnName { get; set; }
+        public string LastName { get; set; }
         public string ID { get; set; }
         public string Cell_No { get; set; }
         public string Email { get; set; }
