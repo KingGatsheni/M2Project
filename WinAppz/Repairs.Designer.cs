@@ -59,6 +59,7 @@
             this.txtCellNo = new System.Windows.Forms.TextBox();
             this.btnPayRepair = new System.Windows.Forms.Button();
             this.lbMissing = new MetroSet_UI.Controls.MetroSetLabel();
+            this.metroSetLabel1 = new MetroSet_UI.Controls.MetroSetLabel();
             this.groupRepairItem.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -420,16 +421,32 @@
             // 
             this.lbMissing.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMissing.IsDerivedStyle = true;
-            this.lbMissing.Location = new System.Drawing.Point(497, 20);
+            this.lbMissing.Location = new System.Drawing.Point(520, 497);
             this.lbMissing.Name = "lbMissing";
-            this.lbMissing.Size = new System.Drawing.Size(402, 36);
+            this.lbMissing.Size = new System.Drawing.Size(64, 36);
             this.lbMissing.Style = MetroSet_UI.Enums.Style.Dark;
             this.lbMissing.StyleManager = null;
             this.lbMissing.TabIndex = 15;
-            this.lbMissing.Text = "*";
+            this.lbMissing.Text = "R0.00";
             this.lbMissing.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbMissing.ThemeAuthor = "Narwin";
             this.lbMissing.ThemeName = "MetroDark";
+            // 
+            // metroSetLabel1
+            // 
+            this.metroSetLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroSetLabel1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.metroSetLabel1.IsDerivedStyle = true;
+            this.metroSetLabel1.Location = new System.Drawing.Point(348, 497);
+            this.metroSetLabel1.Name = "metroSetLabel1";
+            this.metroSetLabel1.Size = new System.Drawing.Size(166, 36);
+            this.metroSetLabel1.Style = MetroSet_UI.Enums.Style.Dark;
+            this.metroSetLabel1.StyleManager = null;
+            this.metroSetLabel1.TabIndex = 15;
+            this.metroSetLabel1.Text = "Total Repair Price";
+            this.metroSetLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroSetLabel1.ThemeAuthor = "Narwin";
+            this.metroSetLabel1.ThemeName = "MetroDark";
             // 
             // Repairs
             // 
@@ -437,6 +454,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(935, 966);
+            this.Controls.Add(this.metroSetLabel1);
             this.Controls.Add(this.lbMissing);
             this.Controls.Add(this.btnItemList);
             this.Controls.Add(this.btnPayRepair);
@@ -491,5 +509,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private MetroSet_UI.Controls.MetroSetLabel metroSetLabel1;
     }
 }

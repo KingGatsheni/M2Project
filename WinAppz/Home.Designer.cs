@@ -137,6 +137,7 @@
             this.dtProductList.ReadOnly = true;
             this.dtProductList.Size = new System.Drawing.Size(531, 405);
             this.dtProductList.TabIndex = 10;
+            this.dtProductList.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtProductList_ColumnHeaderMouseClick);
             // 
             // productNameDataGridViewTextBoxColumn
             // 
@@ -345,13 +346,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(578, 38);
+            this.label1.Location = new System.Drawing.Point(394, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 37);
+            this.label1.Size = new System.Drawing.Size(272, 32);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Search";
+            this.label1.Text = "Search by ProductName";
             // 
             // groupBox2
             // 
@@ -445,7 +446,7 @@
             this.lTime.AutoSize = true;
             this.lTime.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTime.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lTime.Location = new System.Drawing.Point(379, 40);
+            this.lTime.Location = new System.Drawing.Point(24, -1);
             this.lTime.Name = "lTime";
             this.lTime.Size = new System.Drawing.Size(53, 25);
             this.lTime.TabIndex = 1;

@@ -6,7 +6,9 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,11 +22,19 @@ namespace WinAppz
         private decimal SubTotal = 0;
         public decimal Tax = 0.15m;
         public   string ConString = ConfigurationManager.ConnectionStrings["pcCon"].ConnectionString; // cpnnectionstring for datatbase
-       
-        
+        private StringReader myReader;
+
+
         public Home()
         {
             InitializeComponent();
+           
+
+        }
+
+        private void PrintPageEventHandler(Action<object, PrintPageEventArgs> printSlipDoc_PrintPage)
+        {
+            throw new NotImplementedException();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -58,25 +68,37 @@ namespace WinAppz
         private void btnAddToCart_Click(object sender, EventArgs e)
         {
             try {
-                var cartItemPrice = (Int32.Parse(cbQuantity.SelectedItem.ToString()) * decimal.Parse(txtPrice.Text));
 
-                ListViewItem item = new ListViewItem(txtPId.Text);
-                item.SubItems.Add(txtPName.Text);
-                item.SubItems.Add(cbQuantity.SelectedItem.ToString());
-                item.SubItems.Add("R" + cartItemPrice.ToString());
-                lvCart.Items.Add(item);
 
-                SubTotal = SubTotal + cartItemPrice;
-                txtSubTotal.Text = "R" + SubTotal.ToString();
+                int QtyValue = Int32.Parse(dtProductList.CurrentRow.Cells[4].Value.ToString());
+
+                if (Int32.Parse(cbQuantity.Text) > QtyValue || QtyValue == 0)
+                {
+                    MessageBox.Show("Can not Proceed with Sale Item out of Stock or Selected Quantity Exceed Available Stock!!!");
+                }
+                else
+                {
+                    var cartItemPrice = (Int32.Parse(cbQuantity.SelectedItem.ToString()) * decimal.Parse(txtPrice.Text));
+
+                    ListViewItem item = new ListViewItem(txtPId.Text);
+                    item.SubItems.Add(txtPName.Text);
+                    item.SubItems.Add(cbQuantity.SelectedItem.ToString());
+                    item.SubItems.Add("R" + cartItemPrice.ToString());
+                    lvCart.Items.Add(item);
+
+                    SubTotal = SubTotal + cartItemPrice;
+                    txtSubTotal.Text = "R" + SubTotal.ToString();
+                }
+                
 
             }
             catch(Exception error)
             {
                 MessageBox.Show(error.Message);
             }
-           
 
-           
+          
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -99,6 +121,7 @@ namespace WinAppz
         private void button1_Click(object sender, EventArgs e)
         {
             SqlConnection sqlconn = new SqlConnection(ConString);// initialise sql connection
+          
             if (SubTotal != 0) {
                
 
@@ -216,6 +239,8 @@ namespace WinAppz
             lblSubtotal.Text = "";
             SubTotal = 0;
             txtSubTotal.Text = "R0.00";
+
+
         }
 
         private void lvCart_SelectedIndexChanged(object sender, EventArgs e)
@@ -269,6 +294,11 @@ namespace WinAppz
                 
             }
             txtSubTotal.Text = SubTotal.ToString();
+        }
+
+        private void dtProductList_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+           // int Qty = dtProductList.CurrentRow[].Value
         }
     }
 }
