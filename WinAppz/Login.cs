@@ -107,8 +107,16 @@ namespace WinAppz
                 SqlCommand command = new SqlCommand(requestPassword, sqlconn);
 
                 var password = command.ExecuteScalar();
+                if(password == null)
+                {
+                    MessageBox.Show("Employee With StuffId Of: " + txtUserName.Text + " Does Not Exist");
+                }
+                else
+                {
+                    MessageBox.Show("Your login Password is: " + password);
+                }
 
-                MessageBox.Show("Your login Password is: " + password);
+               
                 sqlconn.Close();
 
             }

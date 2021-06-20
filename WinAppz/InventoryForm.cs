@@ -74,6 +74,16 @@ namespace WinAppz
             MessageBox.Show("Inventory Item Updated Suceessfully!!");
             this.inventoriesTableAdapter.Fill(this.group8NewDataSet.Inventories);
         }
+
+        private void txtCostPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
 

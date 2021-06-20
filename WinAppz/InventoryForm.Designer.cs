@@ -170,6 +170,7 @@
             this.txtSPrice.Location = new System.Drawing.Point(171, 288);
             this.txtSPrice.Multiline = true;
             this.txtSPrice.Name = "txtSPrice";
+            this.txtSPrice.ReadOnly = true;
             this.txtSPrice.Size = new System.Drawing.Size(229, 45);
             this.txtSPrice.TabIndex = 2;
             this.txtSPrice.Tag = "";
@@ -183,6 +184,7 @@
             this.txtCostPrice.Name = "txtCostPrice";
             this.txtCostPrice.Size = new System.Drawing.Size(229, 45);
             this.txtCostPrice.TabIndex = 2;
+            this.txtCostPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCostPrice_KeyPress);
             // 
             // txtProductName
             // 

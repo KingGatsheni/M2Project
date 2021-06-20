@@ -225,6 +225,7 @@
             this.txtPaidAmount.Name = "txtPaidAmount";
             this.txtPaidAmount.Size = new System.Drawing.Size(269, 45);
             this.txtPaidAmount.TabIndex = 15;
+            this.txtPaidAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPaidAmount_KeyPress);
             // 
             // rbCard
             // 

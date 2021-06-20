@@ -205,6 +205,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(275, 45);
             this.txtPrice.TabIndex = 8;
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // txtItemName
             // 
@@ -397,12 +398,13 @@
             this.txtCellNo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCellNo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCellNo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.txtCellNo.Location = new System.Drawing.Point(190, 144);
+            this.txtCellNo.Location = new System.Drawing.Point(190, 143);
             this.txtCellNo.Multiline = true;
             this.txtCellNo.Name = "txtCellNo";
             this.txtCellNo.Size = new System.Drawing.Size(230, 45);
             this.txtCellNo.TabIndex = 6;
             this.txtCellNo.TextChanged += new System.EventHandler(this.txtCellNo_TextChanged);
+            this.txtCellNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCellNo_KeyPress);
             // 
             // btnPayRepair
             // 

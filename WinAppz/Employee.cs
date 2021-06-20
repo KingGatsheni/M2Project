@@ -31,31 +31,58 @@ namespace WinAppz
 
         private void btnAddToCart_Click(object sender, EventArgs e)
         {
-           
-            SqlConnection sqlConnection = new SqlConnection(ConString);
-            sqlConnection.Open();
-            string queryId = "select top 1 StuffId from Employees order by StuffId desc";
-            SqlCommand QId = new SqlCommand(queryId, sqlConnection);
+            if(txtIDNo.Text.Length != 13 || txtCellNo.Text.Length !=10)
+            {
+                MessageBox.Show("Please Provide A correct South African Id Number.");
+            }
+            else
+            {
+                SqlConnection sqlConnection = new SqlConnection(ConString);
+                sqlConnection.Open();
+                string queryId = "select top 1 StuffId from Employees order by StuffId desc";
+                SqlCommand QId = new SqlCommand(queryId, sqlConnection);
 
-            var stuffId = QId.ExecuteScalar();
-            stuffId = (long)stuffId + 1;
-           
-            sqlConnection.Close();
+                var stuffId = QId.ExecuteScalar();
+                stuffId = (long)stuffId + 1;
 
-            employeesTableAdapter.InsertQuery((long)stuffId, txtFirstName.Text, txtIDNo.Text, txtCellNo.Text, txtEmail.Text, cbEmployeeRole.SelectedItem.ToString(), txtAddress.Text, txtLastName.Text);
-            employeesTableAdapter.Fill(this.group8DataSet.Employees);
+                sqlConnection.Close();
 
-            Accounts accountForm = new Accounts();
-            accountForm.txtUserName.Text = stuffId.ToString();
-            accountForm.ShowDialog();
+                employeesTableAdapter.InsertQuery((long)stuffId, txtFirstName.Text, txtIDNo.Text, txtCellNo.Text, txtEmail.Text, cbEmployeeRole.SelectedItem.ToString(), txtAddress.Text, txtLastName.Text);
+                employeesTableAdapter.Fill(this.group8DataSet.Employees);
 
-            MessageBox.Show("Successfully");
+                Accounts accountForm = new Accounts();
+                accountForm.txtUserName.Text = stuffId.ToString();
+                accountForm.ShowDialog();
+
+                MessageBox.Show("Successfully");
+            }
+          
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtIDNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if(!Char.IsDigit(ch) && ch != 8 && ch != 46)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCellNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

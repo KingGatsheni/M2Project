@@ -35,6 +35,7 @@
             this.cbEmployeeRole = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnAddToCart = new System.Windows.Forms.Button();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtIDNo = new System.Windows.Forms.TextBox();
             this.txtCellNo = new System.Windows.Forms.TextBox();
@@ -64,7 +65,6 @@
             this.group8DataSet = new WinAppz.group8DataSet();
             this.button2 = new System.Windows.Forms.Button();
             this.employeesTableAdapter = new WinAppz.group8DataSetTableAdapters.EmployeesTableAdapter();
-            this.txtAddress = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductList)).BeginInit();
@@ -139,6 +139,17 @@
             this.btnAddToCart.UseVisualStyleBackColor = false;
             this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
             // 
+            // txtAddress
+            // 
+            this.txtAddress.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Location = new System.Drawing.Point(171, 447);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(174, 45);
+            this.txtAddress.TabIndex = 2;
+            this.txtAddress.Tag = "";
+            // 
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -154,12 +165,13 @@
             // 
             this.txtIDNo.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtIDNo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDNo.Location = new System.Drawing.Point(171, 167);
+            this.txtIDNo.Location = new System.Drawing.Point(171, 168);
             this.txtIDNo.Multiline = true;
             this.txtIDNo.Name = "txtIDNo";
             this.txtIDNo.Size = new System.Drawing.Size(174, 45);
             this.txtIDNo.TabIndex = 2;
             this.txtIDNo.Tag = "";
+            this.txtIDNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIDNo_KeyPress);
             // 
             // txtCellNo
             // 
@@ -171,6 +183,7 @@
             this.txtCellNo.Size = new System.Drawing.Size(174, 45);
             this.txtCellNo.TabIndex = 2;
             this.txtCellNo.Tag = "";
+            this.txtCellNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCellNo_KeyPress);
             // 
             // txtFirstName
             // 
@@ -433,17 +446,6 @@
             // employeesTableAdapter
             // 
             this.employeesTableAdapter.ClearBeforeFill = true;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(171, 447);
-            this.txtAddress.Multiline = true;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(174, 45);
-            this.txtAddress.TabIndex = 2;
-            this.txtAddress.Tag = "";
             // 
             // Employee
             // 

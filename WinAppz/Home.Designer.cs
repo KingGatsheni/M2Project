@@ -248,6 +248,7 @@
             this.txtPrice.Location = new System.Drawing.Point(171, 288);
             this.txtPrice.Multiline = true;
             this.txtPrice.Name = "txtPrice";
+            this.txtPrice.ReadOnly = true;
             this.txtPrice.Size = new System.Drawing.Size(174, 45);
             this.txtPrice.TabIndex = 2;
             this.txtPrice.Tag = "";
@@ -261,6 +262,7 @@
             this.txtCategory.Location = new System.Drawing.Point(171, 150);
             this.txtCategory.Multiline = true;
             this.txtCategory.Name = "txtCategory";
+            this.txtCategory.ReadOnly = true;
             this.txtCategory.Size = new System.Drawing.Size(174, 45);
             this.txtCategory.TabIndex = 2;
             // 
@@ -273,6 +275,7 @@
             this.txtPId.Location = new System.Drawing.Point(171, 11);
             this.txtPId.Multiline = true;
             this.txtPId.Name = "txtPId";
+            this.txtPId.ReadOnly = true;
             this.txtPId.Size = new System.Drawing.Size(174, 45);
             this.txtPId.TabIndex = 2;
             // 
@@ -285,6 +288,7 @@
             this.txtPName.Location = new System.Drawing.Point(171, 83);
             this.txtPName.Multiline = true;
             this.txtPName.Name = "txtPName";
+            this.txtPName.ReadOnly = true;
             this.txtPName.Size = new System.Drawing.Size(174, 45);
             this.txtPName.TabIndex = 2;
             // 
