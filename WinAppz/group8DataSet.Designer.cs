@@ -3777,11 +3777,11 @@ namespace WinAppz {
             
             private global::System.Data.DataColumn columnRepairTotal;
             
+            private global::System.Data.DataColumn columnStuffId;
+            
             private global::System.Data.DataColumn columnCustomerId;
             
-            private global::System.Data.DataColumn columnEmployeeId;
-            
-            private global::System.Data.DataColumn columnExpr1;
+            private global::System.Data.DataColumn columnBookon;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -3858,6 +3858,14 @@ namespace WinAppz {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn StuffIdColumn {
+                get {
+                    return this.columnStuffId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn CustomerIdColumn {
                 get {
                     return this.columnCustomerId;
@@ -3866,17 +3874,9 @@ namespace WinAppz {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn EmployeeIdColumn {
+            public global::System.Data.DataColumn BookonColumn {
                 get {
-                    return this.columnEmployeeId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Expr1Column {
-                get {
-                    return this.columnExpr1;
+                    return this.columnBookon;
                 }
             }
             
@@ -3917,7 +3917,7 @@ namespace WinAppz {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public RepairReportTableRow AddRepairReportTableRow(string FirstName, decimal RepairPrice, string ItemName, string ItemFault, decimal RepairTotal, string Expr1) {
+            public RepairReportTableRow AddRepairReportTableRow(string FirstName, decimal RepairPrice, string ItemName, string ItemFault, decimal RepairTotal, long StuffId, System.DateTime Bookon) {
                 RepairReportTableRow rowRepairReportTableRow = ((RepairReportTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         FirstName,
@@ -3925,12 +3925,19 @@ namespace WinAppz {
                         ItemName,
                         ItemFault,
                         RepairTotal,
+                        StuffId,
                         null,
-                        null,
-                        Expr1};
+                        Bookon};
                 rowRepairReportTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRepairReportTableRow);
                 return rowRepairReportTableRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public RepairReportTableRow FindByCustomerId(int CustomerId) {
+                return ((RepairReportTableRow)(this.Rows.Find(new object[] {
+                            CustomerId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3955,9 +3962,9 @@ namespace WinAppz {
                 this.columnItemName = base.Columns["ItemName"];
                 this.columnItemFault = base.Columns["ItemFault"];
                 this.columnRepairTotal = base.Columns["RepairTotal"];
+                this.columnStuffId = base.Columns["StuffId"];
                 this.columnCustomerId = base.Columns["CustomerId"];
-                this.columnEmployeeId = base.Columns["EmployeeId"];
-                this.columnExpr1 = base.Columns["Expr1"];
+                this.columnBookon = base.Columns["Bookon"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3973,28 +3980,27 @@ namespace WinAppz {
                 base.Columns.Add(this.columnItemFault);
                 this.columnRepairTotal = new global::System.Data.DataColumn("RepairTotal", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRepairTotal);
+                this.columnStuffId = new global::System.Data.DataColumn("StuffId", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStuffId);
                 this.columnCustomerId = new global::System.Data.DataColumn("CustomerId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomerId);
-                this.columnEmployeeId = new global::System.Data.DataColumn("EmployeeId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEmployeeId);
-                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpr1);
+                this.columnBookon = new global::System.Data.DataColumn("Bookon", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBookon);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnCustomerId}, true));
                 this.columnFirstName.MaxLength = 2147483647;
                 this.columnRepairPrice.AllowDBNull = false;
                 this.columnItemName.MaxLength = 2147483647;
                 this.columnItemFault.MaxLength = 2147483647;
                 this.columnRepairTotal.AllowDBNull = false;
+                this.columnStuffId.AllowDBNull = false;
                 this.columnCustomerId.AutoIncrement = true;
                 this.columnCustomerId.AutoIncrementSeed = -1;
                 this.columnCustomerId.AutoIncrementStep = -1;
                 this.columnCustomerId.AllowDBNull = false;
                 this.columnCustomerId.ReadOnly = true;
-                this.columnEmployeeId.AutoIncrement = true;
-                this.columnEmployeeId.AutoIncrementSeed = -1;
-                this.columnEmployeeId.AutoIncrementStep = -1;
-                this.columnEmployeeId.AllowDBNull = false;
-                this.columnEmployeeId.ReadOnly = true;
-                this.columnExpr1.MaxLength = 2147483647;
+                this.columnCustomerId.Unique = true;
+                this.columnBookon.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5878,6 +5884,17 @@ namespace WinAppz {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public long StuffId {
+                get {
+                    return ((long)(this[this.tableRepairReportTable.StuffIdColumn]));
+                }
+                set {
+                    this[this.tableRepairReportTable.StuffIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int CustomerId {
                 get {
                     return ((int)(this[this.tableRepairReportTable.CustomerIdColumn]));
@@ -5889,28 +5906,12 @@ namespace WinAppz {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int EmployeeId {
+            public System.DateTime Bookon {
                 get {
-                    return ((int)(this[this.tableRepairReportTable.EmployeeIdColumn]));
+                    return ((global::System.DateTime)(this[this.tableRepairReportTable.BookonColumn]));
                 }
                 set {
-                    this[this.tableRepairReportTable.EmployeeIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Expr1 {
-                get {
-                    try {
-                        return ((string)(this[this.tableRepairReportTable.Expr1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Expr1\' in table \'RepairReportTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableRepairReportTable.Expr1Column] = value;
+                    this[this.tableRepairReportTable.BookonColumn] = value;
                 }
             }
             
@@ -5948,18 +5949,6 @@ namespace WinAppz {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetItemFaultNull() {
                 this[this.tableRepairReportTable.ItemFaultColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsExpr1Null() {
-                return this.IsNull(this.tableRepairReportTable.Expr1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetExpr1Null() {
-                this[this.tableRepairReportTable.Expr1Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9901,9 +9890,9 @@ SELECT SaleId, Total, Date, EmployeeId FROM Sales WHERE (SaleId = @SaleId)";
             tableMapping.ColumnMappings.Add("ItemName", "ItemName");
             tableMapping.ColumnMappings.Add("ItemFault", "ItemFault");
             tableMapping.ColumnMappings.Add("RepairTotal", "RepairTotal");
+            tableMapping.ColumnMappings.Add("StuffId", "StuffId");
             tableMapping.ColumnMappings.Add("CustomerId", "CustomerId");
-            tableMapping.ColumnMappings.Add("EmployeeId", "EmployeeId");
-            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
+            tableMapping.ColumnMappings.Add("Bookon", "Bookon");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -9920,7 +9909,7 @@ SELECT SaleId, Total, Date, EmployeeId FROM Sales WHERE (SaleId = @SaleId)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Customers.CustomerId, Customers.FirstName, Employees.EmployeeId, Employees.Firstname AS Expr1, RepairLists.RepairPrice, RepairLists.ItemName, RepairLists.ItemFault, Repairs.RepairTotal
+            this._commandCollection[0].CommandText = @"SELECT        Customers.CustomerId, Customers.FirstName, RepairLists.ItemName, RepairLists.ItemFault, RepairLists.RepairPrice, Repairs.RepairTotal, Repairs.Bookon, Employees.StuffId
 FROM            Customers INNER JOIN
                          Repairs ON Customers.CustomerId = Repairs.CustomerId INNER JOIN
                          Employees ON Repairs.EmployeeId = Employees.EmployeeId INNER JOIN

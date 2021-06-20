@@ -32,11 +32,11 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
+            this.lbFPass = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lbError = new System.Windows.Forms.Label();
-            this.lbFPass = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +89,20 @@
             this.txtUserName.Size = new System.Drawing.Size(174, 45);
             this.txtUserName.TabIndex = 1;
             // 
+            // lbFPass
+            // 
+            this.lbFPass.AutoSize = true;
+            this.lbFPass.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFPass.ForeColor = System.Drawing.Color.LightGreen;
+            this.lbFPass.Location = new System.Drawing.Point(172, 305);
+            this.lbFPass.Name = "lbFPass";
+            this.lbFPass.Size = new System.Drawing.Size(174, 30);
+            this.lbFPass.TabIndex = 0;
+            this.lbFPass.Text = "Forgot Password?";
+            this.lbFPass.Click += new System.EventHandler(this.lbFPass_Click);
+            this.lbFPass.MouseLeave += new System.EventHandler(this.lbFPass_MouseLeave);
+            this.lbFPass.MouseHover += new System.EventHandler(this.lbFPass_MouseHover);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -134,19 +148,6 @@
             this.lbError.Name = "lbError";
             this.lbError.Size = new System.Drawing.Size(393, 43);
             this.lbError.TabIndex = 0;
-            // 
-            // lbFPass
-            // 
-            this.lbFPass.AutoSize = true;
-            this.lbFPass.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFPass.ForeColor = System.Drawing.Color.LightGreen;
-            this.lbFPass.Location = new System.Drawing.Point(172, 305);
-            this.lbFPass.Name = "lbFPass";
-            this.lbFPass.Size = new System.Drawing.Size(174, 30);
-            this.lbFPass.TabIndex = 0;
-            this.lbFPass.Text = "Forgot Password?";
-            this.lbFPass.MouseLeave += new System.EventHandler(this.lbFPass_MouseLeave);
-            this.lbFPass.MouseHover += new System.EventHandler(this.lbFPass_MouseHover);
             // 
             // LoginForm
             // 

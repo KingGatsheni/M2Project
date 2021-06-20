@@ -45,5 +45,10 @@ namespace WinAppz
             this.repairReportTableTableAdapter1.Fill(this.group8DataSet3.RepairReportTable);
 
         }
+
+        private void txtSearchrepairTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

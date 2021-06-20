@@ -33,7 +33,7 @@ namespace WinAppz
 
         private void ContainerForm_Load(object sender, EventArgs e)
         {
-            if (UserName == "manager")
+            if (UserName == "202101")
             {
                 btnManager.Enabled = true;
             }
@@ -94,7 +94,7 @@ namespace WinAppz
 
         private void button3_Click(object sender, EventArgs e)
         {
-            switchPanel(new Reports());
+            //switchPanel(new Reports());
         }
 
        

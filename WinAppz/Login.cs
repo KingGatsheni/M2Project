@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,10 +15,10 @@ namespace WinAppz
 {
     public partial class LoginForm : Form
     {
-       
-        
-       
-      
+        public string ConString = ConfigurationManager.ConnectionStrings["pcCon"].ConnectionString;
+
+
+
 
         public LoginForm()
         {
@@ -33,15 +35,22 @@ namespace WinAppz
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtUserName.Text.Trim(' ') == "admin" && txtPassword.Text.Trim(' ') == "pass") {
-                ContainerForm Container = new ContainerForm(txtUserName.Text);
+            SqlConnection sqlconn = new SqlConnection(ConString);
+            string user = "select * from Accounts where UserName = '"+ txtUserName.Text.Trim(' ')+"' And Password = '"+txtPassword.Text.Trim(' ')+"'";
+            sqlconn.Open();
+            SqlCommand loginUser = new SqlCommand(user, sqlconn);
+            SqlDataAdapter userAdpter = new SqlDataAdapter(loginUser);
+            DataTable dt = new DataTable();
+            userAdpter.Fill(dt);
+            if (dt.Rows.Count > 0) {
+                ContainerForm Container = new ContainerForm((string)(dt.Rows[0][2]));
                 Container.Show();
                 this.Hide();
 
             }
-            else if(txtUserName.Text.Trim(' ') == "manager" && txtPassword.Text.Trim(' ') == "pass")
+            else if(dt.Rows.Count > 0)
             {
-                ContainerForm Container = new ContainerForm(txtUserName.Text);
+                ContainerForm Container = new ContainerForm((string)(dt.Rows[0][2]));
                 Container.Show();
                 this.Hide();
 
@@ -51,7 +60,7 @@ namespace WinAppz
                 lbError.Text =("Please Provide correct login Details");
                 lbError.ForeColor = Color.Red;
             }
-
+            sqlconn.Close();
 
         }
 
@@ -79,6 +88,31 @@ namespace WinAppz
         private void lbFPass_MouseHover(object sender, EventArgs e)
         {
             lbFPass.ForeColor = Color.White;
+
+        }
+
+        private void lbFPass_Click(object sender, EventArgs e)
+        {
+            txtUserName.Focus();
+
+            if(txtUserName.Text == "")
+            {
+                MessageBox.Show("Retrieve your password using your username");
+            }
+            else
+            {
+                SqlConnection sqlconn = new SqlConnection(ConString);
+                string requestPassword = "select Password from Accounts where UserName = '" + txtUserName.Text.Trim(' ') + "'";
+                sqlconn.Open();
+                SqlCommand command = new SqlCommand(requestPassword, sqlconn);
+
+                var password = command.ExecuteScalar();
+
+                MessageBox.Show("Your login Password is: " + password);
+                sqlconn.Close();
+
+            }
+
         }
     }
 }

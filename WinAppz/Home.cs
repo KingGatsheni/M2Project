@@ -165,12 +165,16 @@ namespace WinAppz
 
                     foreach (ListViewItem item in lvCart.Items)
                     {
+
                         string queryItem = "insert into SaleItems values(@SaleId,@InventoryId,@Quantity,@ItemPrice)";
                         SqlCommand sqlItem = new SqlCommand(queryItem, sqlconn);
                         sqlItem.Parameters.AddWithValue("@SaleId", result);
                         sqlItem.Parameters.AddWithValue("@InventoryId", Int32.Parse(item.SubItems[0].Text.ToString()));
                         sqlItem.Parameters.AddWithValue("@Quantity", Int32.Parse(item.SubItems[2].Text.ToString()));
-                        sqlItem.Parameters.AddWithValue("@ItemPrice", Decimal.Parse(item.SubItems[3].Text.ToString().Trim('R')));
+                        decimal itemPrice = decimal.Parse(item.SubItems[3].Text.ToString().Trim('R'));
+                        int Qty = Int32.Parse(item.SubItems[2].Text.ToString());
+                        decimal newPrice = itemPrice / Qty;
+                        sqlItem.Parameters.AddWithValue("@ItemPrice", newPrice);
 
                         sqlItem.ExecuteNonQuery();
                     }
