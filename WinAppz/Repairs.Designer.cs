@@ -30,7 +30,6 @@
         {
             this.btnItemList = new System.Windows.Forms.Button();
             this.btnBookRepair = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupRepairItem = new System.Windows.Forms.GroupBox();
             this.cbQuantity = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -60,6 +59,9 @@
             this.btnPayRepair = new System.Windows.Forms.Button();
             this.lbMissing = new MetroSet_UI.Controls.MetroSetLabel();
             this.metroSetLabel1 = new MetroSet_UI.Controls.MetroSetLabel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSearchByEmail = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.Button();
             this.groupRepairItem.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -91,17 +93,6 @@
             this.btnBookRepair.Text = "Book a Repair";
             this.btnBookRepair.UseVisualStyleBackColor = false;
             this.btnBookRepair.Click += new System.EventHandler(this.btnBookRepair_Click);
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(20, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(452, 41);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Enter Customer and product Information";
             // 
             // groupRepairItem
             // 
@@ -283,7 +274,7 @@
             this.groupBox1.Controls.Add(this.txtCellNo);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(26, 93);
+            this.groupBox1.Location = new System.Drawing.Point(29, 93);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(426, 360);
             this.groupBox1.TabIndex = 11;
@@ -450,18 +441,56 @@
             this.metroSetLabel1.ThemeAuthor = "Narwin";
             this.metroSetLabel1.ThemeName = "MetroDark";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(33, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(202, 37);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Search By Email";
+            // 
+            // txtSearchByEmail
+            // 
+            this.txtSearchByEmail.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtSearchByEmail.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchByEmail.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtSearchByEmail.Location = new System.Drawing.Point(241, 20);
+            this.txtSearchByEmail.Multiline = true;
+            this.txtSearchByEmail.Name = "txtSearchByEmail";
+            this.txtSearchByEmail.Size = new System.Drawing.Size(214, 45);
+            this.txtSearchByEmail.TabIndex = 17;
+            this.txtSearchByEmail.TextChanged += new System.EventHandler(this.txtSearchByEmail_TextChanged);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.ForeColor = System.Drawing.Color.White;
+            this.txtSearch.Location = new System.Drawing.Point(461, 20);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(75, 45);
+            this.txtSearch.TabIndex = 18;
+            this.txtSearch.Text = "Search";
+            this.txtSearch.UseVisualStyleBackColor = false;
+            this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
+            // 
             // Repairs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(935, 966);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.txtSearchByEmail);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.metroSetLabel1);
             this.Controls.Add(this.lbMissing);
             this.Controls.Add(this.btnItemList);
             this.Controls.Add(this.btnPayRepair);
             this.Controls.Add(this.btnBookRepair);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupRepairItem);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -469,12 +498,14 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Repairs";
             this.Text = "Repairs";
+            this.Load += new System.EventHandler(this.Repairs_Load);
             this.groupRepairItem.ResumeLayout(false);
             this.groupRepairItem.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -482,7 +513,6 @@
 
         private System.Windows.Forms.Button btnItemList;
         private System.Windows.Forms.Button btnBookRepair;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupRepairItem;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -512,5 +542,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private MetroSet_UI.Controls.MetroSetLabel metroSetLabel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtSearchByEmail;
+        private System.Windows.Forms.Button txtSearch;
     }
 }

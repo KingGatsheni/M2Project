@@ -45,6 +45,7 @@ namespace WinAppz
             this.txtAmountDue = new System.Windows.Forms.Label();
             this.lbInvalidCardInfo = new MetroSet_UI.Controls.MetroSetLabel();
             this.groupCardPay = new System.Windows.Forms.GroupBox();
+            this.txtCardType = new MetroSet_UI.Controls.MetroSetLabel();
             this.groupCardPay.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,6 +122,7 @@ namespace WinAppz
             this.txtCardNo.Name = "txtCardNo";
             this.txtCardNo.Size = new System.Drawing.Size(415, 45);
             this.txtCardNo.TabIndex = 5;
+            this.txtCardNo.TextChanged += new System.EventHandler(this.txtCardNo_TextChanged);
             // 
             // metroSetLabel5
             // 
@@ -232,7 +234,7 @@ namespace WinAppz
             // 
             this.lbInvalidCardInfo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbInvalidCardInfo.IsDerivedStyle = true;
-            this.lbInvalidCardInfo.Location = new System.Drawing.Point(166, 18);
+            this.lbInvalidCardInfo.Location = new System.Drawing.Point(138, 18);
             this.lbInvalidCardInfo.Name = "lbInvalidCardInfo";
             this.lbInvalidCardInfo.Size = new System.Drawing.Size(130, 36);
             this.lbInvalidCardInfo.Style = MetroSet_UI.Enums.Style.Dark;
@@ -247,6 +249,7 @@ namespace WinAppz
             this.groupCardPay.Controls.Add(this.txtCardNo);
             this.groupCardPay.Controls.Add(this.metroSetLabel4);
             this.groupCardPay.Controls.Add(this.txtExpiry);
+            this.groupCardPay.Controls.Add(this.txtCardType);
             this.groupCardPay.Controls.Add(this.lbInvalidCardInfo);
             this.groupCardPay.Controls.Add(this.metroSetLabel5);
             this.groupCardPay.Controls.Add(this.metroSetLabel3);
@@ -257,6 +260,20 @@ namespace WinAppz
             this.groupCardPay.Size = new System.Drawing.Size(459, 344);
             this.groupCardPay.TabIndex = 12;
             this.groupCardPay.TabStop = false;
+            // 
+            // txtCardType
+            // 
+            this.txtCardType.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCardType.IsDerivedStyle = true;
+            this.txtCardType.Location = new System.Drawing.Point(23, 125);
+            this.txtCardType.Name = "txtCardType";
+            this.txtCardType.Size = new System.Drawing.Size(130, 36);
+            this.txtCardType.Style = MetroSet_UI.Enums.Style.Dark;
+            this.txtCardType.StyleManager = null;
+            this.txtCardType.TabIndex = 0;
+            this.txtCardType.Text = "*";
+            this.txtCardType.ThemeAuthor = "Narwin";
+            this.txtCardType.ThemeName = "MetroDark";
             // 
             // PaymentForm
             // 
@@ -304,6 +321,7 @@ namespace WinAppz
         public System.Windows.Forms.Label ltnount;
         public System.Windows.Forms.Label txtAmountDue;
         private MetroSet_UI.Controls.MetroSetLabel lbInvalidCardInfo;
-        private System.Windows.Forms.GroupBox groupCardPay;
+        public System.Windows.Forms.GroupBox groupCardPay;
+        private MetroSet_UI.Controls.MetroSetLabel txtCardType;
     }
 }

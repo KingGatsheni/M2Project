@@ -187,6 +187,7 @@
             this.panelBody.Name = "panelBody";
             this.panelBody.Size = new System.Drawing.Size(954, 984);
             this.panelBody.TabIndex = 1;
+            this.panelBody.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBody_Paint);
             // 
             // ContainerForm
             // 

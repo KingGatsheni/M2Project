@@ -115,5 +115,10 @@ namespace WinAppz
         {
             switchPanel(new Home());
         }
+
+        private void panelBody_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

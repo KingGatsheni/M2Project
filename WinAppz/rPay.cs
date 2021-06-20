@@ -49,18 +49,28 @@ namespace WinAppz
                 if (rbCash.Checked == true)
                 {
 
-                    Change = AmountPaid - AmountDue;
-                    PaymentMethod = "Cash";
+                    if (AmountDue > AmountPaid)
+                    {
+                        MessageBox.Show("Insufficient funds!,please pay full amount");
+                        txtPaidAmount.Text = "";
 
-                    sqlconn.Open();
+                    }
+                    else
+                    {
+                        Change = AmountPaid - AmountDue;
+                        PaymentMethod = "Cash";
+
+                        sqlconn.Open();
+
+                        string InertToPayQuery = "insert into Payments(RepairId,EmployeeId,PaymentMethod,TotalAmount) values('" + Int32.Parse(lbRepId.Text) + "', '" + 3 + "', '" + PaymentMethod + "', '" + decimal.Parse(txtAmountDue.Text.Trim('R')) + "')";
+                        SqlCommand sqlCash = new SqlCommand(InertToPayQuery, sqlconn);
+                        sqlCash.ExecuteNonQuery();
+
+                        MessageBox.Show("R" + Change.ToString() + "  And PaymentMethod:  " + PaymentMethod);
+                        sqlconn.Close();
+                        MessageBox.Show("Transcation Successful");
+                    }
                   
-                    string InertToPayQuery = "insert into Payments(RepairId,EmployeeId,PaymentMethod,TotalAmount) values('" + Int32.Parse(lbRepId.Text) + "', '" + 3 + "', '" + PaymentMethod + "', '" + decimal.Parse(txtAmountDue.Text.Trim('R')) + "')";
-                    SqlCommand sqlCash = new SqlCommand(InertToPayQuery, sqlconn);
-                    sqlCash.ExecuteNonQuery();
-
-                    MessageBox.Show("R"+Change.ToString() + "  And PaymentMethod:  " + PaymentMethod );
-                    this.Hide();
-                    sqlconn.Close();
 
                 }
 
@@ -107,7 +117,7 @@ namespace WinAppz
         {
             if (rbCard.Checked == false)
             {
-                groupCardPay.Enabled = false;
+                groupCardPay.Visible = false;
             }
         }
 
@@ -120,7 +130,7 @@ namespace WinAppz
         {
             if (rbCash.Checked == true)
             {
-                groupCardPay.Enabled = false;
+                groupCardPay.Visible = false;
                 groupCardPay.BackColor = Color.FromArgb(32, 30, 12);
                 txtPaidAmount.Text = "";
                 txtPaidAmount.Focus();
@@ -131,7 +141,7 @@ namespace WinAppz
         {
             if (rbCard.Checked == true)
             {
-                groupCardPay.Enabled = true;
+                groupCardPay.Visible = true;
                 groupCardPay.BackColor = Color.FromArgb(32, 30, 45);
                 txtPaidAmount.Text = txtAmountDue.Text;
                 txtCardNo.Focus();

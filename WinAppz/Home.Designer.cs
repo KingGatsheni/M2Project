@@ -593,7 +593,7 @@
             // btndeletefromItem
             // 
             this.btndeletefromItem.BackColor = System.Drawing.Color.Red;
-            this.btndeletefromItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btndeletefromItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndeletefromItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btndeletefromItem.Location = new System.Drawing.Point(810, 565);
             this.btndeletefromItem.Name = "btndeletefromItem";
@@ -601,7 +601,7 @@
             this.btndeletefromItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btndeletefromItem.Size = new System.Drawing.Size(113, 38);
             this.btndeletefromItem.TabIndex = 9;
-            this.btndeletefromItem.Text = "Delete Item";
+            this.btndeletefromItem.Text = "Remove Item";
             this.btndeletefromItem.UseVisualStyleBackColor = false;
             this.btndeletefromItem.Click += new System.EventHandler(this.btndeletefromItem_Click);
             // 

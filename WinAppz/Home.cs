@@ -118,7 +118,10 @@ namespace WinAppz
         }
 
         private void button1_Click(object sender, EventArgs e)
+
         {
+            //PaymentForm paymentForm = new PaymentForm();
+           
             SqlConnection sqlconn = new SqlConnection(ConString);// initialise sql connection
           
             if (SubTotal != 0) {
@@ -139,8 +142,8 @@ namespace WinAppz
                     PaymentForm Payment = new PaymentForm();
 
                     Payment.txtAmountDue.Text = "R" + SubTotal.ToString();
-                    // Payment.ShowDialog();
-                    if (Payment.ShowDialog() == DialogResult.OK)
+                     Payment.ShowDialog();
+                   if (Payment.ShowDialog() == DialogResult.OK)
                     {
                         lbChange.Text = Payment._Change;
                     }
@@ -186,15 +189,16 @@ namespace WinAppz
                         sqlupdate.ExecuteNonQuery();
                     }
                     inventoriesTableAdapter1.Fill(group8NewDataSet.Inventories);
-                    if(LblChange.Text != "") {
-                        MessageBox.Show("Transcation Successful!!..");
-                    }     
-                    
-                   
+                    /*DateTime now = new DateTime();
+                    String nowdate = now.TimeOfDay.ToString();
+                    */
+
                     foreach (ListViewItem slip in lvCart.Items)
                     {
+                       
                         var lbcontrnt = string.Format("{0, -10}| {1, -10}|{2,-5}", slip.SubItems[1].Text.ToString() + " \t ", slip.SubItems[2].Text.ToString() + " \t ", slip.SubItems[3].Text.ToString());
                         listSlip.Items.Add(lbcontrnt);
+                        //fileSlip.Write(lbcontrnt);
 
                     }
                     foreach(ListViewItem items in lvCart.Items)

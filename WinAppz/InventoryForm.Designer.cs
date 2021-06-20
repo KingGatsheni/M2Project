@@ -57,7 +57,6 @@
             this.quantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.group8NewDataSet = new WinAppz.group8NewDataSet();
-            this.btnArchive = new System.Windows.Forms.Button();
             this.inventoriesTableAdapter = new WinAppz.group8NewDataSetTableAdapters.InventoriesTableAdapter();
             this.txtSearchBPB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -389,19 +388,6 @@
             this.group8NewDataSet.DataSetName = "group8NewDataSet";
             this.group8NewDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // btnArchive
-            // 
-            this.btnArchive.BackColor = System.Drawing.Color.Red;
-            this.btnArchive.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArchive.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnArchive.Location = new System.Drawing.Point(752, 182);
-            this.btnArchive.Name = "btnArchive";
-            this.btnArchive.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnArchive.Size = new System.Drawing.Size(171, 101);
-            this.btnArchive.TabIndex = 3;
-            this.btnArchive.Text = "Archived Inventory Item";
-            this.btnArchive.UseVisualStyleBackColor = false;
-            // 
             // inventoriesTableAdapter
             // 
             this.inventoriesTableAdapter.ClearBeforeFill = true;
@@ -446,6 +432,7 @@
             this.txtSearchByID.Location = new System.Drawing.Point(450, 83);
             this.txtSearchByID.Multiline = true;
             this.txtSearchByID.Name = "txtSearchByID";
+            this.txtSearchByID.ReadOnly = true;
             this.txtSearchByID.Size = new System.Drawing.Size(279, 45);
             this.txtSearchByID.TabIndex = 17;
             this.txtSearchByID.TextChanged += new System.EventHandler(this.txtSearchBPB_TextChanged);
@@ -462,7 +449,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnArchive);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
@@ -501,7 +487,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnArchive;
         private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.ComboBox cbMarkup;
         private System.Windows.Forms.DataGridViewTextBoxColumn inventoryIdDataGridViewTextBoxColumn1;

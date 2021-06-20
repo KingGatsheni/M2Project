@@ -83,11 +83,10 @@
             // 
             this.txtUserName.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtUserName.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(172, 74);
-            this.txtUserName.Multiline = true;
+            this.txtUserName.Location = new System.Drawing.Point(172, 64);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(174, 45);
-            this.txtUserName.TabIndex = 1;
+            this.txtUserName.Size = new System.Drawing.Size(174, 35);
+            this.txtUserName.TabIndex = 0;
             // 
             // lbFPass
             // 
@@ -108,7 +107,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(29, 157);
+            this.label4.Location = new System.Drawing.Point(29, 151);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 25);
             this.label4.TabIndex = 0;
@@ -119,11 +118,12 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(27, 74);
+            this.label5.Location = new System.Drawing.Point(29, 74);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "UserName";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // btnCancel
             // 

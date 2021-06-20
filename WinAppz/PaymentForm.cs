@@ -37,7 +37,7 @@ namespace WinAppz
            
             if (rbCard.Checked == false)
             {
-                groupCardPay.Enabled = false;
+                groupCardPay.Visible = false;
             }
         }
 
@@ -45,7 +45,7 @@ namespace WinAppz
         {
             if(rbCard.Checked == true)
             {
-                groupCardPay.Enabled = true;
+                groupCardPay.Visible = true;
                 groupCardPay.BackColor = Color.FromArgb(32, 30, 45);
                 txtPaidAmount.Text = txtAmountDue.Text;
                 txtCardNo.Focus();
@@ -57,7 +57,7 @@ namespace WinAppz
         {
             if(rbCash.Checked == true)
             {
-                groupCardPay.Enabled = false;
+                groupCardPay.Visible = false;
                 groupCardPay.BackColor = Color.FromArgb(32, 30, 12);
                 txtPaidAmount.Text = "";
                 txtPaidAmount.Focus();
@@ -66,7 +66,7 @@ namespace WinAppz
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
             SqlConnection sqlconn = new SqlConnection(ConString);
             string deleteSaleId = "select top 1 SaleId from Sales order by SaleId desc";
             SqlCommand sqlDel = new SqlCommand(deleteSaleId, sqlconn);
@@ -81,6 +81,7 @@ namespace WinAppz
             sqlconn.Close();
 
             MessageBox.Show("Transaction Cancelled");
+            this.Hide();
         }
 
         private void btnPay_MouseHover(object sender, EventArgs e)
@@ -104,35 +105,58 @@ namespace WinAppz
             try
             {
                  AmountDue = decimal.Parse(txtAmountDue.Text.Trim('R'));
+              
                  AmountPaid = decimal.Parse(txtPaidAmount.Text.Trim('R'));
+                
+
                 if (rbCash.Checked == true )
                 {
                     
-                        Change = AmountPaid - AmountDue;
-                        PaymentMethod = "Cash";
+                    
+                        if (AmountDue > AmountPaid)
+                        {
+                            MessageBox.Show("Insufficient funds!,please pay full amount");
+                            txtPaidAmount.Text = "";
 
-                        sqlconn.Open();
-                        var _SaleId = sqlCheckId.ExecuteScalar().ToString();
+                           
+                        }
+                        else
+                        {
+                            Change = AmountPaid - AmountDue;
+                            PaymentMethod = "Cash";
+
+                            sqlconn.Open();
+                            var _SaleId = sqlCheckId.ExecuteScalar().ToString();
 
 
 
-                        string InertToPayQuery = "insert into Payments(SaleId,EmployeeId,PaymentMethod,TotalAmount) values('" + _SaleId + "', '" + 3 + "', '" + PaymentMethod + "', '" + decimal.Parse(txtAmountDue.Text.Trim('R')) + "')";
-                        SqlCommand sqlCash = new SqlCommand(InertToPayQuery, sqlconn);
-                        sqlCash.ExecuteNonQuery();
-                        _Change = "R" + Change;
-                        //MessageBox.Show("R"+Change.ToString() + "  And PaymentMethod:  " + PaymentMethod );
-                        this.Hide();
-                        sqlconn.Close();
+                            string InertToPayQuery = "insert into Payments(SaleId,EmployeeId,PaymentMethod,TotalAmount) values('" + _SaleId + "', '" + 3 + "', '" + PaymentMethod + "', '" + decimal.Parse(txtAmountDue.Text.Trim('R')) + "')";
+                            SqlCommand sqlCash = new SqlCommand(InertToPayQuery, sqlconn);
+                            sqlCash.ExecuteNonQuery();
+                            _Change = "R" + Change;
+                            sqlconn.Close();
+                            MessageBox.Show("Transcation Successful");
+                            this.Hide();
+                        
+                    }
+               
 
                 }
-                
 
+                
 
 
                 if (rbCard.Checked == true)
                     {
-                   
-                    
+                    string CardNumber = txtCardNo.Text;
+                    string CardType = CardNumber.Substring(0,1);
+
+                    if (txtCardNo.Text.Length != 14 && (int.Parse(CardType) != 4 || Int32.Parse(CardType) != 5) && txtCVC.Text.Length != 0 && txtExpiry.Text.Length !=0)
+                    {
+                        MessageBox.Show("Card Number Does Not Exist or The card type is not accepted");
+                    }
+                    else
+                    {
                         Change = 0;
                         PaymentMethod = "Debit/Credit Card";
 
@@ -143,8 +167,9 @@ namespace WinAppz
                         SqlCommand sqlCash = new SqlCommand(InertToPayQuery, sqlconn);
                         sqlCash.ExecuteNonQuery();
                         _Change = "R0.00";
-                        MessageBox.Show("R" + Change.ToString() + " And PaymentMethod: " + PaymentMethod);
+                    
                         this.Hide();
+                    }
                     
                 }
                
@@ -181,11 +206,21 @@ namespace WinAppz
                 e.Handled = true;
             }
         }
+
+        private void txtCardNo_TextChanged(object sender, EventArgs e)
+        {
+            string CardNumber = txtCardNo.Text;
+            string CardType = CardNumber.Substring(0, 1);
+            if(Int32.Parse(CardType) == 4)
+            {
+                txtCardType.Text = "Visa";
+                txtCardType.ForeColor = Color.Blue;
+            }else if (Int32.Parse(CardType) == 5)
+            {
+                txtCardType.Text = "Master Card";
+                txtCardType.ForeColor = Color.Blue;
+            }
+        }
     }
 }
 
-/*
- To do  here re add the stock substrated from inventory if payment is callled.
- fix bug. showing transcation suceessful if it got cancelled.
-     
- */
