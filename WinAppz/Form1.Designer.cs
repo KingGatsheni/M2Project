@@ -36,7 +36,6 @@
             this.btnInventory = new System.Windows.Forms.Button();
             this.btnRepairs = new System.Windows.Forms.Button();
             this.panelManager = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnManager = new System.Windows.Forms.Button();
             this.panelBody = new System.Windows.Forms.Panel();
@@ -125,27 +124,12 @@
             // 
             // panelManager
             // 
-            this.panelManager.Controls.Add(this.button3);
             this.panelManager.Controls.Add(this.button2);
             this.panelManager.Location = new System.Drawing.Point(0, 383);
             this.panelManager.Name = "panelManager";
-            this.panelManager.Size = new System.Drawing.Size(191, 151);
+            this.panelManager.Size = new System.Drawing.Size(191, 88);
             this.panelManager.TabIndex = 5;
             this.panelManager.Visible = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(0, 75);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(197, 45);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Reports";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -219,7 +203,6 @@
         public System.Windows.Forms.Panel panelBody;
         private System.Windows.Forms.Button btnInventory;
         private System.Windows.Forms.Button btnRepairs;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.Button btnManager;
         private System.Windows.Forms.Button btnLogout;

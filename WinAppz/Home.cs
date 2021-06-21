@@ -21,6 +21,7 @@ namespace WinAppz
         //globl variables
         private decimal SubTotal = 0;
         public decimal Tax = 0.15m;
+       
         public   string ConString = ConfigurationManager.ConnectionStrings["pcCon"].ConnectionString; // cpnnectionstring for datatbase
         
 
@@ -43,6 +44,7 @@ namespace WinAppz
 
         private void Home_Load(object sender, EventArgs e)
         {
+            
             // TODO: This line of code loads data into the 'group8NewDataSet.Inventories' table. You can move, or remove it, as needed.
             try
             {
@@ -56,7 +58,10 @@ namespace WinAppz
         
              txtSubTotal.Text = SubTotal.ToString();
 
-           
+            //ContainerForm container = new ContainerForm();
+
+            //lbEmployeeId.Text = container._EmployeeId.ToString();
+
         }
 
         private void lTime_Click(object sender, EventArgs e)
@@ -67,8 +72,8 @@ namespace WinAppz
         private void btnAddToCart_Click(object sender, EventArgs e)
         {
             try {
-
-
+               
+                
                 int QtyValue = Int32.Parse(dtProductList.CurrentRow.Cells[4].Value.ToString());
 
                 if (Int32.Parse(cbQuantity.Text) > QtyValue || QtyValue == 0)
@@ -120,8 +125,9 @@ namespace WinAppz
         private void button1_Click(object sender, EventArgs e)
 
         {
-            //PaymentForm paymentForm = new PaymentForm();
            
+            PaymentForm Payment = new PaymentForm();
+
             SqlConnection sqlconn = new SqlConnection(ConString);// initialise sql connection
           
             if (SubTotal != 0) {
@@ -139,10 +145,9 @@ namespace WinAppz
                 {
                     sqlconn.Open();
                     sqlcomm.ExecuteNonQuery();
-                    PaymentForm Payment = new PaymentForm();
+                   
 
                     Payment.txtAmountDue.Text = "R" + SubTotal.ToString();
-                     Payment.ShowDialog();
                    if (Payment.ShowDialog() == DialogResult.OK)
                     {
                         lbChange.Text = Payment._Change;
@@ -182,25 +187,49 @@ namespace WinAppz
                         sqlItem.ExecuteNonQuery();
                     }
 
-                    foreach (ListViewItem update in lvCart.Items)
-                    {
-                        string sqlUpdateQty = "update Inventories set Quantity = Quantity - '" + Int32.Parse(update.SubItems[2].Text.ToString()) + "' where InventoryId = '" + Int32.Parse(update.SubItems[0].Text.ToString()) + "'";
-                        SqlCommand sqlupdate = new SqlCommand(sqlUpdateQty, sqlconn);
-                        sqlupdate.ExecuteNonQuery();
-                    }
-                    inventoriesTableAdapter1.Fill(group8NewDataSet.Inventories);
-                    /*DateTime now = new DateTime();
-                    String nowdate = now.TimeOfDay.ToString();
-                    */
 
-                    foreach (ListViewItem slip in lvCart.Items)
+                    if ((Payment.AmountPaid <= 0))
                     {
-                       
-                        var lbcontrnt = string.Format("{0, -10}| {1, -10}|{2,-5}", slip.SubItems[1].Text.ToString() + " \t ", slip.SubItems[2].Text.ToString() + " \t ", slip.SubItems[3].Text.ToString());
-                        listSlip.Items.Add(lbcontrnt);
-                        //fileSlip.Write(lbcontrnt);
-
+                        Console.WriteLine("Amount was null and inventory not updated ");
                     }
+                    else if (Payment.AmountDue > Payment.AmountPaid)
+                    {
+                        Console.WriteLine(" Insufficient Funds");
+                        if(Payment.ShowDialog() == DialogResult.OK)
+                        {
+                            lbChange.Text = Payment._Change;
+                            foreach (ListViewItem slip in lvCart.Items)
+                            {
+
+                                var lbcontrnt = string.Format("{0, -10}| {1, -10}|{2,-5}", slip.SubItems[1].Text.ToString() + " \t ", slip.SubItems[2].Text.ToString() + " \t ", slip.SubItems[3].Text.ToString());
+                                listSlip.Items.Add(lbcontrnt);
+
+
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (ListViewItem update in lvCart.Items)
+                        {
+                            string sqlUpdateQty = "update Inventories set Quantity = Quantity - '" + Int32.Parse(update.SubItems[2].Text.ToString()) + "' where InventoryId = '" + Int32.Parse(update.SubItems[0].Text.ToString()) + "'";
+                            SqlCommand sqlupdate = new SqlCommand(sqlUpdateQty, sqlconn);
+                            sqlupdate.ExecuteNonQuery();
+                        }
+                        inventoriesTableAdapter1.Fill(group8NewDataSet.Inventories);
+                        foreach (ListViewItem slip in lvCart.Items)
+                        {
+
+                            var lbcontrnt = string.Format("{0, -10}| {1, -10}|{2,-5}", slip.SubItems[1].Text.ToString() + " \t ", slip.SubItems[2].Text.ToString() + " \t ", slip.SubItems[3].Text.ToString());
+                            listSlip.Items.Add(lbcontrnt);
+
+
+                        }
+                    }
+                  
+                    
+
+                  
                     foreach(ListViewItem items in lvCart.Items)
                     {
                         lvCart.Items.Remove(items);
@@ -257,7 +286,7 @@ namespace WinAppz
                 txtPrice.Text = lvCart.SelectedItems[0].SubItems[3].Text;
 
 
-            } catch { }
+            } catch(Exception s) { MessageBox.Show(s.Message); }
         }
 
         private void btnupdateitem_Click(object sender, EventArgs e)// code here to be fixed to update item total and also update subtotal

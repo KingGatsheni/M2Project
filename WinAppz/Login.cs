@@ -44,6 +44,8 @@ namespace WinAppz
             userAdpter.Fill(dt);
             if (dt.Rows.Count > 0) {
                 ContainerForm Container = new ContainerForm((string)(dt.Rows[0][2]));
+               int id1 = (int)dt.Rows[0][1];
+                Container.EmployeeId = id1;
                 Container.Show();
                 this.Hide();
 
@@ -51,7 +53,7 @@ namespace WinAppz
             else if(dt.Rows.Count > 0)
             {
                 ContainerForm Container = new ContainerForm((string)(dt.Rows[0][2]));
-                Container.Show();
+               
                 this.Hide();
 
             }

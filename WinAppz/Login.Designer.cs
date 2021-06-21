@@ -175,12 +175,12 @@
         #endregion
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lbError;
         private System.Windows.Forms.Label lbFPass;
+        public System.Windows.Forms.TextBox txtUserName;
     }
 }

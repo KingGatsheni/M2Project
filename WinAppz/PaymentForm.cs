@@ -117,9 +117,9 @@ namespace WinAppz
                         {
                             MessageBox.Show("Insufficient funds!,please pay full amount");
                             txtPaidAmount.Text = "";
+                             
 
-                           
-                        }
+                    }
                         else
                         {
                             Change = AmountPaid - AmountDue;
@@ -139,21 +139,21 @@ namespace WinAppz
                             this.Hide();
                         
                     }
-               
+                            
 
                 }
-
-                
-
-
-                if (rbCard.Checked == true)
+                else if (rbCard.Checked == true)
                     {
                     string CardNumber = txtCardNo.Text;
                     string CardType = CardNumber.Substring(0,1);
 
-                    if (txtCardNo.Text.Length != 14 && (int.Parse(CardType) != 4 || Int32.Parse(CardType) != 5) && txtCVC.Text.Length != 0 && txtExpiry.Text.Length !=0)
+                    if (txtCardNo.Text.Length != 16)
                     {
-                        MessageBox.Show("Card Number Does Not Exist or The card type is not accepted");
+                        MessageBox.Show("Card Number Does Not Exist");
+                    }
+                    else if (txtCVC.Text.Length == 0 && txtExpiry.Text.Length == 0)
+                    {
+                        MessageBox.Show("Expiry Date or CVC Invalid or Missing");
                     }
                     else
                     {
@@ -167,7 +167,7 @@ namespace WinAppz
                         SqlCommand sqlCash = new SqlCommand(InertToPayQuery, sqlconn);
                         sqlCash.ExecuteNonQuery();
                         _Change = "R0.00";
-                    
+                        MessageBox.Show("Transaction Successful");
                         this.Hide();
                     }
                     
@@ -209,16 +209,28 @@ namespace WinAppz
 
         private void txtCardNo_TextChanged(object sender, EventArgs e)
         {
-            string CardNumber = txtCardNo.Text;
-            string CardType = CardNumber.Substring(0, 1);
-            if(Int32.Parse(CardType) == 4)
+            try
             {
-                txtCardType.Text = "Visa";
-                txtCardType.ForeColor = Color.Blue;
-            }else if (Int32.Parse(CardType) == 5)
+                string CardNumber = txtCardNo.Text;
+                string CardType = CardNumber.Substring(0, 1);
+                if (Int32.Parse(CardType) == 4)
+                {
+                    txtCardType.Text = "Visa";
+                    txtCardType.ForeColor = Color.Blue;
+                }
+                else if (Int32.Parse(CardType) == 5)
+                {
+                    txtCardType.Text = "Master Card";
+                    txtCardType.ForeColor = Color.Blue;
+                }
+                else if (CardType.Length.Equals(""))
+                {
+                    txtCardType.Text = "Please Insert Account Number";
+                    txtCardType.ForeColor = Color.Blue;
+                }
+            }catch(Exception s)
             {
-                txtCardType.Text = "Master Card";
-                txtCardType.ForeColor = Color.Blue;
+                MessageBox.Show(s.Message);
             }
         }
     }

@@ -308,7 +308,6 @@ namespace WinAppz
         #endregion
         private System.Windows.Forms.RadioButton rbCash;
         private System.Windows.Forms.RadioButton rbCard;
-        private System.Windows.Forms.TextBox txtPaidAmount;
         private System.Windows.Forms.TextBox txtCVC;
         private System.Windows.Forms.TextBox txtCardNo;
         private System.Windows.Forms.Button btnClose;
@@ -323,5 +322,6 @@ namespace WinAppz
         private MetroSet_UI.Controls.MetroSetLabel lbInvalidCardInfo;
         public System.Windows.Forms.GroupBox groupCardPay;
         private MetroSet_UI.Controls.MetroSetLabel txtCardType;
+        public System.Windows.Forms.TextBox txtPaidAmount;
     }
 }

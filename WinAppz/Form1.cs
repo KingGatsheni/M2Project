@@ -13,6 +13,8 @@ namespace WinAppz
 {
     public partial class ContainerForm :Form
     {
+        public int EmployeeId;
+        public int _EmployeeId;
        
         public ContainerForm()
         {
@@ -25,6 +27,11 @@ namespace WinAppz
             InitializeComponent();
             UserName = s;
         }
+        public int myId
+        {
+            get { return _EmployeeId; }
+            set { _EmployeeId = value; }
+        }
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
@@ -33,7 +40,8 @@ namespace WinAppz
 
         private void ContainerForm_Load(object sender, EventArgs e)
         {
-            if (UserName == "202101")
+            LoginForm login = new LoginForm();
+            if (UserName =="202101")
             {
                 btnManager.Enabled = true;
             }
@@ -44,7 +52,8 @@ namespace WinAppz
             // this.panelBody.Controls.Add(HomePage);
             // this.HomePage.Show();
             switchPanel(new Home());
-
+            _EmployeeId = EmployeeId;
+            
         }
 
         private void btnManager_Click(object sender, EventArgs e)

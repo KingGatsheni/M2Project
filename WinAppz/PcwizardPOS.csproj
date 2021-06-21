@@ -158,12 +158,6 @@
     <Compile Include="Repairs.Designer.cs">
       <DependentUpon>Repairs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports.Designer.cs">
-      <DependentUpon>Reports.cs</DependentUpon>
-    </Compile>
     <Compile Include="rPay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,9 +200,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Repairs.resx">
       <DependentUpon>Repairs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports.resx">
-      <DependentUpon>Reports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rPay.resx">
       <DependentUpon>rPay.cs</DependentUpon>
