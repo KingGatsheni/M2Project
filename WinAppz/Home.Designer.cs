@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.dtProductList = new System.Windows.Forms.DataGridView();
             this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +54,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listSlip = new System.Windows.Forms.ListBox();
+            this.lvSlipTxt = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LblChange = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lbChange = new System.Windows.Forms.Label();
@@ -79,6 +82,8 @@
             this.btnupdateitem = new System.Windows.Forms.Button();
             this.btndeletefromItem = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoriesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.group8NewDataSet)).BeginInit();
@@ -107,14 +112,14 @@
             this.dtProductList.AllowUserToDeleteRows = false;
             this.dtProductList.AutoGenerateColumns = false;
             this.dtProductList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtProductList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtProductList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productNameDataGridViewTextBoxColumn,
@@ -123,14 +128,14 @@
             this.sellingPriceDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn});
             this.dtProductList.DataSource = this.inventoriesBindingSource1;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtProductList.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtProductList.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtProductList.GridColor = System.Drawing.Color.Black;
             this.dtProductList.Location = new System.Drawing.Point(372, 84);
             this.dtProductList.Name = "dtProductList";
@@ -360,7 +365,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.listSlip);
+            this.groupBox2.Controls.Add(this.lvSlipTxt);
             this.groupBox2.Controls.Add(this.LblChange);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.lbChange);
@@ -375,16 +380,36 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Reciept Info";
             // 
-            // listSlip
+            // lvSlipTxt
             // 
-            this.listSlip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.listSlip.ForeColor = System.Drawing.Color.White;
-            this.listSlip.FormattingEnabled = true;
-            this.listSlip.ItemHeight = 17;
-            this.listSlip.Location = new System.Drawing.Point(7, 24);
-            this.listSlip.Name = "listSlip";
-            this.listSlip.Size = new System.Drawing.Size(341, 293);
-            this.listSlip.TabIndex = 15;
+            this.lvSlipTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.lvSlipTxt.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+            this.lvSlipTxt.ForeColor = System.Drawing.Color.White;
+            this.lvSlipTxt.HideSelection = false;
+            this.lvSlipTxt.Location = new System.Drawing.Point(6, 21);
+            this.lvSlipTxt.Name = "lvSlipTxt";
+            this.lvSlipTxt.Size = new System.Drawing.Size(330, 338);
+            this.lvSlipTxt.TabIndex = 15;
+            this.lvSlipTxt.UseCompatibleStateImageBehavior = false;
+            this.lvSlipTxt.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "ProductName";
+            this.columnHeader5.Width = 122;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Qty";
+            this.columnHeader6.Width = 114;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "ItemPrice";
+            this.columnHeader7.Width = 214;
             // 
             // LblChange
             // 
@@ -619,6 +644,14 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button2_Click);
             // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -703,7 +736,6 @@
         public System.Windows.Forms.Label lbChange;
         public System.Windows.Forms.Label lblDiscount;
         public System.Windows.Forms.Label lblSubtotal;
-        private System.Windows.Forms.ListBox listSlip;
         private System.Windows.Forms.Button button2;
         private group8NewDataSet group8NewDataSet;
         private System.Windows.Forms.BindingSource inventoriesBindingSource1;
@@ -711,5 +743,11 @@
         private System.Windows.Forms.Button btnupdateitem;
         private System.Windows.Forms.Button btndeletefromItem;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.ListView lvSlipTxt;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }

@@ -1,4 +1,7 @@
-﻿using MetroSet_UI.Forms;
+﻿using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using MetroSet_UI.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +24,7 @@ namespace WinAppz
         //globl variables
         private decimal SubTotal = 0;
         public decimal Tax = 0.15m;
+        public List<string> listofItems = new List<string>{};
        
         public   string ConString = ConfigurationManager.ConnectionStrings["pcCon"].ConnectionString; // cpnnectionstring for datatbase
         
@@ -92,6 +96,7 @@ namespace WinAppz
 
                     SubTotal = SubTotal + cartItemPrice;
                     txtSubTotal.Text = "R" + SubTotal.ToString();
+                    listofItems.Add(item.ToString());
                 }
                 
 
@@ -194,15 +199,22 @@ namespace WinAppz
                     }
                     else if (Payment.AmountDue > Payment.AmountPaid)
                     {
-                        Console.WriteLine(" Insufficient Funds");
+                       
+
+                            Console.WriteLine(" Insufficient Funds");
                         if(Payment.ShowDialog() == DialogResult.OK)
                         {
                             lbChange.Text = Payment._Change;
                             foreach (ListViewItem slip in lvCart.Items)
                             {
 
-                                var lbcontrnt = string.Format("{0, -10}| {1, -10}|{2,-5}", slip.SubItems[1].Text.ToString() + " \t ", slip.SubItems[2].Text.ToString() + " \t ", slip.SubItems[3].Text.ToString());
-                                listSlip.Items.Add(lbcontrnt);
+                                //var lbcontrnt = string.Format("{0, -10}| {1, -10}|{2,-5}", slip.SubItems[1].Text.ToString() + " \t ", slip.SubItems[2].Text.ToString() + " \t ", slip.SubItems[3].Text.ToString());
+                                // lvSlipTxt.Items.Add(lbcontrnt);
+                                ListViewItem item1 = new ListViewItem(slip.SubItems[1].Text.ToString());
+                                item1.SubItems.Add(slip.SubItems[2].Text.ToString());
+                                item1.SubItems.Add(slip.SubItems[3].Text.ToString());
+                                lvSlipTxt.Items.Add(item1);
+
 
 
                             }
@@ -220,17 +232,22 @@ namespace WinAppz
                         foreach (ListViewItem slip in lvCart.Items)
                         {
 
-                            var lbcontrnt = string.Format("{0, -10}| {1, -10}|{2,-5}", slip.SubItems[1].Text.ToString() + " \t ", slip.SubItems[2].Text.ToString() + " \t ", slip.SubItems[3].Text.ToString());
-                            listSlip.Items.Add(lbcontrnt);
+                            //var lbcontrnt = string.Format("{0, -10}| {1, -10}|{2,-5}", slip.SubItems[1].Text.ToString() + " \t ", slip.SubItems[2].Text.ToString() + " \t ", slip.SubItems[3].Text.ToString());
+                            //lvSlipTxt.Items.Add(lbcontrnt);
+                            ListViewItem item1 = new ListViewItem(slip.SubItems[1].Text.ToString());
+                            item1.SubItems.Add(slip.SubItems[2].Text.ToString());
+                            item1.SubItems.Add(slip.SubItems[3].Text.ToString());
+                            lvSlipTxt.Items.Add(item1);
 
 
                         }
+                        
                     }
-                  
-                    
 
-                  
-                    foreach(ListViewItem items in lvCart.Items)
+                 
+
+
+                    foreach (ListViewItem items in lvCart.Items)
                     {
                         lvCart.Items.Remove(items);
                     }
@@ -239,7 +256,7 @@ namespace WinAppz
                     {
                         lblDiscount.Text = "";
                         lblSubtotal.Text = "";
-                        listSlip.Items.Clear();
+                        lvSlipTxt.Items.Clear();
                     }
                     else
                     {
@@ -269,14 +286,39 @@ namespace WinAppz
 
         private void button2_Click(object sender, EventArgs e)
         {
-            listSlip.Items.Clear();
+            /*
+
+            using (PdfWriter writer = new PdfWriter("slip.pdf"))
+            using (PdfDocument pdfDocument = new PdfDocument(writer))
+            using(Document doc = new Document(pdfDocument))
+            {
+                foreach(string li in listofItems )
+                {
+                    doc.Add(new Paragraph(li.ToString()));
+                }
+               // string content = "list one slip";
+               
+                //doc.Add(new Paragraph("Mjay"));
+            }
+             */
+
+            PrintDialog printD = new PrintDialog();
+            printD.ShowDialog();
+            printD.Document = printDocument1;
+
+            printD.AllowSelection = true;
+
+            if(printD.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+
+            lvSlipTxt.Items.Clear();
             lbChange.Text = "";
             lblDiscount.Text = "";
             lblSubtotal.Text = "";
             SubTotal = 0;
             txtSubTotal.Text = "R0.00";
-
-
         }
 
         private void lvCart_SelectedIndexChanged(object sender, EventArgs e)
@@ -335,6 +377,35 @@ namespace WinAppz
         private void dtProductList_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
            // int Qty = dtProductList.CurrentRow[].Value
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+           // int col = ;
+            int row = 10;
+            
+            e.Graphics.DrawString("Pcwizrd point of sale", new Font("Ariel", 28, FontStyle.Bold), Brushes.Black, new Point(10, 10));
+            e.Graphics.DrawString("Product Name", new Font("Ariel", 20, FontStyle.Regular), Brushes.Black, new Point(10, 150));
+            e.Graphics.DrawString("Quantity", new Font("Ariel", 20, FontStyle.Regular), Brushes.Black, new Point(200, 150));
+            e.Graphics.DrawString("Price", new Font("Ariel", 20, FontStyle.Regular), Brushes.Black, new Point(390, 150));
+
+
+            foreach (ListViewItem item in lvSlipTxt.Items)
+              {
+
+                  e.Graphics.DrawString(item.SubItems[0].Text.ToString(), new Font("Ariel",20, FontStyle.Regular), Brushes.Black, new Point(10, 300));
+                    row += 190;
+                  e.Graphics.DrawString(item.SubItems[1].Text.ToString(), new Font("Ariel", 20, FontStyle.Regular), Brushes.Black, new Point(row, 300));
+                    row += 190;
+                  e.Graphics.DrawString(item.SubItems[2].Text.ToString() + "\n", new Font("Ariel", 20, FontStyle.Regular), Brushes.Black, new Point(row, 300));
+                 row += 190;
+
+
+            }
+             e.Graphics.DrawString(lblSubtotal.Text, new Font("Ariel", 20, FontStyle.Regular), Brushes.Black, new Point(10, 1000));
+            e.Graphics.DrawString(lblDiscount.Text, new Font("Ariel", 20, FontStyle.Regular), Brushes.Black, new Point(200, 1000));
+            e.Graphics.DrawString(lbChange.Text, new Font("Ariel", 20, FontStyle.Regular), Brushes.Black, new Point(390, 1000));
+              
         }
     }
 }

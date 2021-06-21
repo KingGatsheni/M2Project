@@ -117,7 +117,7 @@ namespace WinAppz
             {
                 MessageBox.Show("Please Enter a Valid South African 10 Digit number");
             }
-            else if(txtLName.Text != "" && txtFname.Text != "" && txtCellNo.Text != "" && cbQuantity.Text != "" && txtPhysicalAddress.Text != "" && txtPrice.Text != "")
+            else if(txtLName.Text != "" && txtFname.Text != "" && txtCellNo.Text != "" && cbQuantity.Text != "" && txtPhysicalAddress.Text != "")
             {
                 SqlConnection sqlconn = new SqlConnection(ConString);
 

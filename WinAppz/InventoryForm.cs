@@ -70,9 +70,16 @@ namespace WinAppz
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            this.inventoriesTableAdapter.UpdateQuery(txtProductName.Text, cbCategory.Text, decimal.Parse(txtCostPrice.Text), (decimal.Parse(cbMarkup.Text.Trim('%'))/100), decimal.Parse(txtSPrice.Text), int.Parse(cbPQuantity.Text), int.Parse(txtSearchByID.Text));
-            MessageBox.Show("Inventory Item Updated Suceessfully!!");
-            this.inventoriesTableAdapter.Fill(this.group8NewDataSet.Inventories);
+            try
+            {
+                this.inventoriesTableAdapter.UpdateQuery(txtProductName.Text, cbCategory.Text, decimal.Parse(txtCostPrice.Text), (decimal.Parse(cbMarkup.Text.Trim('%')) / 100), decimal.Parse(txtSPrice.Text), int.Parse(cbPQuantity.Text), int.Parse(txtSearchByID.Text));
+                MessageBox.Show("Inventory Item Updated Suceessfully!!");
+                this.inventoriesTableAdapter.Fill(this.group8NewDataSet.Inventories);
+            }catch(Exception s)
+            {
+                MessageBox.Show(s.Message);
+            }
+           
         }
 
         private void txtCostPrice_KeyPress(object sender, KeyPressEventArgs e)

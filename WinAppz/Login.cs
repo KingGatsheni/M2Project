@@ -35,35 +35,45 @@ namespace WinAppz
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlconn = new SqlConnection(ConString);
-            string user = "select * from Accounts where UserName = '"+ txtUserName.Text.Trim(' ')+"' And Password = '"+txtPassword.Text.Trim(' ')+"'";
-            sqlconn.Open();
-            SqlCommand loginUser = new SqlCommand(user, sqlconn);
-            SqlDataAdapter userAdpter = new SqlDataAdapter(loginUser);
-            DataTable dt = new DataTable();
-            userAdpter.Fill(dt);
-            if (dt.Rows.Count > 0) {
-                ContainerForm Container = new ContainerForm((string)(dt.Rows[0][2]));
-               int id1 = (int)dt.Rows[0][1];
-                Container.EmployeeId = id1;
-                Container.Show();
-                this.Hide();
-
-            }
-            else if(dt.Rows.Count > 0)
+            try
             {
-                ContainerForm Container = new ContainerForm((string)(dt.Rows[0][2]));
-               
-                this.Hide();
+                SqlConnection sqlconn = new SqlConnection(ConString);
+                string user = "select * from Accounts where UserName = '" + txtUserName.Text.Trim(' ') + "' And Password = '" + txtPassword.Text.Trim(' ') + "'";
+                sqlconn.Open();
+                SqlCommand loginUser = new SqlCommand(user, sqlconn);
+                SqlDataAdapter userAdpter = new SqlDataAdapter(loginUser);
+                DataTable dt = new DataTable();
+                userAdpter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    ContainerForm Container = new ContainerForm((string)(dt.Rows[0][2]));
+                    int id1 = (int)dt.Rows[0][1];
+                    Container.EmployeeId = id1;
+                    Container.Show();
+                    this.Hide();
+
+                }
+                else if (dt.Rows.Count > 0)
+                {
+                    ContainerForm Container = new ContainerForm((string)(dt.Rows[0][2]));
+
+                    this.Hide();
+
+                }
+                else
+                {
+                    lbError.Text = ("Please Provide correct login Details");
+                    lbError.ForeColor = Color.Red;
+                }
+                sqlconn.Close();
+
 
             }
-            else
+            catch (SqlException s)
             {
-                lbError.Text =("Please Provide correct login Details");
-                lbError.ForeColor = Color.Red;
+                MessageBox.Show(s.Message);
             }
-            sqlconn.Close();
-
+           
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -103,23 +113,29 @@ namespace WinAppz
             }
             else
             {
-                SqlConnection sqlconn = new SqlConnection(ConString);
-                string requestPassword = "select Password from Accounts where UserName = '" + txtUserName.Text.Trim(' ') + "'";
-                sqlconn.Open();
-                SqlCommand command = new SqlCommand(requestPassword, sqlconn);
+                try {
+                    SqlConnection sqlconn = new SqlConnection(ConString);
+                    string requestPassword = "select Password from Accounts where UserName = '" + txtUserName.Text.Trim(' ') + "'";
+                    sqlconn.Open();
+                    SqlCommand command = new SqlCommand(requestPassword, sqlconn);
 
-                var password = command.ExecuteScalar();
-                if(password == null)
-                {
-                    MessageBox.Show("Employee With StuffId Of: " + txtUserName.Text + " Does Not Exist");
-                }
-                else
-                {
-                    MessageBox.Show("Your login Password is: " + password);
-                }
+                    var password = command.ExecuteScalar();
+                    if (password == null)
+                    {
+                        MessageBox.Show("Employee With StuffId Of: " + txtUserName.Text + " Does Not Exist");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Your login Password is: " + password);
+                    }
 
+
+                    sqlconn.Close();
+                } catch(SqlException s)
+                {
+                    MessageBox.Show(s.Message);
+                }
                
-                sqlconn.Close();
 
             }
 
